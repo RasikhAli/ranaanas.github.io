@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rana Anas | Technical Operations Leader & Software Developer</title>
+  <meta name="description" content="Official portfolio of Rana Anas — Technical Operations & Support Leader, AI-Powered Web & Desktop App Developer, Blockchain & PropTech Specialist with 7+ years experience.">
+  <meta name="author" content="Rana Anas">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Rana Anas | Executive Portfolio">
+  <meta property="og:description" content="Technical Operations & Support Leader | AI-Powered Web & App Developer | 7+ Years Experience.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./profile.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet (Relative Path for IPFS) -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. Navigation Bar (Sticky & Glassmorphic)
+       ======================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand">
+        <img src="./profile.png" alt="Rana Anas" class="brand-avatar">
+        <span>Rana Anas</span>
+        <span class="brand-badge">Ops & Dev</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#metrics" class="nav-link">Impact</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Navbar Action Buttons -->
+      <div class="nav-actions">
+        <a href="./resume.pdf" class="btn btn-secondary btn-sm" download="Rana_Anas_Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Resume</span>
+        </a>
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Get in Touch</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu" id="mobileMenuBtn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-links">
+        <li><a href="#about" class="mobile-nav-link"><span>About</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+        <li><a href="#metrics" class="mobile-nav-link"><span>Impact Highlights</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+        <li><a href="#projects" class="mobile-nav-link"><span>Featured Projects</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+        <li><a href="#experience" class="mobile-nav-link"><span>Work Experience</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+        <li><a href="#skills" class="mobile-nav-link"><span>Skills & Tech</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+        <li><a href="#education" class="mobile-nav-link"><span>Education & Honors</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+        <li><a href="#contact" class="mobile-nav-link"><span>Contact</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+      </ul>
+      <div style="display: flex; gap: 0.75rem; flex-direction: column;">
+        <a href="./resume.pdf" class="btn btn-secondary" download="Rana_Anas_Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         2. Hero Section
+         ======================================================================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>Available for Global Remote Roles</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="highlight">Rana Anas</span>
+          </h1>
+
+          <div class="hero-headline">
+            Technical Operations & Support Leader | AI-Powered Web & App Developer | Blockchain & PropTech Specialist
+          </div>
+
+          <p class="hero-desc">
+            With <strong>7+ years of multidisciplinary experience</strong>, I lead high-velocity support operations, architect desktop & web software utilities, and bridge the gap between complex engineering architectures and seamless customer success.
+          </p>
+
+          <blockquote class="hero-philosophy">
+            "Transforming complex operational and technical challenges into seamless customer and software experiences across SaaS, Blockchain, and Logistics ecosystems."
+          </blockquote>
+
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary btn-lg">
+              <span>Explore Projects</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#experience" class="btn btn-secondary btn-lg">
+              <span>View Experience</span>
+            </a>
+            <a href="./resume.pdf" class="btn btn-secondary btn-lg" download="Rana_Anas_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Resume PDF</span>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Lahore, Pakistan (Global Remote)</span>
+            </div>
+            <div class="meta-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>ranaanas.work@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" id="about">
+          <div class="profile-card-wrapper">
+            <div class="profile-card">
+              <div class="profile-image-container">
+                <img src="./profile.png" alt="Rana Anas - Profile Picture" class="profile-image">
+              </div>
+              <div class="profile-floating-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span>7+ Years Professional Track Record</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. Key Impact & Metrics Strip
+         ======================================================================== -->
+    <section class="metrics-section" id="metrics">
+      <div class="container">
+        <div class="metrics-grid">
+          
+          <div class="metric-card">
+            <div class="metric-number-row">
+              <span class="metric-number">98%+</span>
+            </div>
+            <div class="metric-label">Lifetime CSAT Rating</div>
+            <div class="metric-caption">Maintained across Compass.com & n.exchange high-tier technical support accounts.</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-number-row">
+              <span class="metric-number">50+</span>
+            </div>
+            <div class="metric-label">Team Members Led</div>
+            <div class="metric-caption">Directed 24/7 cross-functional technical operations & customer success at n.exchange.</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-number-row">
+              <span class="metric-number">15%</span>
+            </div>
+            <div class="metric-label">Customer Retention Gain</div>
+            <div class="metric-caption">Delivered through strategic account governance at Telebridge Communications.</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-number-row">
+              <span class="metric-number">#1</span>
+            </div>
+            <div class="metric-label">Floor Ticket Handler</div>
+            <div class="metric-caption">Top volume resolution record at ibex Pakistan supporting Compass PropTech systems.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. Featured Software & Desktop Projects
+         ======================================================================== -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Engineering & Applications</div>
+          <h2 class="section-title">Featured Software & Desktop Projects</h2>
+          <p class="section-subtitle">
+            Engineered desktop utilities, financial management systems, real-time audio processors, and AI-accelerated web architectures built for performance and reliability.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: ApexPen -->
+          <article class="project-card project-card-hero">
+            <div class="project-image-wrap" data-zoom-img="./ApexPen.jpeg">
+              <img src="./ApexPen.jpeg" alt="ApexPen Desktop Screen Annotation Engine GUI" class="project-img">
+              <div class="project-image-overlay">
+                <span class="image-zoom-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  Click to Zoom Preview
+                </span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-header-meta">
+                <span class="project-category">Windows Desktop App</span>
+                <span class="project-date">August 2026</span>
+              </div>
+              <h3 class="project-title">ApexPen — Desktop Screen Annotation Engine for Windows</h3>
+              <p class="project-desc">
+                High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams.
+              </p>
+              <ul class="project-features">
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Ultra-Smooth Vector Inking:</strong> Low-latency pen, transparent highlighter & laser spotlight.</span>
+                </li>
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Click-Through Mode:</strong> Annotate on-screen then click underlying apps without erasing strokes.</span>
+                </li>
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Numbered Step Badges (① ② ③):</strong> Create instant instructional steps in real-time.</span>
+                </li>
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Ultra-Lightweight:</strong> Consumes &lt;35 MB RAM with zero bulky dependencies.</span>
+                </li>
+              </ul>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">PyQt / GUI</span>
+                <span class="project-tag">Win32 API</span>
+                <span class="project-tag">Vector Graphics</span>
+                <span class="project-tag">Screen Capture</span>
+              </div>
+              <div class="project-footer">
+                <a href="https://github.com/ranaanas/ApexPen" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  <span>View Repository</span>
+                </a>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Standalone Release</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: MT5 Multi-Account Trade Manager -->
+          <article class="project-card">
+            <div class="project-image-wrap" data-zoom-img="./mt5-manager.jpeg">
+              <img src="./mt5-manager.jpeg" alt="MT5 Multi-Account Trade Manager Interface" class="project-img">
+              <div class="project-image-overlay">
+                <span class="image-zoom-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  Click to Zoom Preview
+                </span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-header-meta">
+                <span class="project-category">FinTech / Trading System</span>
+                <span class="project-date">2026</span>
+              </div>
+              <h3 class="project-title">MT5 Multi-Account Trade Manager</h3>
+              <p class="project-desc">
+                High-concurrency trade synchronization desktop application designed for prop firm funded traders, multi-account money managers, and broker desks.
+              </p>
+              <ul class="project-features">
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Master-Worker Architecture:</strong> True concurrent multiprocessing order execution eliminating sequential lag.</span>
+                </li>
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Independent Lot Sizing:</strong> Per-account risk management rules and dynamic allocation.</span>
+                </li>
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>One-Click Panic Close:</strong> Instant global position closing and pending order removal.</span>
+                </li>
+              </ul>
+              <div class="project-tags">
+                <span class="project-tag">MetaTrader 5 API</span>
+                <span class="project-tag">Multiprocessing</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">OS Keyring Security</span>
+              </div>
+              <div class="project-footer">
+                <a href="https://github.com/ranaanas/MT5-Trade-Manager" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  <span>View Repository</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Background Music Remover -->
+          <article class="project-card">
+            <div class="project-image-wrap" data-zoom-img="./audio-remover.jpeg">
+              <img src="./audio-remover.jpeg" alt="Background Music Remover Desktop Utility" class="project-img">
+              <div class="project-image-overlay">
+                <span class="image-zoom-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  Click to Zoom Preview
+                </span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-header-meta">
+                <span class="project-category">Audio Processing Utility</span>
+                <span class="project-date">Jul – Aug 2026</span>
+              </div>
+              <h3 class="project-title">Background Music Remover</h3>
+              <p class="project-desc">
+                Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials.
+              </p>
+              <ul class="project-features">
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Real-time Vocal Isolation:</strong> Low-latency digital audio filtering pipeline.</span>
+                </li>
+                <li class="project-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Virtual Audio Driver Support:</strong> Routes cleaned audio directly into Zoom, OBS, and Teams.</span>
+                </li>
+              </ul>
+              <div class="project-tags">
+                <span class="project-tag">Audio DSP</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Windows Audio Engine</span>
+                <span class="project-tag">Real-Time Processing</span>
+              </div>
+              <div class="project-footer">
+                <a href="https://github.com/ranaanas/background-music-remover" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  <span>View Repository</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: AI-Powered Rapid Development -->
+          <article class="project-card">
+            <div class="project-body" style="justify-content: space-between; height: 100%;">
+              <div style="display: flex; flex-direction: column; gap: 1.15rem;">
+                <div class="project-header-meta">
+                  <span class="project-category">Full-Stack & AI Systems</span>
+                  <span class="project-date">Ongoing</span>
+                </div>
+                <h3 class="project-title">AI-Powered Web & Rapid Application Development</h3>
+                <p class="project-desc">
+                  Accelerated full-stack software prototyping, responsive web development, and automated test orchestration leveraging autonomous AI coding agents, prompt engineering, and modern decentralized deployment standards.
+                </p>
+                <ul class="project-features">
+                  <li class="project-feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span><strong>Decentralized & IPFS Ready:</strong> Zero server dependencies and high-speed edge distribution.</span>
+                  </li>
+                  <li class="project-feature-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span><strong>Autonomous Agent Workflows:</strong> Advanced pair-programming and rapid refactoring workflows.</span>
+                  </li>
+                </ul>
+                <div class="project-tags">
+                  <span class="project-tag">HTML5 / Modern JS</span>
+                  <span class="project-tag">IPFS Architecture</span>
+                  <span class="project-tag">AI Agent Orchestration</span>
+                  <span class="project-tag">Responsive UI/UX</span>
+                </div>
+              </div>
+              <div class="project-footer">
+                <a href="https://github.com/ranaanas/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  <span>GitHub Profile</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. Verified Career Experience Timeline (All 9 Positions)
+         ======================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Career Track Record</div>
+          <h2 class="section-title">Verified Professional Experience</h2>
+          <p class="section-subtitle">
+            A comprehensive history of leadership in technical operations, SaaS escalation engineering, proprietary capital trading, and customer experience excellence.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+
+          <!-- 1. ibex Pakistan / Compass.com Account -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Technical Support Specialist (Compass.com Account)</h3>
+                  <div class="timeline-company">ibex. Pakistan</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">May 2025 – June 2026 (1 yr 2 mos)</span>
+                  <span class="timeline-domain-badge">Global BPO / PropTech</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Contract / On-site · Lahore, Punjab, Pakistan</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Delivered frontline Tier 1/2 technical product support for <strong>Compass.com</strong>, one of the premier real estate technology platforms in the United States.</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Maintained a <strong>98%+ CSAT score</strong> throughout tenure, while handling the <strong>highest ticket volume</strong> across the entire support floor.</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Diagnosed complex issues across web & mobile platforms (MLS integrations, CRM workflows, mapping utilities, and client portals).</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Authored internal knowledge base articles and standard operating procedures (SOPs) that reduced Average Handle Time (AHT) and eliminated recurring escalations.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. Compass -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Technical Product Support Specialist</h3>
+                  <div class="timeline-company">Compass</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">May 2025 – June 2026 (1 yr 2 mos)</span>
+                  <span class="timeline-domain-badge">PropTech SaaS</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Contract / On-site</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Empowered top-producing licensed real estate agents across the USA to optimize software tool suites and streamline property transaction lifecycles.</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Conducted root-cause bug isolation, authoring reproducible issue reports for core engineering and product management teams.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Freightlinersllc.com -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Dispatch Manager</h3>
+                  <div class="timeline-company">Freightlinersllc.com</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">August 2023 – July 2024 (1 yr)</span>
+                  <span class="timeline-domain-badge">Freight Logistics</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Full-time / Remote · United States Operations</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Negotiated and booked commercial freight loads at premium market rates with top brokerage platforms (TQL, Integrity, Coyote, Uber Freight, Landstar).</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Coordinated complex routing logistics, driver safety timetables, layovers, and detention disputes under high-stress time constraints.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. The Funded Trader -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Proprietary Equity & FX Trader</h3>
+                  <div class="timeline-company">The Funded Trader</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">April 2023 – March 2024 (1 yr)</span>
+                  <span class="timeline-domain-badge">Capital Markets</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Contract / Remote</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Managed <strong>$10,000+ proprietary capital</strong>, strictly complying with strict maximum daily and total drawdown constraints.</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Formulated and backtested systematic algorithmic and manual foreign exchange trading strategies based on order flow, market structure, and liquidity.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 5. n.exchange -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Operations and Technical Support Manager</h3>
+                  <div class="timeline-company">n.exchange</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">April 2022 – March 2023 (1 yr)</span>
+                  <span class="timeline-domain-badge">Blockchain & Crypto</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Full-time / Remote · Greater London, England, UK</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Directed 24/7 technical operations, platform uptime, wallet infrastructure, and exchange liquidity security protocols.</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span><strong>Led a cross-functional department of 50+ staff</strong> across technical support, client success, and transactional dispute resolution.</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Achieved and sustained a <strong>98%+ CSAT rating</strong> while handling high-severity blockchain re-orgs, stuck node transactions, and API integrations.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 6. MyTutorpod.com -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Customer Relationship Officer</h3>
+                  <div class="timeline-company">MyTutorpod.com</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">June 2021 – July 2022 (1 yr 2 mos)</span>
+                  <span class="timeline-domain-badge">EdTech</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Full-time / Remote · United States Operations</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Led customer support team delivering uninterrupted online tutoring operations and resolving educator/student scheduling challenges across North America.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 7. Telebridge Communications -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Customer Relationship Officer</h3>
+                  <div class="timeline-company">Telebridge Communications</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">June 2021 – July 2022 (1 yr 2 mos)</span>
+                  <span class="timeline-domain-badge">Telecommunications</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Full-time / Remote</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Delivered high-touch account management, achieving a verified <strong>15% increase in customer retention</strong> via proactive feedback loops.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 8. Shop247.com.pk -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">E-Commerce Business Owner | Enterprise Software Licensing</h3>
+                  <div class="timeline-company">Shop247.com.pk</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">September 2017 – September 2021 (4 yrs 1 mo)</span>
+                  <span class="timeline-domain-badge">B2B Enterprise Software</span>
+                </div>
+              </div>
+              <div class="timeline-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Self-employed / Remote · Pakistan</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Founded and scaled an enterprise software licensing platform supplying corporate clients and wholesalers with Microsoft 365, Windows, and Azure volume licenses.</span>
+                </li>
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Built direct international vendor pipelines, managed secure Linux web hosting and DNS infrastructures, and grew business to profitability in Year 1.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 9. Tribe Consulting -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-role-info">
+                  <h3 class="timeline-role">Customer Service Representative</h3>
+                  <div class="timeline-company">Tribe Consulting (Pvt.) Ltd.</div>
+                </div>
+                <div class="timeline-badge-row">
+                  <span class="timeline-duration-badge">February 2021 – June 2021 (5 mos)</span>
+                  <span class="timeline-domain-badge">Customer Operations</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li class="timeline-bullet">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span>Handled multichannel customer communications, meeting strict first-contact resolution benchmarks and client satisfaction targets.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. Skills & Domain Matrix
+         ======================================================================== -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Core Competencies</div>
+          <h2 class="section-title">Skills & Domain Expertise Matrix</h2>
+          <p class="section-subtitle">
+            An extensive inventory of technical operations capabilities, development stacks, and specialized industry domain proficiencies.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Category 1: Technical Operations & Support -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <h3 class="skill-category-title">Technical Operations & Support</h3>
+                <div class="skill-category-desc">Governance, escalation, and customer satisfaction</div>
+              </div>
+            </div>
+            <div class="skill-pills">
+              <span class="skill-pill featured">Technical Support Management</span>
+              <span class="skill-pill featured">Escalation Triage</span>
+              <span class="skill-pill">SLA / KPI Governance</span>
+              <span class="skill-pill">CSAT & NPS Optimization</span>
+              <span class="skill-pill">Zendesk</span>
+              <span class="skill-pill">Freshdesk</span>
+              <span class="skill-pill">CRM Integrations</span>
+              <span class="skill-pill">Root-Cause Analysis</span>
+              <span class="skill-pill">SOP & KB Authoring</span>
+              <span class="skill-pill">Incident Response</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Software & Development -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="skill-category-title">Software & AI Development</h3>
+                <div class="skill-category-desc">Desktop frameworks, web architectures & AI agent tools</div>
+              </div>
+            </div>
+            <div class="skill-pills">
+              <span class="skill-pill featured">Python</span>
+              <span class="skill-pill featured">Desktop GUI Frameworks</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
+              <span class="skill-pill">HTML5 / Vanilla CSS3</span>
+              <span class="skill-pill">AI Coding Agent Orchestration</span>
+              <span class="skill-pill">Prompt Engineering</span>
+              <span class="skill-pill">Web Servers & DNS</span>
+              <span class="skill-pill">REST APIs</span>
+              <span class="skill-pill">Git & GitHub</span>
+              <span class="skill-pill">Multiprocessing</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Industry Domains -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <h3 class="skill-category-title">Industry Domains</h3>
+                <div class="skill-category-desc">Deep vertical experience across global sectors</div>
+              </div>
+            </div>
+            <div class="skill-pills">
+              <span class="skill-pill featured">PropTech SaaS (Compass.com)</span>
+              <span class="skill-pill featured">Blockchain & Crypto Exchanges</span>
+              <span class="skill-pill">FinTech & MetaTrader 5 (MT5)</span>
+              <span class="skill-pill">B2B Enterprise Software Distribution</span>
+              <span class="skill-pill">Freight Logistics & Supply Chain</span>
+              <span class="skill-pill">Capital Markets & Prop Trading</span>
+              <span class="skill-pill">EdTech Operations</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Languages & Communication -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div>
+                <h3 class="skill-category-title">Languages & Global Collaboration</h3>
+                <div class="skill-category-desc">Multilingual communication for worldwide distributed teams</div>
+              </div>
+            </div>
+            <div class="skill-pills">
+              <span class="skill-pill featured">English — Full Professional Proficiency</span>
+              <span class="skill-pill">Urdu — Native Proficiency</span>
+              <span class="skill-pill">Punjabi — Native Proficiency</span>
+              <span class="skill-pill">Asynchronous Team Leadership</span>
+              <span class="skill-pill">Executive Stakeholder Reporting</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. Education & Honors
+         ======================================================================== -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Academic & Honors</div>
+          <h2 class="section-title">Education & Recognized Awards</h2>
+          <p class="section-subtitle">
+            Formal business education combined with recognized university leadership distinctions.
+          </p>
+        </div>
+
+        <div class="edu-grid">
+
+          <!-- Degree Card -->
+          <div class="edu-card">
+            <div class="edu-icon-wrap degree">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="edu-body">
+              <h3 class="edu-title">Bachelor of Commerce (BCom)</h3>
+              <div class="edu-institution">The Superior University, Lahore</div>
+              <div class="edu-meta">2014 – 2016 · Lahore, Pakistan</div>
+              <p class="edu-desc">
+                Concentration in Business Operations, Commerce, Financial Systems, and Commercial Law.
+              </p>
+            </div>
+          </div>
+
+          <!-- Award Card -->
+          <div class="edu-card">
+            <div class="edu-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            </div>
+            <div class="edu-body">
+              <h3 class="edu-title">🏆 Best Coordinator (CR) of the Year</h3>
+              <div class="edu-institution">Issued by Superior University</div>
+              <div class="edu-meta">April 2015 · Academic Honor</div>
+              <p class="edu-desc">
+                Awarded for exemplary student leadership, cross-departmental coordination, and student representation throughout the academic session.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         8. Contact & IPFS Ready Section
+         ======================================================================== -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="section-badge">Let's Connect</div>
+          <h2 class="contact-headline">Ready to Elevate Your Operations or Software?</h2>
+          <p class="contact-subtitle">
+            Whether you need a senior technical operations leader to scale your customer success and product support or a proactive developer for rapid prototyping, my inbox is open.
+          </p>
+
+          <div class="contact-actions">
+            <!-- Email Copy Pill -->
+            <div class="email-copy-box">
+              <span class="email-text">ranaanas.work@gmail.com</span>
+              <button class="btn btn-secondary btn-sm btn-copy-email" data-email="ranaanas.work@gmail.com" title="Copy email to clipboard">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <!-- Mailto Button -->
+            <a href="mailto:ranaanas.work@gmail.com" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Send Direct Email</span>
+            </a>
+
+            <!-- LinkedIn Button -->
+            <a href="https://www.linkedin.com/in/ranaanas" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>LinkedIn Profile</span>
+            </a>
+
+            <!-- GitHub Button -->
+            <a href="https://github.com/ranaanas/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <div>
+            <span class="ipfs-badge-strip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              <span>Built for IPFS & Decentralized Web Deployment · 100% Client-Side Compatible</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       9. Footer
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span style="font-weight: 700; color: var(--text-main);">Rana Anas</span>
+        <span>© 2026. All rights reserved.</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://github.com/ranaanas" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ranaanas" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:ranaanas.work@gmail.com" class="footer-social-link" title="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="./resume.pdf" class="footer-social-link" download="Rana_Anas_Resume.pdf" title="Resume">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       10. Toast Notification & Modal Component
+       ======================================================================== -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    <span class="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Image Zoom Modal -->
+  <div class="image-modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Project Preview Zoom">
+    <div class="modal-content-wrap">
+      <button class="modal-close-btn" id="modalClose" aria-label="Close image modal">&times;</button>
+      <img src="" alt="Zoomed Project Preview" class="modal-img" id="modalImage">
+    </div>
+  </div>
+
+  <!-- App Script (Relative Path for IPFS) -->
+  <script src="./app.js"></script>
+</body>
+</html>
