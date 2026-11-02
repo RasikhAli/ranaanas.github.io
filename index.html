@@ -1,398 +1,1369 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cobalt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rana Anas | Technical Operations Leader & Software Developer</title>
-  <meta name="description" content="Official portfolio of Rana Anas — Technical Operations & Support Leader | Cloud & Server Infrastructure (AWS · Azure · Oracle) | AI-Powered Developer | Blockchain & PropTech Specialist | 7+ Years.">
-  <meta name="author" content="Rana Anas">
-  
-  <!-- Open Graph / Meta -->
-  <meta property="og:title" content="Rana Anas | Executive Portfolio">
-  <meta property="og:description" content="Technical Operations & Support Leader | Cloud & Server Infrastructure (AWS · Azure · Oracle) | AI-Powered Developer | Blockchain & PropTech Specialist | 7+ Years | Open to Remote and Relocate Globally.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/profile.png">
+  <meta name="description" content="Cinematic portfolio of Rana Anas — Technical Operations Leader & Software Developer. Leading high-velocity operations, cloud server infrastructure, and custom software utilities.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-
-  <!-- Google Fonts Preconnect & Stylesheet -->
+  <!-- Google Fonts: Inter, Playfair Display & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,600;1,700;1,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
-  <!-- Core Stylesheet (Relative Path for IPFS) -->
-  <link rel="stylesheet" href="./css/styles.css">
+  <style>
+            /* ==========================================================================
+       1. Base & Royal Cobalt Brand Theme
+       ========================================================================== */
+    :root, html, html[data-theme="cobalt"] {
+      --accent: #2563EB;
+      --accent-hover: #3B82F6;
+      --accent-glow: rgba(37, 99, 235, 0.42);
+      --accent-subtle: rgba(37, 99, 235, 0.1);
+      --bg: #030612;
+      --bg-card: rgba(10, 16, 32, 0.82);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(37, 99, 235, 0.45);
+      --theme-text-color: #ffffff;
+      --btn-text: #ffffff;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      scroll-behavior: auto;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Film Grain Texture */
+    .grain-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Refined Ambient Cursor Follower (Native Cursor ALWAYS Stays Active & Visible) */
+    #custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--accent-subtle);
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: width 0.22s ease-out, height 0.22s ease-out, border-color 0.3s ease, background 0.3s ease;
+      opacity: 0.8;
+    }
+    #custom-cursor.active {
+      width: 52px;
+      height: 52px;
+      background: var(--accent-glow);
+      opacity: 0.95;
+    }
+    #cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      z-index: 100000;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* Ghost Typography */
+    .ghost {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.45);
+      letter-spacing: -0.01em;
+    }
+
+    .ghost-accent {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: transparent;
+      -webkit-text-stroke: 1.3px var(--accent);
+      letter-spacing: -0.01em;
+      transition: -webkit-text-stroke 0.3s ease;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      position: relative;
+    }
+
+    .section-canvas-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none;
+      z-index: 1;
+      display: block;
+    }
+
+    /* ==========================================================================
+       2. Top Banner & 5-Theme Switcher Bar
+       ========================================================================== */
+    .mock-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
+      background: rgba(12, 12, 16, 0.96);
+      border-bottom: 1px solid var(--accent-glow);
+      backdrop-filter: blur(14px);
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: border-bottom-color 0.3s ease;
+    }
+
+    .mock-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .mock-pill {
+      background: var(--accent);
+      color: var(--btn-text);
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .theme-switcher-group {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding: 2px 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .theme-switcher-group::-webkit-scrollbar {
+      display: none;
+    }
+
+    .theme-switcher-title {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 10px;
+      font-weight: 600;
+      margin-right: 0.3rem;
+      letter-spacing: 0.12em;
+      flex-shrink: 0;
+    }
+
+    .theme-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 3px 9px;
+      border-radius: 100px;
+      font-size: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.25s ease;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    .theme-swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px currentColor;
+    }
+
+    .theme-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .theme-btn.active {
+      background: var(--accent);
+      color: var(--btn-text);
+      border-color: var(--accent);
+      font-weight: 800;
+      box-shadow: 0 0 14px var(--accent-glow);
+    }
+
+    .mock-compare-link {
+      color: #60a5fa;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    /* ==========================================================================
+       3. Navigation Bar
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 44px;
+      left: 0;
+      right: 0;
+      z-index: 70;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(8, 8, 8, 0.88) 0%, transparent 100%);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-avatar-mini {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      object-fit: cover;
+      background: #111;
+      transition: border-color 0.3s ease;
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-tag {
+      font-size: 9px;
+      color: var(--accent);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      padding-left: 0.75rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+    }
+
+    .btn-accent-pill {
+      background: var(--accent);
+      color: var(--btn-text);
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .btn-accent-pill:hover {
+      background: #ffffff;
+      color: #000;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    /* ==========================================================================
+       4. Hero Section
+       ========================================================================== */
+    .hero-section {
+      min-height: 100vh;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      padding-top: 130px;
+      padding-bottom: 80px;
+      overflow: hidden;
+      background: radial-gradient(ellipse 65% 50% at 75% 45%, var(--accent-subtle) 0%, transparent 70%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: color 0.3s ease;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse 2s infinite ease-in-out;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-size: clamp(3.4rem, 7.5vw, 7.8rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.88;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-title-name {
+      display: inline-block;
+      color: #ffffff;
+      margin-top: -0.1em;
+    }
+
+    .hero-headline-box {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 620px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-headline-box strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .hero-sub-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-sub-text em {
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: var(--font-serif);
+      font-size: 1.05em;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .btn-ghost-pill {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0.65rem 1.4rem;
+      border-radius: 100px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ghost-pill:hover {
+      border-color: #ffffff;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Hero Portrait (Crisp, High-Res, Stays in Hero) */
+    .hero-portrait-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 560px;
+    }
+
+    .hero-glow-aura {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      filter: blur(40px);
+      z-index: 1;
+      bottom: 60px;
+      animation: auraPulse 6s infinite ease-in-out;
+      transition: background 0.4s ease;
+    }
+
+    @keyframes auraPulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
+    .hero-portrait-img {
+      position: relative;
+      z-index: 3;
+      max-height: 540px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 35px var(--accent-glow));
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    }
+
+    .hero-portrait-badge {
+      position: absolute;
+      bottom: 25px;
+      left: 10%;
+      z-index: 5;
+      background: rgba(18, 18, 22, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(16px);
+      padding: 0.85rem 1.25rem;
+      border-radius: 14px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* ==========================================================================
+       5. Metrics Strip (Live Telemetry Animation)
+       ========================================================================== */
+    .metrics-section {
+      position: relative;
+      z-index: 15;
+      padding: 6rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: radial-gradient(ellipse 60% 45% at 50% 50%, var(--accent-subtle) 0%, transparent 70%), rgba(10, 10, 14, 0.75);
+      overflow: hidden;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .metric-card {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .metric-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .metric-num {
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-num span.accent {
+      color: var(--accent);
+      transition: color 0.3s ease;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      transition: color 0.3s ease;
+    }
+
+    .metric-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       6. About Section (Cloud Topology Animation)
+       ========================================================================== */
+    .about-section {
+      min-height: 90vh;
+      position: relative;
+      z-index: 15;
+      padding: 9rem 0;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse 60% 50% at 20% 50%, var(--accent-subtle) 0%, transparent 70%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .section-heading {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-bio-p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .about-bio-p strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Cloud Server Topology HUD */
+    .cloud-topology-hud {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 2.2rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hud-title {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .hud-nodes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hud-node-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.85rem 1.15rem;
+      border-radius: 10px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      transition: all 0.3s ease;
+    }
+
+    .hud-node-item:hover {
+      border-color: var(--border-hover);
+      background: var(--accent-subtle);
+    }
+
+    .hud-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      display: inline-block;
+      margin-right: 0.5rem;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* ==========================================================================
+       7. Featured Projects Section
+       ========================================================================== */
+    .projects-section {
+      position: relative;
+      z-index: 15;
+      padding: 9rem 0;
+      overflow: hidden;
+      background: radial-gradient(ellipse 70% 50% at 85% 40%, var(--accent-subtle) 0%, transparent 70%);
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .project-cinematic-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .project-cinematic-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s ease, background 0.3s ease;
+    }
+
+    .project-cinematic-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .project-cinematic-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .project-img-container {
+      position: relative;
+      height: 100%;
+      min-height: 320px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .project-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.6s ease;
+      opacity: 0.85;
+    }
+
+    .project-cinematic-card:hover .project-img-container img {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .project-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-cat {
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .project-date {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.35);
+      font-family: var(--font-mono);
+    }
+
+    .project-title {
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.65;
+      margin-bottom: 1.8rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       8. Experience Timeline
+       ========================================================================== */
+    .experience-section {
+      position: relative;
+      z-index: 15;
+      padding: 9rem 0;
+      border-top: 1px solid var(--border-subtle);
+      overflow: hidden;
+      background: radial-gradient(ellipse 60% 50% at 15% 60%, var(--accent-subtle) 0%, transparent 70%);
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 4rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .timeline-row {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 1.75rem 2.25rem;
+      transition: all 0.3s ease;
+      display: grid;
+      grid-template-columns: 240px 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      backdrop-filter: blur(14px);
+    }
+
+    .timeline-row:hover {
+      border-color: var(--border-hover);
+      transform: translateX(6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
+    }
+
+    .timeline-company {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-top: 3px;
+    }
+
+    .timeline-role {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-summary {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
+    }
+
+    .timeline-tag {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       9. Contact Section
+       ========================================================================== */
+    .contact-section {
+      min-height: 100vh;
+      position: relative;
+      z-index: 15;
+      padding: 9rem 0 6rem;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, var(--accent-subtle) 0%, transparent 70%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .contact-form-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 2.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .contact-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-tab-btn {
+      flex: 1;
+      padding: 0.65rem;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .contact-tab-btn.active {
+      background: var(--accent);
+      color: var(--btn-text);
+    }
+
+    .contact-tab-btn.whatsapp-active {
+      background: #25D366;
+      color: #000;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      font-family: var(--font-mono);
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 0.85rem 1.15rem;
+      color: #fff;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--accent-subtle);
+    }
+
+    /* Footer */
+    .footer {
+      position: relative;
+      z-index: 15;
+      border-top: 1px solid var(--border-subtle);
+      padding: 4rem 0 3rem;
+      background: var(--bg);
+      transition: background 0.3s ease;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-portrait-stage { height: 420px; }
+      .hero-portrait-img { max-height: 400px; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .project-cinematic-card { grid-template-columns: 1fr; }
+      .timeline-row { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .theme-switcher-title { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ========================================================================
-       1. Navigation Bar (Sticky & Glassmorphic)
-       ======================================================================== -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="#hero" class="nav-brand">
-        <img src="./assets/profile.png" alt="Rana Anas" class="brand-avatar">
-        <span>Rana Anas</span>
-        <span class="brand-badge">Ops & Dev</span>
-      </a>
+  <!-- Film Grain Overlay -->
+  <div class="grain-overlay"></div>
 
-      <!-- Desktop Navigation Links -->
+  <!-- Interactive Difference Cursor -->
+  <div id="custom-cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ==========================================================================
+       TOP MOCK BANNER & 5-PALETTE THEME SWITCHER
+       ========================================================================== -->
+  
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="#hero" class="nav-brand">
+      <img src="./assets/profile-cutout.png" alt="Rana Anas" class="brand-avatar-mini">
+      <span class="brand-name">Rana Anas</span>
+      <span class="brand-tag">Ops & Engineering</span>
+    </a>
+
+    <nav>
       <ul class="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#metrics" class="nav-link">Impact</a></li>
+        <li><a href="#metrics" class="nav-link">Telemetry</a></li>
+        <li><a href="#about" class="nav-link">Infrastructure</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#experience" class="nav-link">Journey</a></li>
+        <li><a href="#contact" class="nav-link">Connect</a></li>
+        <li>
+          <a href="#contact" class="btn-accent-pill">
+            <span>Inquire</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </li>
       </ul>
-
-      <!-- Navbar Action Buttons -->
-      <div class="nav-actions">
-        <a href="./assets/resume.pdf" class="btn btn-secondary btn-sm" download="Rana_Anas_Resume.pdf" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Resume</span>
-        </a>
-        <a href="#contact" class="btn btn-primary btn-sm">
-          <span>Get in Touch</span>
-        </a>
-        <button class="mobile-menu-btn" aria-label="Toggle navigation menu" id="mobileMenuBtn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-drawer" id="mobileDrawer">
-      <ul class="mobile-nav-links">
-        <li><a href="#about" class="mobile-nav-link"><span>About</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-        <li><a href="#metrics" class="mobile-nav-link"><span>Impact Highlights</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-        <li><a href="#projects" class="mobile-nav-link"><span>Featured Projects</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-        <li><a href="#experience" class="mobile-nav-link"><span>Work Experience</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-        <li><a href="#skills" class="mobile-nav-link"><span>Skills & Tech</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-        <li><a href="#education" class="mobile-nav-link"><span>Education & Honors</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-        <li><a href="#contact" class="mobile-nav-link"><span>Contact</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-      </ul>
-      <div style="display: flex; gap: 0.75rem; flex-direction: column;">
-        <a href="./assets/resume.pdf" class="btn btn-secondary" download="Rana_Anas_Resume.pdf" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Download Resume</span>
-        </a>
-      </div>
-    </div>
+    </nav>
   </header>
 
   <main>
-    <!-- ========================================================================
-         2. Hero Section
-         ======================================================================== -->
-    <section class="hero" id="hero">
+    <!-- ==========================================================================
+         1. HERO SECTION (High-Res Portrait on Top - Stays in Hero)
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <canvas class="section-canvas-bg" id="heroCanvas"></canvas>
+
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="status-pill">
-            <span class="status-dot"></span>
-            <span>Open to Remote &amp; Relocate Globally</span>
-          </div>
+          <div class="hero-label">Technical Operations & Support Leader</div>
 
           <h1 class="hero-title">
-            Hi, I'm <span class="highlight">Rana Anas</span>
+            <span class="ghost">Hey, I'm</span>
+            <span class="hero-title-name">Rana Anas.</span>
           </h1>
 
-          <div class="hero-headline">
-            Technical Operations &amp; Support Leader | Cloud &amp; Server Infrastructure (AWS · Azure · Oracle) | AI-Powered Developer | Blockchain &amp; PropTech Specialist | 7+ Years | Open to Remote and Relocate Globally
-          </div>
-
-          <p class="hero-desc">
-            With <strong>7+ years of multidisciplinary experience</strong>, I lead high-velocity support operations, architect desktop & web software utilities, and bridge the gap between complex engineering architectures and seamless customer success.
+          <p class="hero-headline-box">
+            Leading high-velocity technical operations, architecting desktop & cloud software utilities, and bridging high-complexity systems across <strong>SaaS</strong>, <strong>Blockchain</strong>, and <strong>FinTech</strong> ecosystems.
           </p>
 
-          <blockquote class="hero-philosophy">
-            "Transforming complex operational and technical challenges into seamless customer and software experiences across SaaS, Blockchain, and Logistics ecosystems."
-          </blockquote>
+          <p class="hero-sub-text">
+            7+ years multidisciplinary record leading 50+ engineers and support specialists. Maintained <em>98%+ lifetime CSAT</em> across global accounts including Compass PropTech and crypto exchanges.
+          </p>
 
-          <div class="hero-ctas">
-            <a href="#projects" class="btn btn-primary btn-lg">
-              <span>Explore Projects</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-accent-pill">
+              Explore Projects
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="#experience" class="btn btn-secondary btn-lg">
-              <span>View Experience</span>
-            </a>
-            <a href="./assets/resume.pdf" class="btn btn-secondary btn-lg" download="Rana_Anas_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span>Resume PDF</span>
-            </a>
-          </div>
-
-          <div class="hero-meta">
-            <div class="meta-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>Lahore, Pakistan (Global Remote)</span>
-            </div>
-            <div class="meta-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              <span>ranaanas.work@gmail.com</span>
-            </div>
+            <a href="#about" class="btn-ghost-pill">Cloud Infrastructure</a>
+            <a href="./assets/resume.pdf" target="_blank" download class="btn-ghost-pill">Download Resume</a>
           </div>
         </div>
 
-        <div class="hero-visual" id="about">
-          <div class="profile-card-wrapper">
-            <div class="profile-card">
-              <div class="profile-image-container">
-                <img src="./assets/profile.png" alt="Rana Anas - Profile Picture" class="profile-image">
-              </div>
-              <div class="profile-floating-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                <span>7+ Years Professional Track Record</span>
-              </div>
+        <!-- Right Side: Sharp, High-Res Portrait Photo -->
+        <div class="hero-portrait-stage">
+          <div class="hero-glow-aura"></div>
+          <img src="./assets/profile-cutout.png" alt="Rana Anas - Technical Operations Leader" class="hero-portrait-img" id="heroPortrait">
+          
+          <div class="hero-portrait-badge">
+            <span class="badge-status-dot"></span>
+            <div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">Available For Global Remote</div>
+              <div style="font-size: 9px; color: var(--accent); font-family: var(--font-mono); letter-spacing: 0.1em; transition: color 0.3s ease;">LEADERSHIP & DEV</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================================
-         3. Key Impact & Metrics Strip
-         ======================================================================== -->
+    <!-- ==========================================================================
+         2. METRICS SECTION (Live Telemetry & Signals Background Animation)
+         ========================================================================== -->
     <section class="metrics-section" id="metrics">
+      <canvas class="section-canvas-bg" id="telemetryCanvas"></canvas>
+
       <div class="container">
         <div class="metrics-grid">
-          
           <div class="metric-card">
-            <div class="metric-number-row">
-              <span class="metric-number">98%+</span>
-            </div>
+            <div class="metric-num">98<span class="accent">%+</span></div>
             <div class="metric-label">Lifetime CSAT Rating</div>
-            <div class="metric-caption">Maintained across Compass.com & n.exchange high-tier technical support accounts.</div>
+            <div class="metric-sub">Maintained across Compass.com & n.exchange high-tier accounts.</div>
           </div>
-
           <div class="metric-card">
-            <div class="metric-number-row">
-              <span class="metric-number">50+</span>
-            </div>
+            <div class="metric-num">50<span class="accent">+</span></div>
             <div class="metric-label">Team Members Led</div>
-            <div class="metric-caption">Directed 24/7 cross-functional technical operations & customer success at n.exchange.</div>
+            <div class="metric-sub">Directing 24/7 cross-functional support and technical operations.</div>
           </div>
-
           <div class="metric-card">
-            <div class="metric-number-row">
-              <span class="metric-number">15%</span>
-            </div>
-            <div class="metric-label">Customer Retention Gain</div>
-            <div class="metric-caption">Delivered through strategic account governance at Telebridge Communications.</div>
+            <div class="metric-num">15<span class="accent">%</span></div>
+            <div class="metric-label">Retention Increase</div>
+            <div class="metric-sub">Delivered through strategic account governance at Telebridge.</div>
           </div>
-
           <div class="metric-card">
-            <div class="metric-number-row">
-              <span class="metric-number">#1</span>
-            </div>
-            <div class="metric-label">Floor Ticket Handler</div>
-            <div class="metric-caption">Top volume resolution record at ibex Pakistan supporting Compass PropTech systems.</div>
+            <div class="metric-num"><span class="accent">#</span>1</div>
+            <div class="metric-label">Floor Handler Volume</div>
+            <div class="metric-sub">Top volume resolution record at ibex supporting Compass PropTech.</div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ========================================================================
-         4. Featured Software & Desktop Projects
-         ======================================================================== -->
-    <section class="section section-alt" id="projects">
+    <!-- ==========================================================================
+         3. ABOUT SECTION (Cloud Server Topology Animation)
+         ========================================================================== -->
+    <section class="about-section" id="about">
+      <canvas class="section-canvas-bg" id="cloudCanvas"></canvas>
+
       <div class="container">
-        <div class="section-header">
-          <div class="section-badge">Engineering & Applications</div>
-          <h2 class="section-title">Featured Software & Desktop Projects</h2>
-          <p class="section-subtitle">
-            Engineered desktop utilities, financial management systems, real-time audio processors, and AI-accelerated web architectures built for performance and reliability.
-          </p>
-        </div>
+        <div class="about-grid">
+          <div>
+            <div class="section-eyebrow">Cloud & Operations Architecture</div>
+            <h2 class="section-heading">
+              <span style="display:block;">Architecting</span>
+              <span class="ghost">the resilient.</span>
+            </h2>
 
-        <div class="projects-grid">
+            <p class="about-bio-p">
+              "Transforming complex operational and technical challenges into seamless customer and software experiences across SaaS, Blockchain, and Logistics ecosystems."
+            </p>
 
-          <!-- Project 1: ApexPen -->
-          <article class="project-card project-card-hero">
-            <div class="project-image-wrap" data-zoom-img="./assets/projects/ApexPen.jpeg">
-              <img src="./assets/projects/ApexPen.jpeg" alt="ApexPen Desktop Screen Annotation Engine GUI" class="project-img">
-              <div class="project-image-overlay">
-                <span class="image-zoom-btn">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  Click to Zoom Preview
-                </span>
+            <p class="about-bio-p">
+              With <strong>7+ years of multidisciplinary experience</strong>, I lead high-velocity support operations, architect desktop & web software utilities, and bridge the gap between complex engineering architectures and seamless customer success.
+            </p>
+
+            <p class="about-bio-p">
+              My background encompasses enterprise <strong>Cloud Infrastructure (AWS, Azure, Oracle Cloud)</strong>, server orchestration, DNS routing, and proprietary trading technology, supplemented by modern AI agent development workflows.
+            </p>
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem;">
+              <span class="project-tag">AWS Cloud</span>
+              <span class="project-tag">Microsoft Azure</span>
+              <span class="project-tag">Oracle OCI</span>
+              <span class="project-tag">DNS & SSL Routing</span>
+              <span class="project-tag">Incident Triage</span>
+              <span class="project-tag">Zendesk / Freshdesk</span>
+            </div>
+          </div>
+
+          <!-- Cloud Server Topology Telemetry HUD -->
+          <div class="cloud-topology-hud">
+            <div class="hud-header">
+              <span class="hud-title">Infrastructure Cluster Telemetry</span>
+              <span style="font-family: var(--font-mono); font-size: 10px; color: var(--accent); transition: color 0.3s ease;">STATUS: 99.98% HEALTH</span>
+            </div>
+
+            <div class="hud-nodes-list">
+              <div class="hud-node-item">
+                <span><span class="hud-dot"></span>AWS Production Cluster</span>
+                <span style="color: rgba(255,255,255,0.45);">us-east-1 • Low Latency</span>
+              </div>
+              <div class="hud-node-item">
+                <span><span class="hud-dot"></span>Microsoft Azure Infrastructure</span>
+                <span style="color: rgba(255,255,255,0.45);">Central US • Enterprise Sync</span>
+              </div>
+              <div class="hud-node-item">
+                <span><span class="hud-dot"></span>Oracle Cloud Infrastructure</span>
+                <span style="color: rgba(255,255,255,0.45);">DB Cluster • High Concurrency</span>
+              </div>
+              <div class="hud-node-item">
+                <span><span class="hud-dot"></span>Global Anycast DNS Routing</span>
+                <span style="color: rgba(255,255,255,0.45);">Edge Distribution • Zero Lag</span>
+              </div>
+              <div class="hud-node-item">
+                <span><span class="hud-dot"></span>SaaS Escalation Pipeline</span>
+                <span style="color: rgba(255,255,255,0.45);">Tier 1/2 Automation • 98% CSAT</span>
               </div>
             </div>
-            <div class="project-body">
-              <div class="project-header-meta">
-                <span class="project-category">Windows Desktop App</span>
-                <span class="project-date">August 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. FEATURED PROJECTS (Audio DSP Waves, Inking Paths & FinTech Charts)
+         ========================================================================== -->
+    <section class="projects-section" id="projects">
+      <canvas class="section-canvas-bg" id="engineeringCanvas"></canvas>
+
+      <div class="container">
+        <div class="section-eyebrow">Engineering & Utilities</div>
+        <h2 class="section-heading">
+          <span>Featured</span>
+          <span class="ghost">Projects.</span>
+        </h2>
+
+        <div class="projects-list">
+          
+          <!-- Project 1: ApexPen -->
+          <article class="project-cinematic-card">
+            <div class="project-img-container">
+              <img src="./assets/projects/ApexPen.jpeg" alt="ApexPen Desktop Screen Annotation Engine">
+            </div>
+            <div class="project-content">
+              <div>
+                <div class="project-meta-top">
+                  <span class="project-cat">Desktop Software</span>
+                  <span class="project-date">August 2026</span>
+                </div>
+                <h3 class="project-title">ApexPen — Windows Screen Annotation Engine</h3>
+                <p class="project-desc">
+                  High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams. Featuring click-through mode and numbered instructional step badges.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Python</span>
+                  <span class="project-tag">PyQt6</span>
+                  <span class="project-tag">Win32 API</span>
+                  <span class="project-tag">Vector Graphics</span>
+                  <span class="project-tag">&lt;35MB RAM</span>
+                </div>
               </div>
-              <h3 class="project-title">ApexPen — Desktop Screen Annotation Engine for Windows</h3>
-              <p class="project-desc">
-                High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams.
-              </p>
-              <ul class="project-features">
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Ultra-Smooth Vector Inking:</strong> Low-latency pen, transparent highlighter & laser spotlight.</span>
-                </li>
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Click-Through Mode:</strong> Annotate on-screen then click underlying apps without erasing strokes.</span>
-                </li>
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Numbered Step Badges (① ② ③):</strong> Create instant instructional steps in real-time.</span>
-                </li>
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Ultra-Lightweight:</strong> Consumes &lt;35 MB RAM with zero bulky dependencies.</span>
-                </li>
-              </ul>
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">PyQt / GUI</span>
-                <span class="project-tag">Win32 API</span>
-                <span class="project-tag">Vector Graphics</span>
-                <span class="project-tag">Screen Capture</span>
-              </div>
-              <div class="project-footer">
-                <a href="https://github.com/ranaanas/ApexPen" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  <span>View Repository</span>
+              <div>
+                <a href="https://github.com/ranaanas/ApexPen" target="_blank" class="btn-accent-pill">
+                  View Repository
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </a>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Standalone Release</span>
               </div>
             </div>
           </article>
 
-          <!-- Project 2: MT5 Multi-Account Trade Manager -->
-          <article class="project-card">
-            <div class="project-image-wrap" data-zoom-img="./assets/projects/mt5-manager.jpeg">
-              <img src="./assets/projects/mt5-manager.jpeg" alt="MT5 Multi-Account Trade Manager Interface" class="project-img">
-              <div class="project-image-overlay">
-                <span class="image-zoom-btn">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  Click to Zoom Preview
-                </span>
-              </div>
+          <!-- Project 2: MT5 Trade Manager -->
+          <article class="project-cinematic-card">
+            <div class="project-img-container">
+              <img src="./assets/projects/mt5-manager.jpeg" alt="MT5 Multi-Account Trade Manager">
             </div>
-            <div class="project-body">
-              <div class="project-header-meta">
-                <span class="project-category">FinTech / Trading System</span>
-                <span class="project-date">2026</span>
+            <div class="project-content">
+              <div>
+                <div class="project-meta-top">
+                  <span class="project-cat">FinTech & Trading</span>
+                  <span class="project-date">2026</span>
+                </div>
+                <h3 class="project-title">MT5 Multi-Account Trade Manager</h3>
+                <p class="project-desc">
+                  High-concurrency trade synchronization desktop application designed for prop firm funded traders and broker desks. Built with a master-worker multiprocessing architecture eliminating sequential execution latency.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">MetaTrader 5 API</span>
+                  <span class="project-tag">Multiprocessing</span>
+                  <span class="project-tag">Keyring Security</span>
+                  <span class="project-tag">Risk Modeling</span>
+                </div>
               </div>
-              <h3 class="project-title">MT5 Multi-Account Trade Manager</h3>
-              <p class="project-desc">
-                High-concurrency trade synchronization desktop application designed for prop firm funded traders, multi-account money managers, and broker desks.
-              </p>
-              <ul class="project-features">
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Master-Worker Architecture:</strong> True concurrent multiprocessing order execution eliminating sequential lag.</span>
-                </li>
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Independent Lot Sizing:</strong> Per-account risk management rules and dynamic allocation.</span>
-                </li>
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>One-Click Panic Close:</strong> Instant global position closing and pending order removal.</span>
-                </li>
-              </ul>
-              <div class="project-tags">
-                <span class="project-tag">MetaTrader 5 API</span>
-                <span class="project-tag">Multiprocessing</span>
-                <span class="project-tag">Python</span>
-                <span class="project-tag">OS Keyring Security</span>
-              </div>
-              <div class="project-footer">
-                <a href="https://github.com/ranaanas/MT5-Trade-Manager" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  <span>View Repository</span>
+              <div>
+                <a href="https://github.com/ranaanas/MT5-Trade-Manager" target="_blank" class="btn-accent-pill">
+                  View Repository
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </a>
               </div>
             </div>
           </article>
 
           <!-- Project 3: Background Music Remover -->
-          <article class="project-card">
-            <div class="project-image-wrap" data-zoom-img="./assets/projects/audio-remover.jpeg">
-              <img src="./assets/projects/audio-remover.jpeg" alt="Background Music Remover Desktop Utility" class="project-img">
-              <div class="project-image-overlay">
-                <span class="image-zoom-btn">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  Click to Zoom Preview
-                </span>
-              </div>
+          <article class="project-cinematic-card">
+            <div class="project-img-container">
+              <img src="./assets/projects/audio-remover.jpeg" alt="Background Music Remover">
             </div>
-            <div class="project-body">
-              <div class="project-header-meta">
-                <span class="project-category">Audio Processing Utility</span>
-                <span class="project-date">Jul – Aug 2026</span>
-              </div>
-              <h3 class="project-title">Background Music Remover</h3>
-              <p class="project-desc">
-                Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials.
-              </p>
-              <ul class="project-features">
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Real-time Vocal Isolation:</strong> Low-latency digital audio filtering pipeline.</span>
-                </li>
-                <li class="project-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Virtual Audio Driver Support:</strong> Routes cleaned audio directly into Zoom, OBS, and Teams.</span>
-                </li>
-              </ul>
-              <div class="project-tags">
-                <span class="project-tag">Audio DSP</span>
-                <span class="project-tag">Python</span>
-                <span class="project-tag">Windows Audio Engine</span>
-                <span class="project-tag">Real-Time Processing</span>
-              </div>
-              <div class="project-footer">
-                <a href="https://github.com/ranaanas/background-music-remover" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  <span>View Repository</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 4: AI-Powered Rapid Development -->
-          <article class="project-card">
-            <div class="project-body" style="justify-content: space-between; height: 100%;">
-              <div style="display: flex; flex-direction: column; gap: 1.15rem;">
-                <div class="project-header-meta">
-                  <span class="project-category">Full-Stack & AI Systems</span>
-                  <span class="project-date">Ongoing</span>
+            <div class="project-content">
+              <div>
+                <div class="project-meta-top">
+                  <span class="project-cat">Audio Processing</span>
+                  <span class="project-date">Jul – Aug 2026</span>
                 </div>
-                <h3 class="project-title">AI-Powered Web & Rapid Application Development</h3>
+                <h3 class="project-title">Real-Time Background Music Remover</h3>
                 <p class="project-desc">
-                  Accelerated full-stack software prototyping, responsive web development, and automated test orchestration leveraging autonomous AI coding agents, prompt engineering, and modern decentralized deployment standards.
+                  Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials with virtual audio driver routing.
                 </p>
-                <ul class="project-features">
-                  <li class="project-feature-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Decentralized & IPFS Ready:</strong> Zero server dependencies and high-speed edge distribution.</span>
-                  </li>
-                  <li class="project-feature-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Autonomous Agent Workflows:</strong> Advanced pair-programming and rapid refactoring workflows.</span>
-                  </li>
-                </ul>
                 <div class="project-tags">
-                  <span class="project-tag">HTML5 / Modern JS</span>
-                  <span class="project-tag">IPFS Architecture</span>
-                  <span class="project-tag">AI Agent Orchestration</span>
-                  <span class="project-tag">Responsive UI/UX</span>
+                  <span class="project-tag">Audio DSP</span>
+                  <span class="project-tag">Python</span>
+                  <span class="project-tag">WASAPI Routing</span>
+                  <span class="project-tag">OBS / Zoom Support</span>
                 </div>
               </div>
-              <div class="project-footer">
-                <a href="https://github.com/ranaanas/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  <span>GitHub Profile</span>
+              <div>
+                <a href="https://github.com/ranaanas/background-music-remover" target="_blank" class="btn-accent-pill">
+                  View Repository
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </a>
               </div>
             </div>
@@ -402,714 +1373,845 @@
       </div>
     </section>
 
-    <!-- ========================================================================
-         5. Verified Career Experience Timeline (All 10 Positions)
-         ======================================================================== -->
-    <section class="section" id="experience">
+    <!-- ==========================================================================
+         5. EXPERIENCE TIMELINE (Milestone Radar & Transit Trajectory Animation)
+         ========================================================================== -->
+    <section class="experience-section" id="experience">
+      <canvas class="section-canvas-bg" id="timelineCanvas"></canvas>
+
       <div class="container">
-        <div class="section-header">
-          <div class="section-badge">Career Track Record</div>
-          <h2 class="section-title">Verified Professional Experience</h2>
-          <p class="section-subtitle">
-            A comprehensive history of leadership in technical operations, SaaS escalation engineering, proprietary capital trading, and customer experience excellence.
-          </p>
-        </div>
+        <div class="section-eyebrow">Track Record</div>
+        <h2 class="section-heading">
+          <span>Career</span>
+          <span class="ghost">Journey.</span>
+        </h2>
 
-        <div class="timeline-container">
-
-          <!-- 1. ibex Pakistan -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Technical Support Specialist</h3>
-                  <div class="timeline-company">ibex. Pakistan</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">May 2025 – Jun 2026</span>
-                  <span class="timeline-domain-badge">Global BPO / PropTech</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>On-site / Contract · Lahore, Pakistan</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Delivered mission-critical technical product support for enterprise clients, serving as frontline liaison managing Compass.com's Technical Product Support ecosystem within IBEX's global BPO operations.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Client Partnership &amp; SLA Ownership:</strong> Consistently met and exceeded stringent service-level agreements for first-response time, resolution rate, and customer satisfaction.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Performance Benchmarks:</strong> Maintained a <strong>98%+ CSAT score</strong> across all evaluation cycles while handling the <strong>highest ticket volume</strong> on the floor.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Omnichannel Troubleshooting:</strong> Proactively diagnosed and resolved complex technical issues across Compass.com's web and mobile platforms (listings, CRM integrations, mapping tools, client portals, and performance optimization).</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Process Optimization:</strong> Analyzed support trends and collaborated with internal teams to deploy workflow enhancements, significantly reducing average handle time (AHT) and repeat contacts.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Quality Assurance &amp; Mentorship:</strong> Trained and mentored incoming support specialists and authored troubleshooting guides to elevate floor-wide proficiency.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Cross-Functional Bug Escalation:</strong> Partnered directly with Compass engineering and product teams to escalate, reproduce, and resolve high-priority defects.</span>
-                </li>
-              </ul>
+        <div class="timeline-list">
+          
+          <div class="timeline-row">
+            <div>
+              <div class="timeline-date">May 2025 – Jun 2026</div>
+              <div class="timeline-company">ibex. Pakistan</div>
             </div>
+            <div>
+              <div class="timeline-role">Technical Support Specialist (Compass.com)</div>
+              <div class="timeline-summary">Delivered Tier 1/2 technical product support for Compass PropTech SaaS. 98%+ CSAT with #1 ticket volume record on the floor.</div>
+            </div>
+            <div><span class="timeline-tag">PropTech SaaS</span></div>
           </div>
 
-          <!-- 2. Compass -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Technical Product Support Specialist</h3>
-                  <div class="timeline-company">Compass</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">May 2025 – Jun 2026</span>
-                  <span class="timeline-domain-badge">PropTech SaaS</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>On-site (Contract)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Embedded directly within Compass.com's support ecosystem, empowering real estate agents across the United States to maximize proprietary digital tools, CRM systems, and marketing workflows.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Agent Enablement:</strong> Provided personalized technical guidance on Compass web and mobile tools, property listing pipelines, and client collaboration portals.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Root-Cause Analysis:</strong> Investigated recurring product friction points and collaborated with product managers to prioritize bug fixes and feature enhancements.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Knowledge Management:</strong> Created and maintained troubleshooting documentation, FAQs, and self-service materials to reduce escalations and promote user independence.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Customer Advocacy:</strong> Tracked agent satisfaction metrics, identified user pain points, and drove continuous platform improvements alongside engineering teams.</span>
-                </li>
-              </ul>
+          <div class="timeline-row">
+            <div>
+              <div class="timeline-date">Aug 2023 – Jul 2024</div>
+              <div class="timeline-company">Freightlinersllc.com</div>
             </div>
+            <div>
+              <div class="timeline-role">Dispatch Manager</div>
+              <div class="timeline-summary">Directed end-to-end commercial freight logistics fleets across the US. Direct rate negotiation with TQL, Coyote, Uber Freight, Landstar.</div>
+            </div>
+            <div><span class="timeline-tag">US Logistics</span></div>
           </div>
 
-          <!-- 3. Freightlinersllc.com -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Dispatch Manager</h3>
-                  <div class="timeline-company">Freightlinersllc.com</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Aug 2023 – Jul 2024</span>
-                  <span class="timeline-domain-badge">Freight Logistics</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Remote / Full-time · United States</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Directed end-to-end commercial freight dispatch operations, coordinating long-haul logistics fleets and driver schedules across the contiguous United States.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Brokerage Negotiation &amp; Load Booking:</strong> Managed full-cycle truck dispatching operations, booking freight loads at premium market rates by negotiating directly with top USA freight brokers (TQL, Integrity, Coyote, Uber Freight, Landstar).</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Route Planning &amp; Schedule Optimization:</strong> Coordinated logistics timetables to guarantee on-time pickup and delivery while actively managing driver layovers, detentions, and route mapping under strict transit deadlines.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Compliance &amp; Safety Governance:</strong> Enforced strict compliance with Department of Transportation (DOT) hours-of-service regulations and safety standards.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Incident &amp; Dispute Resolution:</strong> Handled rapid roadside escalation triage, breakdown coordination, and broker claims resolution to protect revenue margins.</span>
-                </li>
-              </ul>
+          <div class="timeline-row">
+            <div>
+              <div class="timeline-date">Apr 2023 – Mar 2024</div>
+              <div class="timeline-company">The Funded Trader</div>
             </div>
+            <div>
+              <div class="timeline-role">Proprietary Equity Trader</div>
+              <div class="timeline-summary">Traded $10,000+ proprietary firm capital under strict risk limits, order flow analysis, and automated MT5 quantitative models.</div>
+            </div>
+            <div><span class="timeline-tag">Capital Markets</span></div>
           </div>
 
-          <!-- 4. The Funded Trader -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Proprietary Equity Trader</h3>
-                  <div class="timeline-company">The Funded Trader</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Apr 2023 – Mar 2024</span>
-                  <span class="timeline-domain-badge">Capital Markets</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Remote (Contract)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Traded proprietary institutional firm capital across global FX and equity markets with strict algorithmic risk parameters and drawdown constraints.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Capital Management &amp; Risk Governance:</strong> Managed over <strong>$10,000+ proprietary trading capital</strong> with institutional-grade risk management parameters, strict daily/total drawdown limits, and disciplined position sizing.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Systematic Trade Execution:</strong> Executed strategic foreign exchange and equity transactions based on technical analysis, market liquidity modeling, order flow, and macroeconomic trends.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Quantitative Backtesting:</strong> Backtested high-probability discretionary and automated trading systems in MetaTrader environments to validate edge consistency.</span>
-                </li>
-              </ul>
+          <div class="timeline-row">
+            <div>
+              <div class="timeline-date">Apr 2022 – Mar 2023</div>
+              <div class="timeline-company">n.exchange (London, UK)</div>
             </div>
+            <div>
+              <div class="timeline-role">Operations & Technical Support Manager</div>
+              <div class="timeline-summary">Led cross-functional team of 50+ staff across 24/7 technical operations, wallet nodes, and crypto exchange uptime. 98%+ CSAT.</div>
+            </div>
+            <div><span class="timeline-tag">Crypto Exchange</span></div>
           </div>
 
-          <!-- 5. n.exchange -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Operations &amp; Technical Support Manager</h3>
-                  <div class="timeline-company">n.exchange</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Apr 2022 – Mar 2023</span>
-                  <span class="timeline-domain-badge">Blockchain &amp; Crypto</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>London, UK (Remote / Full-time)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Directed end-to-end technical operations and customer support for a London-based 24/7 cryptocurrency exchange platform.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Team Leadership:</strong> Successfully led and coordinated a cross-functional team of <strong>50+ professionals</strong> across technical support, exchange operations, and customer service.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Operational Continuity:</strong> Oversaw platform uptime, blockchain transaction pipelines, wallet security, and system performance in high-volatility market conditions.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Customer Support Excellence:</strong> Maintained a <strong>98%+ CSAT score</strong> across technical and transactional inquiries, personally handling complex escalated issues.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>SLA &amp; Process Governance:</strong> Designed standard operating procedures (SOPs) and incident escalation pathways, reducing response times and ensuring compliance.</span>
-                </li>
-              </ul>
+          <div class="timeline-row">
+            <div>
+              <div class="timeline-date">Jun 2021 – Jul 2022</div>
+              <div class="timeline-company">Telebridge Communications</div>
             </div>
+            <div>
+              <div class="timeline-role">Customer Relationship Officer</div>
+              <div class="timeline-summary">Delivered dedicated account management, achieving a verified 15% increase in customer retention.</div>
+            </div>
+            <div><span class="timeline-tag">Telecom BPO</span></div>
           </div>
 
-          <!-- 6. MyTutorpod.com -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Customer Relationship Officer</h3>
-                  <div class="timeline-company">MyTutorpod.com</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Jun 2021 – Jul 2022</span>
-                  <span class="timeline-domain-badge">EdTech</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>United States (Remote / Full-time)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Led client services and support operations ensuring seamless online tutoring delivery for educators and students across North America.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Support Team Supervision:</strong> Managed a customer support team ensuring seamless online tutoring delivery, session coordination, and account management for students and tutors across North America.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Technical &amp; Billing Resolution:</strong> Resolved complex technical, platform onboarding, billing, and scheduling inquiries, maintaining high client satisfaction ratings through structured communication.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Account Retention &amp; User Engagement:</strong> Implemented active follow-up protocols that bolstered recurring student subscriptions and reduced churn.</span>
-                </li>
-              </ul>
+          <div class="timeline-row">
+            <div>
+              <div class="timeline-date">Sep 2017 – Sep 2021</div>
+              <div class="timeline-company">Shop247.com.pk</div>
             </div>
+            <div>
+              <div class="timeline-role">E-Commerce Business Owner</div>
+              <div class="timeline-summary">Built enterprise software licensing platform supplying corporate clients with Microsoft 365, Windows, and Azure volume licenses.</div>
+            </div>
+            <div><span class="timeline-tag">B2B Licensing</span></div>
           </div>
 
-          <!-- 7. Telebridge Communications -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Customer Relationship Officer</h3>
-                  <div class="timeline-company">Telebridge Communications</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Jun 2021 – Jul 2022</span>
-                  <span class="timeline-domain-badge">Telecommunications</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Remote (Full-time)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Spearheaded customer lifecycle management, high-touch support, and account retention programs across international telecommunications campaigns.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Strategic Account Management:</strong> Delivered high-touch client support and relationship management across telecommunications accounts, proactively resolving technical and billing friction points.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Customer Retention Growth:</strong> Achieved a verified <strong>15% increase in customer retention</strong> through strategic engagement, rapid issue resolution, and quality service delivery.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Escalation Handling &amp; SLA Compliance:</strong> Exceeded performance targets in first-call resolution and customer satisfaction benchmarks across all evaluation periods.</span>
-                </li>
-              </ul>
+          <div class="timeline-row">
+            <div>
+              <div class="timeline-date">Jan 2010 – Apr 2014</div>
+              <div class="timeline-company">HostLunar.com</div>
             </div>
-          </div>
-
-          <!-- 8. Shop247.com.pk -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">E-Commerce Business Owner | Enterprise Software Licensing</h3>
-                  <div class="timeline-company">Shop247.com.pk</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Sep 2017 – Sep 2021</span>
-                  <span class="timeline-domain-badge">B2B Enterprise Software</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Lahore, Pakistan (Remote / Self-employed)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Founded and scaled a specialized B2B digital distribution platform for enterprise software, serving corporate clients and regional wholesale distributors as an authorized reseller.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Business Growth &amp; Scalability:</strong> Scaled the business from zero to <strong>consistent profitability</strong>, supplying Microsoft enterprise licenses (Windows, Office suites, Azure infrastructure) to corporate clients.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Vendor Procurement &amp; Volume Licensing:</strong> Negotiated bulk pricing and volume licensing agreements to maximize margin while maintaining competitive market pricing.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Server Infrastructure &amp; Automation:</strong> Administered web hosting infrastructure, server security, payment gateways, and automated digital license fulfillment workflows.</span>
-                </li>
-              </ul>
+            <div>
+              <div class="timeline-role">Founder & Cloud Infrastructure Owner</div>
+              <div class="timeline-summary">Administered dedicated servers, DNS configurations, and cloud instances across AWS, Azure, and Oracle Cloud Infrastructure.</div>
             </div>
-          </div>
-
-          <!-- 9. Tribe Consulting -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Customer Service Representative</h3>
-                  <div class="timeline-company">Tribe Consulting (Pvt.) Ltd.</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Feb 2021 – Jun 2021</span>
-                  <span class="timeline-domain-badge">Customer Operations</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Pakistan (On-site / Full-time)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Delivered multichannel customer support and service resolution for international business campaigns.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Customer Communication:</strong> Handled multichannel customer communications, meeting strict first-contact resolution benchmarks and client satisfaction targets.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Product Guidance &amp; Issue Resolution:</strong> Resolved technical customer queries promptly with high quality ratings, boosting customer comprehension of products by 10%.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- 10. HostLunar.com -->
-          <div class="timeline-item">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div class="timeline-role-info">
-                  <h3 class="timeline-role">Business Owner</h3>
-                  <div class="timeline-company">HostLunar.com</div>
-                </div>
-                <div class="timeline-badge-row">
-                  <span class="timeline-duration-badge">Jan 2010 – Apr 2014</span>
-                  <span class="timeline-domain-badge">Web Hosting &amp; Cloud Infrastructure</span>
-                </div>
-              </div>
-              <div class="timeline-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Pakistan (Self-employed)</span>
-              </div>
-              <div style="font-size: 0.92rem; color: var(--text-muted); margin: 0.75rem 0 0.5rem; line-height: 1.55;">
-                Founded and operated a web services enterprise providing dedicated server hosting, domain registration, and cloud infrastructure solutions to a diverse client base.
-              </div>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Web Hosting &amp; Server Management:</strong> Provisioned, configured, and maintained dedicated web servers, administering hosting environments for multiple client websites and domains.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Domain &amp; DNS Administration:</strong> Managed full lifecycle domain registration, DNS record configuration (A, CNAME, MX, TXT), nameserver routing, and subdomain management.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Cloud Server Infrastructure:</strong> Administered cloud servers across platforms including AWS, Microsoft Azure, and Oracle Cloud — covering server provisioning, security hardening, uptime monitoring, and performance optimization.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span><strong>Client Relations &amp; Growth:</strong> Directed business growth initiatives and maintained high client satisfaction through dedicated account management, technical support, and enduring partnerships.</span>
-                </li>
-                <li class="timeline-bullet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                  <span>Managed SSL certificates, hosting control panels (cPanel/WHM), and payment/billing workflows for enterprise and SMB clients.</span>
-                </li>
-              </ul>
-            </div>
+            <div><span class="timeline-tag">Cloud & Servers</span></div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ========================================================================
-         6. Skills & Domain Matrix
-         ======================================================================== -->
-    <section class="section section-alt" id="skills">
+    <!-- ==========================================================================
+         6. CONTACT SECTION
+         ========================================================================== -->
+    <section class="contact-section" id="contact">
+      <canvas class="section-canvas-bg" id="contactCanvas"></canvas>
+
       <div class="container">
-        <div class="section-header">
-          <div class="section-badge">Core Competencies</div>
-          <h2 class="section-title">Skills & Domain Expertise Matrix</h2>
-          <p class="section-subtitle">
-            An extensive inventory of technical operations capabilities, development stacks, and specialized industry domain proficiencies.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-
-          <!-- Category 1: Technical Operations & Support -->
-          <div class="skill-category-card">
-            <div class="skill-category-header">
-              <div class="skill-icon-wrap">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div>
-                <h3 class="skill-category-title">Technical Operations & Support</h3>
-                <div class="skill-category-desc">Governance, escalation, and customer satisfaction</div>
-              </div>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">Technical Support Management</span>
-              <span class="skill-pill featured">Escalation Triage</span>
-              <span class="skill-pill">SLA / KPI Governance</span>
-              <span class="skill-pill">CSAT & NPS Optimization</span>
-              <span class="skill-pill">Zendesk</span>
-              <span class="skill-pill">Freshdesk</span>
-              <span class="skill-pill">CRM Integrations</span>
-              <span class="skill-pill">Root-Cause Analysis</span>
-              <span class="skill-pill">SOP & KB Authoring</span>
-              <span class="skill-pill">Incident Response</span>
-            </div>
-          </div>
-
-          <!-- Category 2: Cloud & Server Infrastructure -->
-          <div class="skill-category-card">
-            <div class="skill-category-header">
-              <div class="skill-icon-wrap">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-              </div>
-              <div>
-                <h3 class="skill-category-title">Cloud &amp; Server Infrastructure</h3>
-                <div class="skill-category-desc">Cloud platforms, dedicated servers, DNS &amp; hosting</div>
-              </div>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">AWS</span>
-              <span class="skill-pill featured">Microsoft Azure</span>
-              <span class="skill-pill featured">Oracle Cloud</span>
-              <span class="skill-pill">Dedicated Server Hosting</span>
-              <span class="skill-pill">cPanel / WHM</span>
-              <span class="skill-pill">Domain &amp; DNS Administration</span>
-              <span class="skill-pill">SSL / TLS Configuration</span>
-              <span class="skill-pill">Server Hardening &amp; Security</span>
-              <span class="skill-pill">Uptime &amp; Performance Monitoring</span>
-              <span class="skill-pill">Linux Server Administration</span>
-            </div>
-          </div>
-
-          <!-- Category 3: Software & Development -->
-          <div class="skill-category-card">
-            <div class="skill-category-header">
-              <div class="skill-icon-wrap">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              </div>
-              <div>
-                <h3 class="skill-category-title">Software & AI Development</h3>
-                <div class="skill-category-desc">Desktop frameworks, web architectures & AI agent tools</div>
-              </div>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">Python</span>
-              <span class="skill-pill featured">Desktop GUI Frameworks</span>
-              <span class="skill-pill">JavaScript (ES6+)</span>
-              <span class="skill-pill">HTML5 / Vanilla CSS3</span>
-              <span class="skill-pill">AI Coding Agent Orchestration</span>
-              <span class="skill-pill">Prompt Engineering</span>
-              <span class="skill-pill">REST APIs</span>
-              <span class="skill-pill">Git & GitHub</span>
-              <span class="skill-pill">Multiprocessing</span>
-            </div>
-          </div>
-
-          <!-- Category 4: Industry Domains -->
-          <div class="skill-category-card">
-            <div class="skill-category-header">
-              <div class="skill-icon-wrap">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <div>
-                <h3 class="skill-category-title">Industry Domains</h3>
-                <div class="skill-category-desc">Deep vertical experience across global sectors</div>
-              </div>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">PropTech SaaS (Compass.com)</span>
-              <span class="skill-pill featured">Blockchain & Crypto Exchanges</span>
-              <span class="skill-pill">Web Hosting & Cloud Services</span>
-              <span class="skill-pill">FinTech & MetaTrader 5 (MT5)</span>
-              <span class="skill-pill">B2B Enterprise Software Distribution</span>
-              <span class="skill-pill">Freight Logistics & Supply Chain</span>
-              <span class="skill-pill">Capital Markets & Prop Trading</span>
-              <span class="skill-pill">EdTech Operations</span>
-            </div>
-          </div>
-
-          <!-- Category 5: Languages & Communication -->
-          <div class="skill-category-card">
-            <div class="skill-category-header">
-              <div class="skill-icon-wrap">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </div>
-              <div>
-                <h3 class="skill-category-title">Languages & Global Collaboration</h3>
-                <div class="skill-category-desc">Multilingual communication for worldwide distributed teams</div>
-              </div>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">English — Full Professional Proficiency</span>
-              <span class="skill-pill">Urdu — Native Proficiency</span>
-              <span class="skill-pill">Punjabi — Native Proficiency</span>
-              <span class="skill-pill">Asynchronous Team Leadership</span>
-              <span class="skill-pill">Executive Stakeholder Reporting</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         7. Education & Honors
-         ======================================================================== -->
-    <section class="section" id="education">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-badge">Academic & Honors</div>
-          <h2 class="section-title">Education & Recognized Awards</h2>
-          <p class="section-subtitle">
-            Formal business education combined with recognized university leadership distinctions.
-          </p>
-        </div>
-
-        <div class="edu-grid">
-
-          <!-- Degree Card -->
-          <div class="edu-card">
-            <div class="edu-icon-wrap degree">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <div class="edu-body">
-              <h3 class="edu-title">Bachelor of Commerce (BCom)</h3>
-              <div class="edu-institution">The Superior University, Lahore</div>
-              <div class="edu-meta">2014 – 2016 · Lahore, Pakistan</div>
-              <p class="edu-desc">
-                Concentration in Business Operations, Commerce, Financial Systems, and Commercial Law.
-              </p>
-            </div>
-          </div>
-
-          <!-- Award Card -->
-          <div class="edu-card">
-            <div class="edu-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            </div>
-            <div class="edu-body">
-              <h3 class="edu-title">🏆 Best Coordinator (CR) of the Year</h3>
-              <div class="edu-institution">Issued by Superior University</div>
-              <div class="edu-meta">April 2015 · Academic Honor</div>
-              <p class="edu-desc">
-                Awarded for exemplary student leadership, cross-departmental coordination, and student representation throughout the academic session.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         8. Contact & IPFS Ready Section
-         ======================================================================== -->
-    <section class="section section-alt" id="contact">
-      <div class="container">
-        <div class="contact-card">
-          <div class="section-badge">Let's Connect</div>
-          <h2 class="contact-headline">Ready to Elevate Your Operations or Software?</h2>
-          <p class="contact-subtitle">
-            Whether you need a senior technical operations leader to scale your customer success and product support or a proactive developer for rapid prototyping, my inbox is open.
-          </p>
-
-          <div class="contact-actions">
-            <!-- Email Copy Pill -->
-            <div class="email-copy-box">
-              <span class="email-text">ranaanas.work@gmail.com</span>
-              <button class="btn btn-secondary btn-sm btn-copy-email" data-email="ranaanas.work@gmail.com" title="Copy email to clipboard">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                <span>Copy</span>
-              </button>
-            </div>
-
-            <!-- Mailto Button -->
-            <a href="mailto:ranaanas.work@gmail.com" class="btn btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span>Send Direct Email</span>
-            </a>
-
-            <!-- LinkedIn Button -->
-            <a href="https://www.linkedin.com/in/ranaanas" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              <span>LinkedIn Profile</span>
-            </a>
-
-            <!-- GitHub Button -->
-            <a href="https://github.com/ranaanas/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              <span>GitHub</span>
-            </a>
-          </div>
-
+        <div class="contact-grid">
           <div>
-            <span class="ipfs-badge-strip">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-              <span>Built for IPFS & Decentralized Web Deployment · 100% Client-Side Compatible</span>
-            </span>
+            <div class="section-eyebrow">Get In Touch</div>
+            <h2 class="section-heading">
+              <span>Let's build</span>
+              <span class="ghost-accent">together.</span>
+            </h2>
+
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 2rem;">
+              Whether you need senior technical support leadership, cloud server infrastructure orchestration, or custom software utility engineering — let's start a conversation.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 1.1rem; font-family: var(--font-mono); font-size: 13px;">
+              <div>
+                <a href="mailto:ranaanas.work@gmail.com" style="color: rgba(255,255,255,0.85); text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; transition: color 0.2s ease;">
+                  <span style="color: var(--accent); font-weight: 700; transition: color 0.3s ease;">Email:</span> ranaanas.work@gmail.com
+                </a>
+              </div>
+              <div>
+                <a href="https://wa.me/923434477096" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.85); text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; transition: color 0.2s ease;">
+                  <span style="color: #25D366; font-weight: 700;">WhatsApp:</span> +92 343 4477096
+                  <span style="font-size: 10px; padding: 2px 8px; border-radius: 999px; background: rgba(37, 211, 102, 0.16); color: #25D366; border: 1px solid rgba(37, 211, 102, 0.3); font-weight: 700;">Chat ↗</span>
+                </a>
+              </div>
+              <div style="color: rgba(255,255,255,0.5);">
+                <span style="color: var(--accent); font-weight: 700; transition: color 0.3s ease;">Location:</span> Lahore, Pakistan (Global Remote UTC+5)
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form with Email / WhatsApp Toggle -->
+          <div class="contact-form-card">
+            <div class="contact-tabs">
+              <button class="contact-tab-btn active" id="tabEmail">Email Message</button>
+              <button class="contact-tab-btn" id="tabWhatsapp">Direct WhatsApp</button>
+            </div>
+
+            <form id="contactForm">
+              <div class="form-group">
+                <label class="form-label" for="formName">Your Name</label>
+                <input type="text" class="form-input" id="formName" name="name" placeholder="Full name or company" required>
+              </div>
+
+              <div class="form-group" id="fieldEmailGroup">
+                <label class="form-label" for="formEmail">Your Email</label>
+                <input type="email" class="form-input" id="formEmail" name="email" placeholder="name@company.com">
+              </div>
+
+              <div class="form-group" id="fieldPhoneGroup" style="display: none;">
+                <label class="form-label" for="formPhone">Your WhatsApp Phone Number (Optional)</label>
+                <input type="tel" class="form-input" id="formPhone" name="phone" placeholder="+92 300 1234567">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formMsg">Message / Project Details</label>
+                <textarea class="form-input" id="formMsg" name="message" rows="4" placeholder="Describe the role or project you'd like to discuss..." style="resize: none;" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-accent-pill" id="submitBtn" style="width: 100%; justify-content: center; padding: 1rem;">
+                <span id="submitBtnText">Send Email Inquiry</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+
+              <div id="formFeedback" style="display: none; margin-top: 1.25rem;"></div>
+            </form>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ========================================================================
-       9. Footer
-       ======================================================================== -->
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-left">
-        <span style="font-weight: 700; color: var(--text-main);">Rana Anas</span>
-        <span>© 2026. All rights reserved.</span>
+    <div class="container footer-content">
+      <div>
+        <p style="font-size: 11px; color: var(--accent); letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; transition: color 0.3s ease;">
+          Technical Operations Leader
+        </p>
+        <h3 style="font-size: 2.2rem; font-weight: 900; letter-spacing: -0.04em;">Rana Anas</h3>
       </div>
 
-      <div class="footer-right">
-        <a href="https://github.com/ranaanas" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/ranaanas" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="mailto:ranaanas.work@gmail.com" class="footer-social-link" title="Email">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
-        <a href="./assets/resume.pdf" class="footer-social-link" download="Rana_Anas_Resume.pdf" title="Resume">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
+      <div style="text-align: right;">
+        <p style="font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">
+          Cinematic Portfolio Mock • 13 Luxury Color Palettes
+        </p>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.25); font-family: var(--font-mono);">
+          © 2026 Rana Anas. All rights reserved.
+        </p>
       </div>
     </div>
   </footer>
 
-  <!-- ========================================================================
-       10. Toast Notification & Modal Component
-       ======================================================================== -->
-  <div class="toast" id="toast" role="alert" aria-live="polite">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-    <span class="toast-message">Copied to clipboard!</span>
-  </div>
+  <!-- ==========================================================================
+       JAVASCRIPT: Dynamic Color Engine & Section Background Canvas Systems
+       ========================================================================== -->
+  <script>
+// ==========================================================================
+// 1. Finalized Royal Cobalt Theme Engine
+// ==========================================================================
+const currentThemeKey = 'cobalt';
+const currentAccentHex = '#2563EB';
+const currentAccentRgb = [37, 99, 235];
 
-  <!-- Image Zoom Modal -->
-  <div class="image-modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Project Preview Zoom">
-    <div class="modal-content-wrap">
-      <button class="modal-close-btn" id="modalClose" aria-label="Close image modal">&times;</button>
-      <img src="" alt="Zoomed Project Preview" class="modal-img" id="modalImage">
-    </div>
-  </div>
+// ==========================================================================
+// 2. Smooth Inertia Scrolling with Lenis & Anchor Scroll
+// ==========================================================================
+let lenis = null;
+if (typeof Lenis !== 'undefined') {
+  lenis = new Lenis({
+    lerp: 0.08,
+    smoothWheel: true,
+    wheelMultiplier: 1.0,
+  });
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}
 
-  <!-- App Script (Relative Path for IPFS) -->
-  <script src="./js/app.js"></script>
+// Smooth anchor navigation with Lenis
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (targetId && targetId !== '#') {
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(targetEl, { offset: -70, duration: 1.2 });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  });
+});
+
+if (window.location.hash) {
+  setTimeout(() => {
+    const el = document.querySelector(window.location.hash);
+    if (el) {
+      if (lenis) lenis.scrollTo(el, { offset: -70, immediate: true });
+      else el.scrollIntoView();
+    }
+  }, 120);
+}
+
+// ==========================================================================
+// 3. Custom Ambient Cursor Follower (Native Cursor ALWAYS Stays Active & Visible)
+// ==========================================================================
+const cursor = document.getElementById('custom-cursor');
+const cursorDot = document.getElementById('cursor-dot');
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let cursorX = mouseX;
+let cursorY = mouseY;
+
+window.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  if (cursorDot) {
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
+  }
+});
+
+function updateCursor() {
+  cursorX += (mouseX - cursorX) * 0.18;
+  cursorY += (mouseY - cursorY) * 0.18;
+  if (cursor) {
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+  }
+  requestAnimationFrame(updateCursor);
+}
+updateCursor();
+
+document.querySelectorAll('a, button, .project-cinematic-card, .timeline-row, .metric-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor && cursor.classList.add('active'));
+  el.addEventListener('mouseleave', () => cursor && cursor.classList.remove('active'));
+});
+
+// ==========================================================================
+// 4. Hero Portrait Mouse Parallax (Crisp & Subtle Tilt)
+// ==========================================================================
+const heroPortrait = document.getElementById('heroPortrait');
+if (heroPortrait) {
+  window.addEventListener('mousemove', (e) => {
+    const normX = (e.clientX / window.innerWidth) - 0.5;
+    const normY = (e.clientY / window.innerHeight) - 0.5;
+    heroPortrait.style.transform = `translateX(${normX * 18}px) translateY(${normY * 12}px) rotate(${normX * 1.5}deg)`;
+  });
+}
+
+// Helper to get accent rgba string
+function getAccentRgba(alpha) {
+  return `rgba(${currentAccentRgb[0]}, ${currentAccentRgb[1]}, ${currentAccentRgb[2]}, ${alpha})`;
+}
+
+// ==========================================================================
+// 5. HERO SECTION ANIMATION: Ambient Stardust & Cybernetic Glow
+// ==========================================================================
+const heroCanvas = document.getElementById('heroCanvas');
+if (heroCanvas) {
+  const ctx = heroCanvas.getContext('2d');
+  let w, h;
+  function resizeHero() {
+    w = heroCanvas.width = heroCanvas.offsetWidth;
+    h = heroCanvas.height = heroCanvas.offsetHeight;
+  }
+  resizeHero();
+  window.addEventListener('resize', resizeHero);
+
+  const stars = Array.from({ length: 70 }, () => ({
+    x: Math.random() * (w || 1200),
+    y: Math.random() * (h || 800),
+    radius: Math.random() * 1.5 + 0.5,
+    alpha: Math.random() * 0.6 + 0.2,
+    speed: Math.random() * 0.35 + 0.1,
+    isAccent: Math.random() > 0.65
+  }));
+
+  function animateHero() {
+    ctx.clearRect(0, 0, w, h);
+    stars.forEach(s => {
+      s.y -= s.speed;
+      if (s.y < 0) {
+        s.y = h;
+        s.x = Math.random() * w;
+      }
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+      ctx.fillStyle = s.isAccent ? currentAccentHex : '#ffffff';
+      ctx.globalAlpha = s.alpha * (0.8 + Math.sin(Date.now() * 0.002 + s.x) * 0.2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1.0;
+    requestAnimationFrame(animateHero);
+  }
+  animateHero();
+}
+
+// ==========================================================================
+// 6. METRICS SECTION ANIMATION: Live Support Telemetry, CSAT Pulses & Signals
+// ==========================================================================
+const telemetryCanvas = document.getElementById('telemetryCanvas');
+if (telemetryCanvas) {
+  const ctx = telemetryCanvas.getContext('2d');
+  let w, h;
+  function resizeTelemetry() {
+    w = telemetryCanvas.width = telemetryCanvas.offsetWidth;
+    h = telemetryCanvas.height = telemetryCanvas.offsetHeight;
+  }
+  resizeTelemetry();
+  window.addEventListener('resize', resizeTelemetry);
+
+  let step = 0;
+  function animateTelemetry() {
+    ctx.clearRect(0, 0, w, h);
+    step += 0.025;
+
+    // Draw multiple live oscillating telemetry signal waves
+    for (let j = 0; j < 3; j++) {
+      ctx.beginPath();
+      ctx.lineWidth = j === 0 ? 2 : 1;
+      ctx.strokeStyle = j === 0 ? getAccentRgba(0.5) : 'rgba(255, 255, 255, 0.12)';
+
+      for (let x = 0; x < w; x += 15) {
+        const freq = 0.004 * (j + 1);
+        const y = (h * 0.5) + Math.sin(x * freq + step + j) * 45 * Math.cos(step * 0.5);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+    // Floating digital data signal packets along the main wave
+    for (let i = 0; i < 8; i++) {
+      const packetX = ((step * 120 + i * 180) % (w || 1200));
+      const packetY = (h * 0.5) + Math.sin(packetX * 0.004 + step) * 45 * Math.cos(step * 0.5);
+      ctx.beginPath();
+      ctx.arc(packetX, packetY, 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = currentAccentHex;
+      ctx.shadowColor = currentAccentHex;
+      ctx.shadowBlur = 10;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    requestAnimationFrame(animateTelemetry);
+  }
+  animateTelemetry();
+}
+
+// ==========================================================================
+// 7. ABOUT SECTION ANIMATION: Cloud Server Topology & Network Mesh Packet Flow
+// ==========================================================================
+const cloudCanvas = document.getElementById('cloudCanvas');
+if (cloudCanvas) {
+  const ctx = cloudCanvas.getContext('2d');
+  let w, h;
+  function resizeCloud() {
+    w = cloudCanvas.width = cloudCanvas.offsetWidth;
+    h = cloudCanvas.height = cloudCanvas.offsetHeight;
+  }
+  resizeCloud();
+  window.addEventListener('resize', resizeCloud);
+
+  // Cloud Network Nodes representing AWS, Azure, Oracle & DNS
+  const cloudNodes = [
+    { label: 'AWS', x: 0.15, y: 0.35, vx: 0.2, vy: 0.15 },
+    { label: 'Azure', x: 0.35, y: 0.25, vx: -0.15, vy: 0.2 },
+    { label: 'Oracle', x: 0.25, y: 0.65, vx: 0.1, vy: -0.15 },
+    { label: 'DNS', x: 0.55, y: 0.45, vx: -0.2, vy: -0.1 },
+    { label: 'SaaS', x: 0.75, y: 0.30, vx: 0.15, vy: 0.2 },
+    { label: 'Cluster', x: 0.85, y: 0.65, vx: -0.1, vy: 0.15 },
+    { label: 'Edge', x: 0.45, y: 0.75, vx: 0.2, vy: -0.2 }
+  ];
+
+  let t = 0;
+  function animateCloud() {
+    ctx.clearRect(0, 0, w, h);
+    t += 0.02;
+
+    // Draw connections between nodes
+    for (let i = 0; i < cloudNodes.length; i++) {
+      for (let j = i + 1; j < cloudNodes.length; j++) {
+        const p1 = cloudNodes[i];
+        const p2 = cloudNodes[j];
+        const x1 = (p1.x + Math.sin(t * p1.vx) * 0.03) * w;
+        const y1 = (p1.y + Math.cos(t * p1.vy) * 0.03) * h;
+        const x2 = (p2.x + Math.sin(t * p2.vx) * 0.03) * w;
+        const y2 = (p2.y + Math.cos(t * p2.vy) * 0.03) * h;
+
+        const dist = Math.hypot(x2 - x1, y2 - y1);
+        if (dist < (w || 1200) * 0.45) {
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          // Pulsing data packet along the connection
+          const progress = (t * 0.5 + (i * 3 + j) * 0.2) % 1;
+          const px = x1 + (x2 - x1) * progress;
+          const py = y1 + (y2 - y1) * progress;
+          ctx.beginPath();
+          ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = currentAccentHex;
+          ctx.fill();
+        }
+      }
+    }
+
+    // Draw node points and labels
+    cloudNodes.forEach((node) => {
+      const nx = (node.x + Math.sin(t * node.vx) * 0.03) * w;
+      const ny = (node.y + Math.cos(t * node.vy) * 0.03) * h;
+
+      ctx.beginPath();
+      ctx.arc(nx, ny, 5, 0, Math.PI * 2);
+      ctx.fillStyle = currentAccentHex;
+      ctx.shadowColor = currentAccentHex;
+      ctx.shadowBlur = 12;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      ctx.font = '10px "JetBrains Mono", monospace';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.fillText(node.label, nx + 10, ny + 3);
+    });
+
+    requestAnimationFrame(animateCloud);
+  }
+  animateCloud();
+}
+
+// ==========================================================================
+// 8. PROJECTS SECTION ANIMATION: Audio DSP Waves, Inking Curves & FinTech Charts
+// ==========================================================================
+const engineeringCanvas = document.getElementById('engineeringCanvas');
+if (engineeringCanvas) {
+  const ctx = engineeringCanvas.getContext('2d');
+  let w, h;
+  function resizeEngineering() {
+    w = engineeringCanvas.width = engineeringCanvas.offsetWidth;
+    h = engineeringCanvas.height = engineeringCanvas.offsetHeight;
+  }
+  resizeEngineering();
+  window.addEventListener('resize', resizeEngineering);
+
+  let engStep = 0;
+  function animateEngineering() {
+    ctx.clearRect(0, 0, w, h);
+    engStep += 0.03;
+
+    // 1. Audio DSP Frequency Equalizer Spectrum Bars (Background Music Remover)
+    const barCount = 48;
+    const barWidth = w / barCount;
+    ctx.fillStyle = getAccentRgba(0.12);
+    for (let i = 0; i < barCount; i++) {
+      const freqHeight = Math.abs(Math.sin(engStep + i * 0.25) * Math.cos(engStep * 0.5 + i * 0.1)) * (h * 0.28);
+      ctx.fillRect(i * barWidth + 2, h - freqHeight, barWidth - 4, freqHeight);
+    }
+
+    // 2. FinTech Candlestick Price Wave Trajectory (MT5 Trade Manager)
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+    ctx.lineWidth = 1.5;
+    for (let x = 0; x < w; x += 30) {
+      const y = (h * 0.35) + Math.sin(x * 0.005 + engStep) * 60 + Math.cos(x * 0.01 - engStep * 0.7) * 30;
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+
+      // Subtle candlestick tick
+      if (x % 90 === 0) {
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
+        ctx.fillRect(x - 3, y - 12, 6, 24);
+      }
+    }
+    ctx.stroke();
+
+    // 3. Ultra-Smooth Vector Inking Ribbon Curves (ApexPen Screen Annotation)
+    ctx.beginPath();
+    ctx.strokeStyle = getAccentRgba(0.35);
+    ctx.lineWidth = 2.5;
+    for (let x = 0; x < w; x += 20) {
+      const y = (h * 0.7) + Math.cos(x * 0.003 - engStep * 0.8) * 80 * Math.sin(engStep * 0.4);
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    requestAnimationFrame(animateEngineering);
+  }
+  animateEngineering();
+}
+
+// ==========================================================================
+// 9. EXPERIENCE SECTION ANIMATION: Milestone Radar Coordinates & Chronological Transit
+// ==========================================================================
+const timelineCanvas = document.getElementById('timelineCanvas');
+if (timelineCanvas) {
+  const ctx = timelineCanvas.getContext('2d');
+  let w, h;
+  function resizeTimeline() {
+    w = timelineCanvas.width = timelineCanvas.offsetWidth;
+    h = timelineCanvas.height = timelineCanvas.offsetHeight;
+  }
+  resizeTimeline();
+  window.addEventListener('resize', resizeTimeline);
+
+  let radStep = 0;
+  function animateTimeline() {
+    ctx.clearRect(0, 0, w, h);
+    radStep += 0.015;
+
+    // Chronological vertical trajectory guide line
+    const centerX = w * 0.12;
+    ctx.beginPath();
+    ctx.moveTo(centerX, 0);
+    ctx.lineTo(centerX, h);
+    ctx.strokeStyle = getAccentRgba(0.2);
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 6]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Radar pulses expanding outwards
+    for (let i = 0; i < 4; i++) {
+      const cy = (h * 0.25 * (i + 1) + Math.sin(radStep + i) * 30);
+      const maxR = 90;
+      const currentR = ((radStep * 30 + i * 25) % maxR);
+      const alpha = 1.0 - (currentR / maxR);
+
+      ctx.beginPath();
+      ctx.arc(centerX, cy, currentR, 0, Math.PI * 2);
+      ctx.strokeStyle = getAccentRgba(alpha * 0.35);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Milestone coordinate dot
+      ctx.beginPath();
+      ctx.arc(centerX, cy, 3, 0, Math.PI * 2);
+      ctx.fillStyle = currentAccentHex;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(animateTimeline);
+  }
+  animateTimeline();
+}
+
+// ==========================================================================
+// 10. CONTACT SECTION ANIMATION: Global Telecommunication Beams & Signal Grid
+// ==========================================================================
+const contactCanvas = document.getElementById('contactCanvas');
+let contactBeamMode = 'theme'; // 'theme' or 'whatsapp'
+
+if (contactCanvas) {
+  const ctx = contactCanvas.getContext('2d');
+  let w, h;
+  function resizeContact() {
+    w = contactCanvas.width = contactCanvas.offsetWidth;
+    h = contactCanvas.height = contactCanvas.offsetHeight;
+  }
+  resizeContact();
+  window.addEventListener('resize', resizeContact);
+
+  let commStep = 0;
+  function animateContact() {
+    ctx.clearRect(0, 0, w, h);
+    commStep += 0.02;
+
+    const originX = w * 0.75;
+    const originY = h * 0.5;
+
+    // Radiating communication spherical waves
+    for (let i = 0; i < 6; i++) {
+      const r = ((commStep * 60 + i * 70) % ((w || 1200) * 0.65));
+      const alpha = Math.max(0, 1 - (r / ((w || 1200) * 0.65)));
+
+      ctx.beginPath();
+      ctx.arc(originX, originY, r, 0, Math.PI * 2);
+      if (contactBeamMode === 'whatsapp') {
+        ctx.strokeStyle = `rgba(37, 211, 102, ${alpha * 0.35})`;
+      } else {
+        ctx.strokeStyle = i % 2 === 0 ? getAccentRgba(alpha * 0.28) : `rgba(255, 255, 255, ${alpha * 0.12})`;
+      }
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+    }
+
+    // Converging global connection rays
+    for (let a = 0; a < Math.PI * 2; a += Math.PI / 6) {
+      const rayLen = 220 + Math.sin(commStep * 2 + a) * 40;
+      ctx.beginPath();
+      ctx.moveTo(originX, originY);
+      ctx.lineTo(originX + Math.cos(a + commStep * 0.2) * rayLen, originY + Math.sin(a + commStep * 0.2) * rayLen);
+      ctx.strokeStyle = contactBeamMode === 'whatsapp' ? 'rgba(37, 211, 102, 0.15)' : 'rgba(255, 255, 255, 0.06)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    requestAnimationFrame(animateContact);
+  }
+  animateContact();
+}
+
+// ==========================================================================
+// 11. Contact Form Routing (FormSubmit AJAX Email & WhatsApp Direct)
+// ==========================================================================
+const tabEmail = document.getElementById('tabEmail');
+const tabWhatsapp = document.getElementById('tabWhatsapp');
+const fieldEmailGroup = document.getElementById('fieldEmailGroup');
+const fieldPhoneGroup = document.getElementById('fieldPhoneGroup');
+const submitBtn = document.getElementById('submitBtn');
+const submitBtnText = document.getElementById('submitBtnText');
+const formFeedback = document.getElementById('formFeedback');
+let activeTab = 'email';
+
+function updateSubmitButtonLabel() {
+  if (!submitBtn) return;
+  if (activeTab === 'whatsapp') {
+    if (submitBtnText) submitBtnText.textContent = 'Chat on WhatsApp (+92 343 4477096)';
+    submitBtn.style.background = '#25D366';
+    submitBtn.style.borderColor = '#25D366';
+    submitBtn.style.color = '#000000';
+    submitBtn.style.fontWeight = '700';
+  } else {
+    if (submitBtnText) submitBtnText.textContent = 'Send Email Inquiry';
+    submitBtn.style.background = 'var(--accent)';
+    submitBtn.style.borderColor = 'var(--accent)';
+    submitBtn.style.color = '#ffffff';
+    submitBtn.style.fontWeight = '600';
+  }
+}
+
+if (tabEmail && tabWhatsapp) {
+  tabEmail.addEventListener('click', () => {
+    activeTab = 'email';
+    contactBeamMode = 'theme';
+    tabEmail.className = 'contact-tab-btn active';
+    tabWhatsapp.className = 'contact-tab-btn';
+    if (fieldEmailGroup) fieldEmailGroup.style.display = 'block';
+    if (fieldPhoneGroup) fieldPhoneGroup.style.display = 'none';
+    if (formFeedback) formFeedback.style.display = 'none';
+    updateSubmitButtonLabel();
+  });
+
+  tabWhatsapp.addEventListener('click', () => {
+    activeTab = 'whatsapp';
+    contactBeamMode = 'whatsapp';
+    tabWhatsapp.className = 'contact-tab-btn whatsapp-active';
+    tabEmail.className = 'contact-tab-btn';
+    if (fieldEmailGroup) fieldEmailGroup.style.display = 'none';
+    if (fieldPhoneGroup) fieldPhoneGroup.style.display = 'block';
+    if (formFeedback) formFeedback.style.display = 'none';
+    updateSubmitButtonLabel();
+  });
+}
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nameEl = document.getElementById('formName');
+    const msgEl = document.getElementById('formMsg');
+    const name = nameEl ? nameEl.value.trim() : '';
+    const msg = msgEl ? msgEl.value.trim() : '';
+
+    if (activeTab === 'whatsapp') {
+      const phoneEl = document.getElementById('formPhone');
+      const senderPhone = phoneEl ? phoneEl.value.trim() : '';
+      const lines = [
+        "Hello Rana Anas,",
+        "",
+        `Name: ${name}`
+      ];
+      if (senderPhone) lines.push(`Phone: ${senderPhone}`);
+      lines.push("", "Project / Inquiry:", msg);
+
+      const waText = encodeURIComponent(lines.join("\n"));
+      const waUrl = `https://wa.me/923434477096?text=${waText}`;
+
+      window.open(waUrl, '_blank');
+
+      if (formFeedback) {
+        formFeedback.style.display = 'flex';
+        formFeedback.style.alignItems = 'center';
+        formFeedback.style.gap = '0.75rem';
+        formFeedback.style.background = 'rgba(37, 211, 102, 0.12)';
+        formFeedback.style.border = '1px solid rgba(37, 211, 102, 0.35)';
+        formFeedback.style.borderRadius = '12px';
+        formFeedback.style.padding = '0.85rem 1.25rem';
+        formFeedback.style.color = '#25D366';
+        formFeedback.style.fontSize = '13px';
+        formFeedback.innerHTML = '<span>✓</span> Opening WhatsApp chat with <strong>Rana Anas (+92 343 4477096)</strong>...';
+      }
+    } else {
+      const emailEl = document.getElementById('formEmail');
+      const email = emailEl ? emailEl.value.trim() : '';
+
+      // Button loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.75';
+      }
+      if (submitBtnText) submitBtnText.textContent = 'Sending Message...';
+      if (formFeedback) formFeedback.style.display = 'none';
+
+      try {
+        const resp = await fetch('https://formsubmit.co/ajax/ranaanas.work@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: msg,
+            _subject: `New Portfolio Inquiry from ${name}`,
+            _template: 'table'
+          })
+        });
+
+        const data = await resp.json().catch(() => ({}));
+
+        if (resp.ok && (data.success === 'true' || data.success === true)) {
+          contactForm.reset();
+          if (formFeedback) {
+            formFeedback.style.display = 'flex';
+            formFeedback.style.alignItems = 'center';
+            formFeedback.style.gap = '0.75rem';
+            formFeedback.style.background = 'rgba(16, 185, 129, 0.15)';
+            formFeedback.style.border = '1px solid rgba(16, 185, 129, 0.35)';
+            formFeedback.style.borderRadius = '12px';
+            formFeedback.style.padding = '0.85rem 1.25rem';
+            formFeedback.style.color = '#10b981';
+            formFeedback.style.fontSize = '13px';
+            formFeedback.innerHTML = '<span>✓</span> <strong>Message Sent Successfully!</strong> Rana Anas will review and respond shortly.';
+          }
+        } else if (data.message && data.message.includes('Activation')) {
+          if (formFeedback) {
+            formFeedback.style.display = 'flex';
+            formFeedback.style.alignItems = 'center';
+            formFeedback.style.gap = '0.75rem';
+            formFeedback.style.background = 'rgba(200, 138, 53, 0.18)';
+            formFeedback.style.border = '1px solid rgba(200, 138, 53, 0.4)';
+            formFeedback.style.borderRadius = '12px';
+            formFeedback.style.padding = '0.85rem 1.25rem';
+            formFeedback.style.color = '#C88A35';
+            formFeedback.style.fontSize = '13px';
+            formFeedback.innerHTML = '<span>⏳</span> <strong>Activation Link Sent:</strong> Please check <em>ranaanas.work@gmail.com</em> and click <strong>Activate Form</strong> to enable live direct inbox delivery.';
+          }
+        } else {
+          throw new Error(data.message || 'Server error');
+        }
+      } catch (err) {
+        // Seamless fallback to native mailto client
+        const mailto = "mailto:ranaanas.work@gmail.com?subject=" + encodeURIComponent("Portfolio Inquiry from " + name) + "&body=" + encodeURIComponent(msg + String.fromCharCode(10, 10) + "Sender Email: " + email);
+        window.location.href = mailto;
+
+        if (formFeedback) {
+          formFeedback.style.display = 'flex';
+          formFeedback.style.alignItems = 'center';
+          formFeedback.style.gap = '0.75rem';
+          formFeedback.style.background = 'rgba(255, 255, 255, 0.08)';
+          formFeedback.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+          formFeedback.style.borderRadius = '12px';
+          formFeedback.style.padding = '0.85rem 1.25rem';
+          formFeedback.style.color = '#ffffff';
+          formFeedback.style.fontSize = '13px';
+          formFeedback.innerHTML = '<span>✉</span> Opened your email client with your message drafted to <strong>ranaanas.work@gmail.com</strong>.';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+        updateSubmitButtonLabel();
+      }
+    }
+  });
+}
+
+  </script>
 </body>
 </html>
