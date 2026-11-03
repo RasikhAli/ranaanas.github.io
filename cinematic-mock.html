@@ -135,133 +135,23 @@
     }
 
     /* ==========================================================================
-       2. Top Banner & 5-Theme Switcher Bar
+       2. Navigation Bar
        ========================================================================== */
-    .mock-banner {
+    .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 44px;
-      background: rgba(12, 12, 16, 0.96);
-      border-bottom: 1px solid var(--accent-glow);
-      backdrop-filter: blur(14px);
-      z-index: 90;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1.5rem;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: border-bottom-color 0.3s ease;
-    }
-
-    .mock-banner-left {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .mock-pill {
-      background: var(--accent);
-      color: var(--btn-text);
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 100px;
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .theme-switcher-group {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      padding: 2px 0;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .theme-switcher-group::-webkit-scrollbar {
-      display: none;
-    }
-
-    .theme-switcher-title {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 10px;
-      font-weight: 600;
-      margin-right: 0.3rem;
-      letter-spacing: 0.12em;
-      flex-shrink: 0;
-    }
-
-    .theme-btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: rgba(255, 255, 255, 0.75);
-      padding: 3px 9px;
-      border-radius: 100px;
-      font-size: 10px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: all 0.25s ease;
-      font-weight: 600;
-      white-space: nowrap;
-      flex-shrink: 0;
-      user-select: none;
-    }
-
-    .theme-swatch {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 6px currentColor;
-    }
-
-    .theme-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .theme-btn.active {
-      background: var(--accent);
-      color: var(--btn-text);
-      border-color: var(--accent);
-      font-weight: 800;
-      box-shadow: 0 0 14px var(--accent-glow);
-    }
-
-    .mock-compare-link {
-      color: #60a5fa;
-      text-decoration: underline;
-      cursor: pointer;
-      font-weight: 600;
-      margin-left: 0.5rem;
-    }
-
-    /* ==========================================================================
-       3. Navigation Bar
-       ========================================================================== */
-    .navbar {
-      position: fixed;
-      top: 44px;
-      left: 0;
-      right: 0;
       z-index: 70;
-      padding: 1.5rem 2.5rem;
+      padding: 1.25rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(8, 8, 8, 0.88) 0%, transparent 100%);
+      background: rgba(3, 6, 18, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.4s ease;
     }
 
     .nav-brand {
@@ -356,7 +246,7 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      padding-top: 130px;
+      padding-top: 120px;
       padding-bottom: 80px;
       overflow: hidden;
       background: radial-gradient(ellipse 65% 50% at 75% 45%, var(--accent-subtle) 0%, transparent 70%);
@@ -1077,11 +967,6 @@
   <div id="custom-cursor"></div>
   <div id="cursor-dot"></div>
 
-  <!-- ==========================================================================
-       TOP MOCK BANNER & 5-PALETTE THEME SWITCHER
-       ========================================================================== -->
-  
-
   <!-- Navigation Bar -->
   <header class="navbar">
     <a href="#hero" class="nav-brand">
@@ -1565,11 +1450,11 @@
       </div>
 
       <div style="text-align: right;">
-        <p style="font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">
-          Cinematic Portfolio Mock • 13 Luxury Color Palettes
+        <p style="font-size: 12px; color: rgba(255,255,255,0.55); margin-bottom: 0.4rem; font-family: var(--font-mono);">
+          Technical Operations &amp; Software Engineering
         </p>
-        <p style="font-size: 11px; color: rgba(255,255,255,0.25); font-family: var(--font-mono);">
-          © 2026 Rana Anas. All rights reserved.
+        <p style="font-size: 11px; color: rgba(255,255,255,0.3); font-family: var(--font-mono);">
+          &copy; 2026 Rana Anas. All rights reserved.
         </p>
       </div>
     </div>
