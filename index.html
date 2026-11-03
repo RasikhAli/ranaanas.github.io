@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rana Anas | Technical Operations Leader & Software Developer</title>
   <meta name="description" content="Cinematic portfolio of Rana Anas — Technical Operations Leader & Software Developer. Leading high-velocity operations, cloud server infrastructure, and custom software utilities.">
+  <meta property="og:title" content="Rana Anas | Technical Operations Leader & Software Developer">
+  <meta property="og:description" content="Technical Operations & Support Leader. Cloud infrastructure (AWS · Azure · OCI), high-concurrency desktop tools, and SaaS/PropTech systems.">
+  <meta property="og:image" content="./assets/avatar-face.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rana Anas | Technical Operations Leader & Software Developer">
+  <meta name="twitter:description" content="7+ Years leading 50+ engineers and operations. 98%+ Lifetime CSAT. Cloud and desktop software engineering.">
+  <meta name="twitter:image" content="./assets/avatar-face.png">
 
   <!-- Google Fonts: Inter, Playfair Display & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,6 +129,7 @@
       margin: 0 auto;
       padding: 0 2.5rem;
       position: relative;
+      z-index: 10 !important;
     }
 
     .section-canvas-bg {
@@ -130,7 +139,8 @@
       width: 100% !important;
       height: 100% !important;
       pointer-events: none;
-      z-index: 1;
+      z-index: 0 !important;
+      opacity: 0.4;
       display: block;
     }
 
@@ -165,11 +175,22 @@
     .brand-avatar-mini {
       width: 38px;
       height: 38px;
+      min-width: 38px;
+      min-height: 38px;
       border-radius: 50%;
       border: 1.5px solid var(--accent);
       object-fit: cover;
-      background: #111;
-      transition: border-color 0.3s ease;
+      object-position: center center;
+      background: radial-gradient(circle at 50% 40%, rgba(37, 99, 235, 0.3) 0%, #060b19 85%);
+      box-shadow: 0 0 12px var(--accent-glow);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: block;
+    }
+
+    .brand-avatar-mini:hover {
+      border-color: #60A5FA;
+      box-shadow: 0 0 18px rgba(96, 165, 250, 0.55);
+      transform: scale(1.08);
     }
 
     .brand-name {
@@ -363,13 +384,429 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
-    /* Hero Portrait (Crisp, High-Res, Stays in Hero) */
+    /* ==========================================================================
+       Hero Portrait: Dual-Mode Switcher & 3D Architectural Redesign
+       ========================================================================== */
+
+    /* Top Navbar Presentation Switcher */
+    .nav-switch-wrapper {
+      display: flex;
+      align-items: center;
+      margin-left: 0.5rem;
+    }
+
+    .presentation-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(14, 23, 48, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .presentation-toggle .toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.62);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 0.38rem 0.82rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .presentation-toggle .toggle-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .presentation-toggle .toggle-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 0 14px var(--accent-glow);
+    }
+
+    .presentation-toggle .toggle-indicator {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      animation: pulseGreen 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGreen {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.65; }
+    }
+
+    /* ==========================================================================
+       ReactBits.dev Inspired Components & Motion System
+       ========================================================================== */
+
+    /* 1. ReactBits: ShinyText Animation */
+    .shiny-text {
+      color: #93c5fd;
+      background: linear-gradient(
+        110deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.95) 45%,
+        rgba(96, 165, 250, 1) 50%,
+        rgba(255, 255, 255, 0.95) 55%,
+        rgba(255, 255, 255, 0.4) 100%
+      );
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      animation: shinyTextSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes shinyTextSweep {
+      0% { background-position: 120% 0; }
+      100% { background-position: -120% 0; }
+    }
+
+    /* 2. ReactBits: Official SpotlightCard Engine (Zero Corner Leakage) */
+    .spotlight-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden; /* STRICT CLIPPING: Prevents any corner leakage */
+      --mouse-x: -999px;
+      --mouse-y: -999px;
+      --spotlight-color: rgba(37, 99, 235, 0.22);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .spotlight-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        480px circle at var(--mouse-x) var(--mouse-y),
+        var(--spotlight-color),
+        transparent 70%
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 1;
+    }
+
+    .spotlight-card:hover::after {
+      opacity: 1;
+    }
+
+    /* 3. ReactBits: DecryptedText matrix cipher */
+    .decrypted-text {
+      font-family: inherit;
+      display: inline-block;
+      letter-spacing: normal;
+    }
+
+    /* Hero Portrait Column */
+    .hero-portrait-column {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    /* Floating Switcher Bar on Top of Stage */
+    .hero-stage-switcher-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(10, 16, 32, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .stage-switcher-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 700;
+      padding-left: 0.25rem;
+    }
+
+    .stage-switch-pills {
+      display: inline-flex;
+      background: rgba(3, 6, 18, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .stage-pill {
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .stage-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .stage-pill.active {
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 0 14px var(--accent-glow);
+    }
+
+    .stage-pill .pill-sparkle {
+      font-size: 11px;
+      color: #60A5FA;
+    }
+
+    /* Portrait Stage Base */
     .hero-portrait-stage {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: flex-end;
       height: 560px;
+      width: 100%;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+    }
+
+    /* ====== REDESIGN CONTAINER ====== */
+    .redesign-stage-elements {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      transform-style: preserve-3d;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    /* 3D Architectural Backing Pedestal Card */
+    .hero-pedestal-card {
+      position: absolute;
+      bottom: 0;
+      width: 440px;
+      height: 460px; /* leaves top ~100px for head & upper shoulders to break out! */
+      border-radius: 28px;
+      background: radial-gradient(ellipse 95% 80% at 50% 32%, rgba(37, 99, 235, 0.32) 0%, rgba(8, 14, 30, 0.96) 80%);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.85), 0 0 60px rgba(37, 99, 235, 0.28);
+      z-index: 2;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .pedestal-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .pedestal-sheen-light {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle 280px at var(--sheen-x, 50%) var(--sheen-y, 35%), rgba(59, 130, 246, 0.28), transparent 70%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .pedestal-corner {
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      opacity: 0.55;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .corner-tl { top: 14px; left: 14px; }
+    .corner-tr { top: 14px; right: 14px; }
+    .corner-bl { bottom: 14px; left: 14px; }
+    .corner-br { bottom: 14px; right: 14px; }
+
+    .pedestal-status-tag {
+      position: absolute;
+      top: 14px;
+      left: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 3px 8px;
+    }
+
+    .tag-ping {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 6px #10B981;
+    }
+
+    /* Redesign Picture Wrapper & Breakout Image */
+    .portrait-picture-wrapper {
+      position: relative;
+      z-index: 4;
+      height: 560px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-portrait-img-redesign {
+      position: relative;
+      max-height: 545px;
+      width: auto;
+      object-fit: contain;
+      /* Soft bottom dissolve so the straight waist cut melts naturally */
+      mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 98%);
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 98%);
+      /* Dual-stop cinematic rim light and physical ground shadow */
+      filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.95))
+              drop-shadow(0 0 32px rgba(37, 99, 235, 0.42))
+              drop-shadow(-4px -4px 14px rgba(59, 130, 246, 0.22));
+      transition: filter 0.4s ease;
+      pointer-events: none;
+    }
+
+    /* Floating Telemetry Chips */
+    .hero-telemetry-chip {
+      position: absolute;
+      z-index: 6;
+      background: rgba(10, 16, 32, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 0.75rem 1.15rem;
+      border-radius: 14px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 20px rgba(37, 99, 235, 0.22);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+
+    .chip-top-right {
+      top: 55px;
+      right: 5%;
+      animation: chipFloatA 5.2s ease-in-out infinite;
+    }
+
+    .chip-bottom-left {
+      bottom: 25px;
+      left: 5%;
+      animation: chipFloatB 5.8s ease-in-out infinite;
+    }
+
+    @keyframes chipFloatA {
+      0%, 100% { transform: translateY(0px) translateZ(45px); }
+      50% { transform: translateY(-7px) translateZ(45px); }
+    }
+
+    @keyframes chipFloatB {
+      0%, 100% { transform: translateY(0px) translateZ(45px); }
+      50% { transform: translateY(6px) translateZ(45px); }
+    }
+
+    .chip-beacon-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #38BDF8;
+      box-shadow: 0 0 10px #38BDF8;
+      animation: beaconPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes beaconPulse {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.35); opacity: 0.45; }
+    }
+
+    .chip-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .chip-sub {
+      font-size: 9px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    /* ====== ORIGINAL STAGE CONTAINER ====== */
+    .original-stage-elements {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      transition: opacity 0.35s ease;
     }
 
     .hero-glow-aura {
@@ -390,7 +827,7 @@
       50% { transform: scale(1.08); opacity: 1; }
     }
 
-    .hero-portrait-img {
+    .hero-portrait-img-original {
       position: relative;
       z-index: 3;
       max-height: 540px;
@@ -947,18 +1384,729 @@
     /* Responsive */
     @media (max-width: 992px) {
       .hero-grid { grid-template-columns: 1fr; }
-      .hero-portrait-stage { height: 420px; }
-      .hero-portrait-img { max-height: 400px; }
+      .hero-portrait-stage { height: 450px; }
+      .hero-pedestal-card { width: 370px; height: 360px; }
+      .hero-portrait-img-redesign { max-height: 430px; }
+      .portrait-picture-wrapper { height: 450px; }
+      .hero-portrait-img-original { max-height: 400px; }
+      .chip-top-right { top: 20px; right: 2%; }
+      .chip-bottom-left { bottom: 15px; left: 2%; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; }
       .project-cinematic-card { grid-template-columns: 1fr; }
       .timeline-row { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .theme-switcher-title { display: none; }
+      .nav-switch-wrapper { margin-left: 0.25rem; }
+    }
+
+    @media (max-width: 640px) {
+      .navbar { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .hero-portrait-stage { height: 390px; }
+      .hero-pedestal-card { width: 300px; height: 320px; border-radius: 20px; }
+      .portrait-picture-wrapper { height: 390px; }
+      .hero-portrait-img-redesign { max-height: 370px; }
+      .chip-top-right { display: none; }
+      .chip-bottom-left { bottom: 10px; left: 50%; transform: translateX(-50%) translateZ(45px); width: max-content; }
+      .hero-stage-switcher-bar { transform: scale(0.92); margin-bottom: 0.75rem; }
+    }
+
+    /* ==========================================================================
+       Full-Site ReactBits.dev Component Architecture & Global Theme Switching
+       ========================================================================== */
+
+    /* Global Mode Visibility */
+    body.mode-original .section-redesign-view,
+    body.mode-original .reactbits-dock-wrapper {
+      display: none !important;
+    }
+    body.mode-redesign .section-original-view {
+      display: none !important;
+    }
+
+    /* 1. ReactBits RotatingText */
+    .rotating-text-box {
+      display: inline-flex;
+      align-items: baseline;
+      position: relative;
+      overflow: hidden;
+      vertical-align: bottom;
+      height: 1.25em;
+      min-width: 0;
+      width: auto;
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--accent);
+      padding: 0 4px;
+      margin: 0 1px;
+    }
+    .rotating-text-list {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+    .rotating-text-item {
+      display: inline-block;
+      white-space: nowrap;
+      height: 1.25em;
+      line-height: 1.25em;
+      font-weight: 800;
+      color: var(--accent);
+      text-shadow: 0 0 25px var(--accent-glow);
+    }
+
+    /* 2. ReactBits Magic Bento Grid */
+    .magic-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 10;
+    }
+    .bento-card {
+      position: relative;
+      border-radius: 24px;
+      background: rgba(9, 14, 28, 0.82);
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.22);
+      padding: 2.25rem;
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .bento-card:hover {
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 35px 75px rgba(0, 0, 0, 0.85), 0 0 40px rgba(37, 99, 235, 0.3);
+      transform: translateY(-5px);
+    }
+    .bento-card-wide {
+      grid-column: span 2;
+    }
+    .bento-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .bento-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      color: #93c5fd;
+      width: fit-content;
+    }
+    .bento-stat-num {
+      font-size: 3.8rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      color: #ffffff;
+    }
+    .bento-stat-label {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .bento-stat-desc {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.6;
+    }
+    .bento-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0 1rem;
+      padding: 0.85rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .bento-kpi-item {
+      text-align: center;
+    }
+    .bento-kpi-val {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .bento-kpi-lbl {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+    .bento-gauge-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+    .bento-gauge-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563EB 0%, #38BDF8 60%, #10B981 100%);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+      width: 98.4%;
+    }
+    .bento-hierarchy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .bento-hierarchy-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.85rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .bento-leaderboard-box {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .bento-sparkline {
+      width: 100%;
+      height: 75px;
+      margin-top: 1.25rem;
+    }
+    .bento-wave-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* 3. ReactBits: Cloud Architecture Interactive Topology Matrix */
+    .cloud-topology-matrix {
+      position: relative;
+      border-radius: 24px;
+      background: rgba(9, 14, 28, 0.85);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.22);
+      padding: 1.75rem;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(37, 99, 235, 0.15);
+      overflow: hidden;
+      z-index: 10;
+    }
+    .topology-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 1.5rem;
+    }
+    .topology-window-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .window-dot.dot-red { background: #EF4444; }
+    .window-dot.dot-yellow { background: #F59E0B; }
+    .window-dot.dot-green { background: #10B981; }
+    .topology-header-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .topology-core-hub {
+      position: relative;
+      margin: 0 auto 1.75rem;
+      padding: 1.25rem 2rem;
+      border-radius: 16px;
+      background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.25) 0%, rgba(14, 23, 48, 0.95) 100%);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 35px var(--accent-glow), inset 0 0 20px rgba(37, 99, 235, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 520px;
+      transition: all 0.3s ease;
+    }
+    .topology-core-hub:hover {
+      box-shadow: 0 0 50px var(--accent-glow), inset 0 0 30px rgba(37, 99, 235, 0.35);
+      transform: scale(1.02);
+    }
+    .topology-nodes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .topology-node-card {
+      position: relative;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.15rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .topology-node-card:hover {
+      background: rgba(37, 99, 235, 0.12);
+      border-color: var(--accent);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+    .topology-node-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .topology-node-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .topology-node-status {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .topology-node-desc {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.4rem;
+    }
+    .topology-node-metrics {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.45);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 0.4rem;
+    }
+
+    /* 4. ReactBits FluidTabs */
+    .fluid-tabs-container {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(14, 23, 48, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+      margin: 1.5rem 0 2.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(14px);
+    }
+    .fluid-tab-pill {
+      position: relative;
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.65);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 2;
+      transition: color 0.25s ease;
+    }
+    .fluid-tab-pill.active {
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .fluid-tab-indicator {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      width: 100px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
+      z-index: 1;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    /* 5. ReactBits TiltedCard 3D Interactive Project Card (Zero Corner Leakage) */
+    .tilted-project-card {
+      position: relative;
+      perspective: 1600px;
+      margin-bottom: 3.5rem;
+      z-index: 10;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+    .tilted-card-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      border-radius: 24px;
+      background: rgba(9, 14, 28, 0.92);
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.22);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      isolation: isolate;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .tilted-card-inner:hover {
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.85), 0 0 45px rgba(37, 99, 235, 0.32);
+    }
+    .project-window-frame {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      background: #040714;
+      overflow: hidden;
+      border-top-left-radius: 22px;
+      border-bottom-left-radius: 22px;
+      isolation: isolate;
+    }
+    .project-window-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 11px 16px;
+      background: rgba(255, 255, 255, 0.035);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      border-top-left-radius: 22px;
+    }
+    .project-window-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.6);
+      margin-left: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .project-window-body {
+      position: relative;
+      flex: 1;
+      min-height: 290px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 1.25rem;
+      background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.1) 0%, #030612 85%);
+      border-bottom-left-radius: 22px;
+    }
+    .project-content {
+      border-top-right-radius: 22px;
+      border-bottom-right-radius: 22px;
+      overflow: hidden;
+    }
+    .project-window-body img {
+      width: 100%;
+      height: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+    .project-window-body:hover img {
+      transform: scale(1.03);
+      border-color: rgba(59, 130, 246, 0.45);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(37, 99, 235, 0.25);
+    }
+    .project-window-hover-btn {
+      position: absolute;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(3, 6, 18, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+      z-index: 5;
+    }
+    .project-window-body:hover .project-window-hover-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .tilted-card-glare {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle 400px at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, 0.1), transparent 70%);
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .tilted-card-inner:hover .tilted-card-glare {
+      opacity: 1;
+    }
+
+    /* 6. ReactBits Floating macOS-Style Dock */
+    .reactbits-dock-wrapper {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      background: rgba(10, 16, 32, 0.82);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(37, 99, 235, 0.2);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dock-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .dock-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .dock-tooltip {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%) translateY(5px);
+      padding: 0.35rem 0.75rem;
+      background: rgba(3, 6, 18, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+    .dock-btn:hover .dock-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0px);
+    }
+    .dock-divider {
+      width: 1px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.12);
+      margin: 0 4px;
+    }
+
+    /* 7. Fullscreen Project Modal Lightbox */
+    .project-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 6, 18, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .project-modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .project-modal-box {
+      position: relative;
+      max-width: 960px;
+      width: 100%;
+      border-radius: 20px;
+      background: #0a1020;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-modal-backdrop.open .project-modal-box {
+      transform: scale(1);
+    }
+    .project-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.2s ease;
+    }
+    .project-modal-close:hover {
+      background: var(--accent);
+      transform: rotate(90deg);
+    }
+    .project-modal-img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      background: #050814;
+      display: block;
+    }
+    .project-modal-info {
+      padding: 1.75rem 2rem;
+    }
+
+    /* ReactBits Aurora Ambient Mesh Glow */
+    .aurora-ambient-glow {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: 0.35;
+      will-change: transform;
+      pointer-events: none;
+    }
+    .aurora-orb.orb-1 {
+      width: 540px;
+      height: 440px;
+      top: 5%;
+      left: 10%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.28) 0%, rgba(37, 99, 235, 0) 70%);
+      animation: auroraShift1 16s ease-in-out infinite alternate;
+    }
+    .aurora-orb.orb-2 {
+      width: 480px;
+      height: 400px;
+      bottom: 5%;
+      right: 8%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(99, 102, 241, 0) 70%);
+      animation: auroraShift2 20s ease-in-out infinite alternate;
+    }
+    @keyframes auroraShift1 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(50px, 30px) scale(1.1); }
+    }
+    @keyframes auroraShift2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-40px, -30px) scale(0.95); }
+    }
+
+    /* Responsive Adjustments for ReactBits Elements */
+    @media (max-width: 992px) {
+      .magic-bento-grid { grid-template-columns: 1fr; }
+      .bento-card-wide { grid-column: span 1; }
+      .topology-nodes-grid { grid-template-columns: 1fr; }
+      .tilted-card-inner { grid-template-columns: 1fr; }
+      .reactbits-dock-wrapper { bottom: 16px; scale: 0.9; }
+    }
+    @media (max-width: 640px) {
+      .topology-core-hub { flex-direction: column; text-align: center; gap: 0.75rem; }
+      .bento-kpi-row { grid-template-columns: 1fr; }
+      .reactbits-dock-wrapper { display: none !important; }
+      .rotating-text-box { min-width: 0; }
     }
   </style>
 </head>
-<body>
+<body class="mode-redesign">
 
   <!-- Film Grain Overlay -->
   <div class="grain-overlay"></div>
@@ -970,7 +2118,7 @@
   <!-- Navigation Bar -->
   <header class="navbar">
     <a href="#hero" class="nav-brand">
-      <img src="./assets/profile-cutout.png" alt="Rana Anas" class="brand-avatar-mini">
+      <img src="./assets/avatar-face.webp" alt="Rana Anas" class="brand-avatar-mini" id="brandAvatarMini" width="38" height="38">
       <span class="brand-name">Rana Anas</span>
       <span class="brand-tag">Ops & Engineering</span>
     </a>
@@ -982,6 +2130,17 @@
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#experience" class="nav-link">Journey</a></li>
         <li><a href="#contact" class="nav-link">Connect</a></li>
+        <li class="nav-switch-wrapper">
+          <div class="presentation-toggle" title="Switch photo presentation: Redesign vs Original">
+            <button type="button" class="toggle-btn active" id="navSwitchRedesign" data-mode="redesign" aria-label="Switch to 3D Redesign">
+              <span class="toggle-indicator"></span>
+              <span class="toggle-label">Redesign</span>
+            </button>
+            <button type="button" class="toggle-btn" id="navSwitchOriginal" data-mode="original" aria-label="Switch to Original">
+              <span class="toggle-label">Original</span>
+            </button>
+          </div>
+        </li>
         <li>
           <a href="#contact" class="btn-accent-pill">
             <span>Inquire</span>
@@ -998,10 +2157,13 @@
          ========================================================================== -->
     <section class="hero-section" id="hero">
       <canvas class="section-canvas-bg" id="heroCanvas"></canvas>
+      <div class="aurora-ambient-glow" aria-hidden="true"><span class="aurora-orb orb-1"></span><span class="aurora-orb orb-2"></span></div>
 
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-label">Technical Operations & Support Leader</div>
+          <div class="hero-label">
+            <span class="shiny-text decrypted-text" data-decrypt="Technical Operations & Support Leader">Technical Operations & Support Leader</span>
+          </div>
 
           <h1 class="hero-title">
             <span class="ghost">Hey, I'm</span>
@@ -1009,7 +2171,16 @@
           </h1>
 
           <p class="hero-headline-box">
-            Leading high-velocity technical operations, architecting desktop & cloud software utilities, and bridging high-complexity systems across <strong>SaaS</strong>, <strong>Blockchain</strong>, and <strong>FinTech</strong> ecosystems.
+            Architecting
+            <span class="rotating-text-box">
+              <span class="rotating-text-list" id="heroRotatingList">
+                <span class="rotating-text-item">High-Velocity Operations</span>
+                <span class="rotating-text-item">Cloud Server Infrastructure</span>
+                <span class="rotating-text-item">PropTech &amp; SaaS Systems</span>
+                <span class="rotating-text-item">High-Concurrency Desktop Apps</span>
+              </span>
+            </span>
+            and bridging high-complexity systems across <strong>SaaS</strong>, <strong>Blockchain</strong>, and <strong>FinTech</strong> ecosystems.
           </p>
 
           <p class="hero-sub-text">
@@ -1018,7 +2189,7 @@
 
           <div class="hero-cta-group">
             <a href="#projects" class="btn-accent-pill">
-              Explore Projects
+              <span>Explore Projects</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <a href="#about" class="btn-ghost-pill">Cloud Infrastructure</a>
@@ -1026,17 +2197,92 @@
           </div>
         </div>
 
-        <!-- Right Side: Sharp, High-Res Portrait Photo -->
-        <div class="hero-portrait-stage">
-          <div class="hero-glow-aura"></div>
-          <img src="./assets/profile-cutout.png" alt="Rana Anas - Technical Operations Leader" class="hero-portrait-img" id="heroPortrait">
+        <!-- Right Side: Sharp Portrait Presentation with Live Switcher -->
+        <div class="hero-portrait-column">
           
-          <div class="hero-portrait-badge">
-            <span class="badge-status-dot"></span>
-            <div>
-              <div style="font-size: 11px; font-weight: 700; color: #fff;">Available For Global Remote</div>
-              <div style="font-size: 9px; color: var(--accent); font-family: var(--font-mono); letter-spacing: 0.1em; transition: color 0.3s ease;">LEADERSHIP & DEV</div>
+          <!-- Quick Switcher Bar on Top of Portrait -->
+          <div class="hero-stage-switcher-bar">
+            <span class="stage-switcher-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              View:
+            </span>
+            <div class="stage-switch-pills">
+              <button type="button" class="stage-pill active" id="heroSwitchRedesign" data-mode="redesign" aria-label="Switch to 3D Redesign">
+                <span class="pill-sparkle">✦</span> <span class="shiny-text">3D Redesign</span>
+              </button>
+              <button type="button" class="stage-pill" id="heroSwitchOriginal" data-mode="original" aria-label="Switch to Original">
+                Original
+              </button>
             </div>
+          </div>
+
+          <!-- Dual-Mode Portrait Stage -->
+          <div class="hero-portrait-stage" id="heroPortraitStage">
+            
+            <!-- ====== REDESIGN PRESENTATION (Active by default) ====== -->
+            <div class="redesign-stage-elements" id="redesignStage">
+              <!-- 3D Frosted Architectural Pedestal Card (ReactBits SpotlightCard) -->
+              <div class="hero-pedestal-card spotlight-card" id="pedestalCard">
+                <div class="pedestal-grid-lines"></div>
+                <div class="pedestal-sheen-light" id="pedestalSheen"></div>
+                <span class="pedestal-corner corner-tl">+</span>
+                <span class="pedestal-corner corner-tr">+</span>
+                <span class="pedestal-corner corner-bl">+</span>
+                <span class="pedestal-corner corner-br">+</span>
+                <div class="pedestal-status-tag">
+                  <span class="tag-ping"></span>
+                  <span class="decrypted-text" data-decrypt="INFRASTRUCTURE ONLINE">INFRASTRUCTURE ONLINE</span>
+                </div>
+              </div>
+
+              <!-- High-Performance WebP Picture with Top Breakout & Bottom Fade Mask -->
+              <div class="portrait-picture-wrapper" id="portraitPictureWrapper">
+                <picture id="heroPortraitPic">
+                  <source srcset="./assets/profile-cutout.webp" type="image/webp">
+                  <img src="./assets/profile-cutout.png" 
+                       alt="Rana Anas - Technical Operations Leader & Software Developer" 
+                       class="hero-portrait-img-redesign" 
+                       id="heroPortraitRedesign" 
+                       width="1086" 
+                       height="1448" 
+                       fetchpriority="high" 
+                       decoding="async">
+                </picture>
+              </div>
+
+              <!-- Floating Telemetry Chip 1 (Top-Right Stats) -->
+              <div class="hero-telemetry-chip chip-top-right" id="chipTopRight">
+                <div class="chip-beacon-dot"></div>
+                <div>
+                  <div class="chip-title"><span class="shiny-text">98%+ CSAT • 50+ Led</span></div>
+                  <div class="chip-sub">TIER-1 OPS &amp; SAAS LEAD</div>
+                </div>
+              </div>
+
+              <!-- Floating Telemetry Chip 2 (Bottom-Left Status) -->
+              <div class="hero-telemetry-chip chip-bottom-left" id="chipBottomLeft">
+                <span class="badge-status-dot"></span>
+                <div>
+                  <div class="chip-title"><span class="shiny-text">Available For Global Remote</span></div>
+                  <div class="chip-sub">UTC+5 • LEADERSHIP &amp; DEV</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ====== ORIGINAL PRESENTATION (Toggled on switch) ====== -->
+            <div class="original-stage-elements" id="originalStage" style="display: none;">
+              <div class="hero-glow-aura"></div>
+              <img src="./assets/profile-cutout.png" alt="Rana Anas - Technical Operations Leader" class="hero-portrait-img-original" id="heroPortraitOriginal">
+              
+              <div class="hero-portrait-badge">
+                <span class="badge-status-dot"></span>
+                <div>
+                  <div style="font-size: 11px; font-weight: 700; color: #fff;">Available For Global Remote</div>
+                  <div style="font-size: 9px; color: var(--accent); font-family: var(--font-mono); letter-spacing: 0.1em; transition: color 0.3s ease;">LEADERSHIP & DEV</div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -1047,30 +2293,217 @@
          ========================================================================== -->
     <section class="metrics-section" id="metrics">
       <canvas class="section-canvas-bg" id="telemetryCanvas"></canvas>
+      <div class="aurora-ambient-glow" aria-hidden="true"><span class="aurora-orb orb-1"></span><span class="aurora-orb orb-2"></span></div>
 
       <div class="container">
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-num">98<span class="accent">%+</span></div>
-            <div class="metric-label">Lifetime CSAT Rating</div>
-            <div class="metric-sub">Maintained across Compass.com & n.exchange high-tier accounts.</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-num">50<span class="accent">+</span></div>
-            <div class="metric-label">Team Members Led</div>
-            <div class="metric-sub">Directing 24/7 cross-functional support and technical operations.</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-num">15<span class="accent">%</span></div>
-            <div class="metric-label">Retention Increase</div>
-            <div class="metric-sub">Delivered through strategic account governance at Telebridge.</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-num"><span class="accent">#</span>1</div>
-            <div class="metric-label">Floor Handler Volume</div>
-            <div class="metric-sub">Top volume resolution record at ibex supporting Compass PropTech.</div>
+        
+        <!-- REDESIGN VIEW: ReactBits Magic Bento Grid -->
+        <div class="section-redesign-view">
+          <div class="section-eyebrow"><span class="shiny-text">Verified Impact Telemetry</span></div>
+          <h2 class="section-heading" style="margin-bottom: 0.5rem;">
+            <span>Operational</span>
+            <span class="ghost">Excellence.</span>
+          </h2>
+
+          <div class="magic-bento-grid">
+            
+            <!-- Bento Card 1: CSAT & Tier-1 SLA (Wide) -->
+            <div class="bento-card bento-card-wide spotlight-card">
+              <div>
+                <div class="bento-badge-row">
+                  <div class="bento-badge">
+                    <span class="tag-ping"></span>
+                    <span class="shiny-text">Tier-1 SLA Performance</span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.5);">Compass.com &bull; n.exchange</span>
+                </div>
+                <div class="bento-stat-num">
+                  98<span style="color: var(--accent); font-size: 2.8rem;">%+</span>
+                </div>
+                <div class="bento-stat-label">Lifetime Customer Satisfaction (CSAT)</div>
+                <p class="bento-stat-desc">
+                  Consistently maintained across high-tier enterprise accounts including <strong>Compass.com PropTech</strong> (USA real estate agents) and <strong>n.exchange</strong> (London crypto exchange high-net-worth traders).
+                </p>
+
+                <!-- Self-Contained SLA Metrics Dashboard -->
+                <div class="bento-kpi-row">
+                  <div class="bento-kpi-item">
+                    <div class="bento-kpi-val" style="color: #60A5FA;">98.4%</div>
+                    <div class="bento-kpi-lbl">CSAT Benchmark</div>
+                  </div>
+                  <div class="bento-kpi-item">
+                    <div class="bento-kpi-val" style="color: #38BDF8;">&lt;15m</div>
+                    <div class="bento-kpi-lbl">First Response Avg</div>
+                  </div>
+                  <div class="bento-kpi-item">
+                    <div class="bento-kpi-val" style="color: #34D399;">0.2%</div>
+                    <div class="bento-kpi-lbl">Escalation Rate</div>
+                  </div>
+                </div>
+
+                <div class="bento-gauge-track">
+                  <div class="bento-gauge-fill"></div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 11px;">
+                <span class="project-tag">PropTech VIPs</span>
+                <span class="project-tag">HNW Traders</span>
+                <span class="project-tag">Zero-Breach SLA</span>
+                <span class="project-tag">Root Cause Fixes</span>
+              </div>
+            </div>
+
+            <!-- Bento Card 2: Team Members Led -->
+            <div class="bento-card spotlight-card">
+              <div>
+                <div class="bento-badge-row">
+                  <div class="bento-badge" style="border-color: rgba(56, 189, 248, 0.35); color: #38BDF8;">
+                    <span style="color: #38BDF8;">●</span> Global Support Ops
+                  </div>
+                </div>
+                <div class="bento-stat-num">
+                  50<span style="color: var(--accent); font-size: 2.8rem;">+</span>
+                </div>
+                <div class="bento-stat-label">Engineers &amp; Leads Directed</div>
+                <p class="bento-stat-desc">
+                  Leading 24/7 cross-functional technical operations, incident response triage, and SOP knowledge bases.
+                </p>
+
+                <!-- Team Structure Hierarchy Micro-Tree -->
+                <div class="bento-hierarchy-list">
+                  <div class="bento-hierarchy-item">
+                    <span style="color: #93C5FD;">Tier 1: Support Specialists</span>
+                    <strong style="color: #fff;">32 Agents</strong>
+                  </div>
+                  <div class="bento-hierarchy-item">
+                    <span style="color: #38BDF8;">Tier 2: SysOps &amp; Infra</span>
+                    <strong style="color: #fff;">14 Engineers</strong>
+                  </div>
+                  <div class="bento-hierarchy-item">
+                    <span style="color: #34D399;">Tier 3: Technical Leads</span>
+                    <strong style="color: #fff;">4 Leads</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.25rem;">
+                <span class="project-tag" style="background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.3); color: #38BDF8; font-size: 11px;">
+                  ✦ 24/7 Follow-the-Sun Coverage
+                </span>
+              </div>
+            </div>
+
+            <!-- Bento Card 3: #1 Floor Handler -->
+            <div class="bento-card spotlight-card">
+              <div>
+                <div class="bento-badge-row">
+                  <div class="bento-badge" style="border-color: rgba(16, 185, 129, 0.35); color: #34D399;">
+                    <span style="color: #10B981;">⚡</span> Record Velocity
+                  </div>
+                </div>
+                <div class="bento-stat-num">
+                  <span style="color: var(--accent);">#</span>1
+                </div>
+                <div class="bento-stat-label">Floor Handler Volume Record</div>
+                <p class="bento-stat-desc">
+                  Achieved the highest ticket resolution volume record on the entire floor at ibex supporting Compass PropTech.
+                </p>
+
+                <!-- Leaderboard Performance Badge -->
+                <div class="bento-leaderboard-box">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: #34D399; font-weight: 700;">Rank #1 of 120+ Agents</span>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: #fff; font-weight: 800;">2.4x Benchmark</span>
+                  </div>
+                  <div style="width: 100%; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden;">
+                    <div style="width: 100%; height: 100%; background: #10B981; border-radius: 999px; box-shadow: 0 0 10px #10B981;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 11px; color: #34D399; display: flex; align-items: center; gap: 0.5rem;">
+                <span>✓ Verified ibex Audit Report</span>
+              </div>
+            </div>
+
+            <!-- Bento Card 4: Retention (Wide) -->
+            <div class="bento-card bento-card-wide spotlight-card">
+              <div>
+                <div class="bento-badge-row">
+                  <div class="bento-badge" style="border-color: rgba(245, 158, 11, 0.35); color: #FBBF24;">
+                    <span style="color: #F59E0B;">▲</span> Strategic Governance
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.5);">Telebridge BPO Governance</span>
+                </div>
+                <div class="bento-stat-num">
+                  15<span style="color: var(--accent); font-size: 2.8rem;">%</span>
+                </div>
+                <div class="bento-stat-label">Verified Customer Retention Surge</div>
+                <p class="bento-stat-desc">
+                  Delivered through dedicated high-touch account governance, root-cause bug diagnosis, and customer success pipelines at Telebridge.
+                </p>
+
+                <!-- Self-Contained Clean Trajectory Area Chart -->
+                <div class="bento-sparkline">
+                  <svg class="bento-wave-svg" viewBox="0 0 600 70" fill="none" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="retentionGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#10B981" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,58 Q150,50 300,32 T600,10 L600,70 L0,70 Z" fill="url(#retentionGrad)"/>
+                    <path d="M0,58 Q150,50 300,32 T600,10" stroke="#10B981" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <circle cx="0" cy="58" r="4" fill="#10B981"/>
+                    <circle cx="300" cy="32" r="4" fill="#38BDF8"/>
+                    <circle cx="600" cy="10" r="5" fill="#34D399"/>
+                  </svg>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.45); margin-top: 4px;">
+                  <span>Q1: Baseline</span>
+                  <span>Q2: +5.8%</span>
+                  <span>Q3: +11.2%</span>
+                  <span style="color: #34D399; font-weight: 700;">Q4: +15.2% ARR</span>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 11px;">
+                <span class="project-tag">Enterprise SLA</span>
+                <span class="project-tag">Dedicated CS Pipelines</span>
+                <span class="project-tag">Proactive Bug Triage</span>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <!-- ORIGINAL VIEW: Classic 4-box layout -->
+        <div class="section-original-view">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-num">98<span class="accent">%+</span></div>
+              <div class="metric-label">Lifetime CSAT Rating</div>
+              <div class="metric-sub">Maintained across Compass.com & n.exchange high-tier accounts.</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-num">50<span class="accent">+</span></div>
+              <div class="metric-label">Team Members Led</div>
+              <div class="metric-sub">Directing 24/7 cross-functional support and technical operations.</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-num">15<span class="accent">%</span></div>
+              <div class="metric-label">Retention Increase</div>
+              <div class="metric-sub">Delivered through strategic account governance at Telebridge.</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-num"><span class="accent">#</span>1</div>
+              <div class="metric-label">Floor Handler Volume</div>
+              <div class="metric-sub">Top volume resolution record at ibex supporting Compass PropTech.</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1079,69 +2512,246 @@
          ========================================================================== -->
     <section class="about-section" id="about">
       <canvas class="section-canvas-bg" id="cloudCanvas"></canvas>
+      <div class="aurora-ambient-glow" aria-hidden="true"><span class="aurora-orb orb-1"></span><span class="aurora-orb orb-2"></span></div>
 
       <div class="container">
-        <div class="about-grid">
-          <div>
-            <div class="section-eyebrow">Cloud & Operations Architecture</div>
-            <h2 class="section-heading">
-              <span style="display:block;">Architecting</span>
-              <span class="ghost">the resilient.</span>
-            </h2>
+        
+        <!-- REDESIGN VIEW: ReactBits Interactive Cloud Architecture Topology Matrix -->
+        <div class="section-redesign-view">
+          <div class="about-grid" style="align-items: center; gap: 3.5rem;">
+            <div>
+              <div class="section-eyebrow"><span class="shiny-text">Cloud &amp; Operations Architecture</span></div>
+              <h2 class="section-heading">
+                <span style="display:block;">Architecting</span>
+                <span class="ghost">the resilient.</span>
+              </h2>
 
-            <p class="about-bio-p">
-              "Transforming complex operational and technical challenges into seamless customer and software experiences across SaaS, Blockchain, and Logistics ecosystems."
-            </p>
+              <p class="about-bio-p">
+                "Transforming complex operational and technical challenges into seamless customer and software experiences across SaaS, Blockchain, and Logistics ecosystems."
+              </p>
 
-            <p class="about-bio-p">
-              With <strong>7+ years of multidisciplinary experience</strong>, I lead high-velocity support operations, architect desktop & web software utilities, and bridge the gap between complex engineering architectures and seamless customer success.
-            </p>
+              <p class="about-bio-p">
+                With <strong>7+ years of multidisciplinary experience</strong>, I lead high-velocity support operations, architect desktop &amp; web software utilities, and bridge the gap between complex engineering architectures and seamless customer success.
+              </p>
 
-            <p class="about-bio-p">
-              My background encompasses enterprise <strong>Cloud Infrastructure (AWS, Azure, Oracle Cloud)</strong>, server orchestration, DNS routing, and proprietary trading technology, supplemented by modern AI agent development workflows.
-            </p>
+              <!-- Architecture Pillar Mini-Cards -->
+              <div style="display: flex; flex-direction: column; gap: 0.85rem; margin: 1.75rem 0;">
+                <div style="display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1rem; border-radius: 12px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07);">
+                  <span style="color: var(--accent); font-family: var(--font-mono); font-weight: 800; font-size: 12px;">01</span>
+                  <div>
+                    <strong style="color: #fff; font-size: 13px;">Multi-Cloud Resiliency</strong>
+                    <div style="font-size: 12px; color: rgba(255,255,255,0.6);">High-availability infrastructure across AWS Production, Azure Fleet &amp; Oracle OCI.</div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1rem; border-radius: 12px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07);">
+                  <span style="color: #38BDF8; font-family: var(--font-mono); font-weight: 800; font-size: 12px;">02</span>
+                  <div>
+                    <strong style="color: #fff; font-size: 13px;">Edge Routing &amp; Zero-Trust</strong>
+                    <div style="font-size: 12px; color: rgba(255,255,255,0.6);">Anycast DNS, SSL cryptographic handshakes, and Cloudflare DDoS protection.</div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 1rem; border-radius: 12px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07);">
+                  <span style="color: #34D399; font-family: var(--font-mono); font-weight: 800; font-size: 12px;">03</span>
+                  <div>
+                    <strong style="color: #fff; font-size: 13px;">Enterprise Incident Command</strong>
+                    <div style="font-size: 12px; color: rgba(255,255,255,0.6);">24/7 Tier-1/2 triage with Zendesk, Freshdesk, and Jira IT Service Desk workflows.</div>
+                  </div>
+                </div>
+              </div>
 
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem;">
-              <span class="project-tag">AWS Cloud</span>
-              <span class="project-tag">Microsoft Azure</span>
-              <span class="project-tag">Oracle OCI</span>
-              <span class="project-tag">DNS & SSL Routing</span>
-              <span class="project-tag">Incident Triage</span>
-              <span class="project-tag">Zendesk / Freshdesk</span>
+              <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                <span class="project-tag">AWS Production</span>
+                <span class="project-tag">Microsoft Azure</span>
+                <span class="project-tag">Oracle OCI</span>
+                <span class="project-tag">Cloudflare Edge</span>
+                <span class="project-tag">Anycast DNS</span>
+                <span class="project-tag">Zendesk Enterprise</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Cloud Server Topology Telemetry HUD -->
-          <div class="cloud-topology-hud">
-            <div class="hud-header">
-              <span class="hud-title">Infrastructure Cluster Telemetry</span>
-              <span style="font-family: var(--font-mono); font-size: 10px; color: var(--accent); transition: color 0.3s ease;">STATUS: 99.98% HEALTH</span>
-            </div>
+            <!-- ReactBits: Cloud Architecture Interactive Topology Matrix -->
+            <div class="cloud-topology-matrix spotlight-card">
+              <div class="topology-header-bar">
+                <div class="topology-window-dots">
+                  <span class="window-dot dot-red"></span>
+                  <span class="window-dot dot-yellow"></span>
+                  <span class="window-dot dot-green"></span>
+                  <span class="topology-header-title">LIVE ARCHITECTURE TOPOLOGY // PORT 443</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; color: #34D399;">
+                  <span class="tag-ping" style="background: #10B981;"></span>
+                  <span>99.98% SLA</span>
+                </div>
+              </div>
 
-            <div class="hud-nodes-list">
-              <div class="hud-node-item">
-                <span><span class="hud-dot"></span>AWS Production Cluster</span>
-                <span style="color: rgba(255,255,255,0.45);">us-east-1 • Low Latency</span>
+              <!-- Central Operations Command Core -->
+              <div class="topology-core-hub">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(37, 99, 235, 0.25); border: 1.5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; box-shadow: 0 0 20px var(--accent-glow);">
+                    ⚡
+                  </div>
+                  <div>
+                    <div style="font-family: var(--font-mono); font-size: 10px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">COMMAND HUB</div>
+                    <div style="font-size: 1.1rem; font-weight: 800; color: #fff;">Rana Anas &bull; Ops Core</div>
+                  </div>
+                </div>
+                <div style="text-align: right; font-family: var(--font-mono); font-size: 11px;">
+                  <div style="color: #60A5FA; font-weight: 700;">&lt;12ms ROUTING</div>
+                  <div style="color: rgba(255,255,255,0.45); font-size: 10px;">TIER-1 DISPATCH</div>
+                </div>
               </div>
-              <div class="hud-node-item">
-                <span><span class="hud-dot"></span>Microsoft Azure Infrastructure</span>
-                <span style="color: rgba(255,255,255,0.45);">Central US • Enterprise Sync</span>
-              </div>
-              <div class="hud-node-item">
-                <span><span class="hud-dot"></span>Oracle Cloud Infrastructure</span>
-                <span style="color: rgba(255,255,255,0.45);">DB Cluster • High Concurrency</span>
-              </div>
-              <div class="hud-node-item">
-                <span><span class="hud-dot"></span>Global Anycast DNS Routing</span>
-                <span style="color: rgba(255,255,255,0.45);">Edge Distribution • Zero Lag</span>
-              </div>
-              <div class="hud-node-item">
-                <span><span class="hud-dot"></span>SaaS Escalation Pipeline</span>
-                <span style="color: rgba(255,255,255,0.45);">Tier 1/2 Automation • 98% CSAT</span>
+
+              <!-- 6 Connected Infrastructure Node Cards -->
+              <div class="topology-nodes-grid">
+                
+                <!-- Node 1: AWS -->
+                <div class="topology-node-card">
+                  <div class="topology-node-top">
+                    <span class="topology-node-name"><span style="color: #FF9900;">☁</span> AWS Production</span>
+                    <span class="topology-node-status">Active</span>
+                  </div>
+                  <div class="topology-node-desc">EC2 &bull; S3 &bull; Route53 &bull; CloudWatch</div>
+                  <div class="topology-node-metrics">
+                    <span>US-East / EU-West</span>
+                    <span style="color: #60A5FA;">12ms Ping</span>
+                  </div>
+                </div>
+
+                <!-- Node 2: Azure -->
+                <div class="topology-node-card">
+                  <div class="topology-node-top">
+                    <span class="topology-node-name"><span style="color: #0089D6;">❖</span> Azure Fleet</span>
+                    <span class="topology-node-status">100% Synced</span>
+                  </div>
+                  <div class="topology-node-desc">Entra ID SSO &bull; Monitor &bull; VMs</div>
+                  <div class="topology-node-metrics">
+                    <span>Hybrid Identity</span>
+                    <span style="color: #60A5FA;">Zero Trust</span>
+                  </div>
+                </div>
+
+                <!-- Node 3: Oracle OCI -->
+                <div class="topology-node-card">
+                  <div class="topology-node-top">
+                    <span class="topology-node-name"><span style="color: #EF4444;">⬡</span> Oracle OCI</span>
+                    <span class="topology-node-status">Operational</span>
+                  </div>
+                  <div class="topology-node-desc">Autonomous DB &bull; Compute &bull; IAM</div>
+                  <div class="topology-node-metrics">
+                    <span>Enterprise Tier</span>
+                    <span style="color: #60A5FA;">Multi-Region</span>
+                  </div>
+                </div>
+
+                <!-- Node 4: Edge Anycast -->
+                <div class="topology-node-card">
+                  <div class="topology-node-top">
+                    <span class="topology-node-name"><span style="color: #F97316;">🌐</span> Edge Anycast</span>
+                    <span class="topology-node-status">Protected</span>
+                  </div>
+                  <div class="topology-node-desc">Cloudflare DNS &bull; TLS Ciphers &bull; CDN</div>
+                  <div class="topology-node-metrics">
+                    <span>Zero-Trust SSL</span>
+                    <span style="color: #34D399;">DDoS Shield</span>
+                  </div>
+                </div>
+
+                <!-- Node 5: SaaS Support Ops -->
+                <div class="topology-node-card">
+                  <div class="topology-node-top">
+                    <span class="topology-node-name"><span style="color: #10B981;">🎧</span> Support Ops</span>
+                    <span class="topology-node-status">Tier-1 SLA</span>
+                  </div>
+                  <div class="topology-node-desc">Zendesk &bull; Freshdesk &bull; Jira Desk</div>
+                  <div class="topology-node-metrics">
+                    <span>24/7 Floor Triage</span>
+                    <span style="color: #34D399;">98%+ CSAT</span>
+                  </div>
+                </div>
+
+                <!-- Node 6: FinTech & Multi-Threading -->
+                <div class="topology-node-card">
+                  <div class="topology-node-top">
+                    <span class="topology-node-name"><span style="color: #38BDF8;">⚡</span> FinTech Sockets</span>
+                    <span class="topology-node-status">High-Throughput</span>
+                  </div>
+                  <div class="topology-node-desc">MetaTrader 5 API &bull; IPC Workers</div>
+                  <div class="topology-node-metrics">
+                    <span>Zero Drift</span>
+                    <span style="color: #60A5FA;">&lt;1ms Exec</span>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
+
+        <!-- ORIGINAL VIEW: Classic list HUD -->
+        <div class="section-original-view">
+          <div class="about-grid">
+            <div>
+              <div class="section-eyebrow">Cloud & Operations Architecture</div>
+              <h2 class="section-heading">
+                <span style="display:block;">Architecting</span>
+                <span class="ghost">the resilient.</span>
+              </h2>
+
+              <p class="about-bio-p">
+                "Transforming complex operational and technical challenges into seamless customer and software experiences across SaaS, Blockchain, and Logistics ecosystems."
+              </p>
+
+              <p class="about-bio-p">
+                With <strong>7+ years of multidisciplinary experience</strong>, I lead high-velocity support operations, architect desktop & web software utilities, and bridge the gap between complex engineering architectures and seamless customer success.
+              </p>
+
+              <p class="about-bio-p">
+                My background encompasses enterprise <strong>Cloud Infrastructure (AWS, Azure, Oracle Cloud)</strong>, server orchestration, DNS routing, and proprietary trading technology, supplemented by modern AI agent development workflows.
+              </p>
+
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem;">
+                <span class="project-tag">AWS Cloud</span>
+                <span class="project-tag">Microsoft Azure</span>
+                <span class="project-tag">Oracle OCI</span>
+                <span class="project-tag">DNS & SSL Routing</span>
+                <span class="project-tag">Incident Triage</span>
+                <span class="project-tag">Zendesk / Freshdesk</span>
+              </div>
+            </div>
+
+            <!-- Cloud Server Topology Telemetry HUD -->
+            <div class="cloud-topology-hud">
+              <div class="hud-header">
+                <span class="hud-title">Infrastructure Cluster Telemetry</span>
+                <span style="font-family: var(--font-mono); font-size: 10px; color: var(--accent); transition: color 0.3s ease;">STATUS: 99.98% HEALTH</span>
+              </div>
+
+              <div class="hud-nodes-list">
+                <div class="hud-node-item">
+                  <span><span class="hud-dot"></span>AWS Production Cluster</span>
+                  <span style="color: rgba(255,255,255,0.45);">us-east-1 • Low Latency</span>
+                </div>
+                <div class="hud-node-item">
+                  <span><span class="hud-dot"></span>Microsoft Azure Infrastructure</span>
+                  <span style="color: rgba(255,255,255,0.45);">Central US • Enterprise Sync</span>
+                </div>
+                <div class="hud-node-item">
+                  <span><span class="hud-dot"></span>Oracle Cloud Infrastructure</span>
+                  <span style="color: rgba(255,255,255,0.45);">DB Cluster • High Concurrency</span>
+                </div>
+                <div class="hud-node-item">
+                  <span><span class="hud-dot"></span>Global Anycast DNS Routing</span>
+                  <span style="color: rgba(255,255,255,0.45);">Edge Distribution • Zero Lag</span>
+                </div>
+                <div class="hud-node-item">
+                  <span><span class="hud-dot"></span>SaaS Escalation Pipeline</span>
+                  <span style="color: rgba(255,255,255,0.45);">Tier 1/2 Automation • 98% CSAT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1150,110 +2760,304 @@
          ========================================================================== -->
     <section class="projects-section" id="projects">
       <canvas class="section-canvas-bg" id="engineeringCanvas"></canvas>
+      <div class="aurora-ambient-glow" aria-hidden="true"><span class="aurora-orb orb-1"></span><span class="aurora-orb orb-2"></span></div>
 
       <div class="container">
-        <div class="section-eyebrow">Engineering & Utilities</div>
-        <h2 class="section-heading">
-          <span>Featured</span>
-          <span class="ghost">Projects.</span>
-        </h2>
+        
+        <!-- REDESIGN VIEW: ReactBits FluidTabs + TiltedCard 3D Interactive Showcase -->
+        <div class="section-redesign-view">
+          <div class="section-eyebrow"><span class="shiny-text">Engineering &amp; Systems Suite</span></div>
+          <h2 class="section-heading" style="margin-bottom: 0.5rem;">
+            <span>Featured</span>
+            <span class="ghost">Projects.</span>
+          </h2>
+          <p style="color: rgba(255, 255, 255, 0.65); max-width: 650px; font-size: 15px; margin-bottom: 1.5rem;">
+            Custom desktop software engineering, high-concurrency quantitative trading execution, and real-time audio digital signal processing engines.
+          </p>
 
-        <div class="projects-list">
-          
-          <!-- Project 1: ApexPen -->
-          <article class="project-cinematic-card">
-            <div class="project-img-container">
-              <img src="./assets/projects/ApexPen.jpeg" alt="ApexPen Desktop Screen Annotation Engine">
-            </div>
-            <div class="project-content">
-              <div>
-                <div class="project-meta-top">
-                  <span class="project-cat">Desktop Software</span>
-                  <span class="project-date">August 2026</span>
-                </div>
-                <h3 class="project-title">ApexPen — Windows Screen Annotation Engine</h3>
-                <p class="project-desc">
-                  High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams. Featuring click-through mode and numbered instructional step badges.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">Python</span>
-                  <span class="project-tag">PyQt6</span>
-                  <span class="project-tag">Win32 API</span>
-                  <span class="project-tag">Vector Graphics</span>
-                  <span class="project-tag">&lt;35MB RAM</span>
-                </div>
-              </div>
-              <div>
-                <a href="https://github.com/ranaanas/ApexPen" target="_blank" class="btn-accent-pill">
-                  View Repository
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
+          <!-- ReactBits FluidTabs Category Filters -->
+          <div class="fluid-tabs-container" id="projectFluidTabs">
+            <div class="fluid-tab-indicator" id="fluidTabIndicator"></div>
+            <button class="fluid-tab-pill active" data-filter="all">All Systems (3)</button>
+            <button class="fluid-tab-pill" data-filter="desktop">Desktop &amp; Win32 (1)</button>
+            <button class="fluid-tab-pill" data-filter="fintech">FinTech Execution (1)</button>
+            <button class="fluid-tab-pill" data-filter="audio">Audio DSP (1)</button>
+          </div>
 
-          <!-- Project 2: MT5 Trade Manager -->
-          <article class="project-cinematic-card">
-            <div class="project-img-container">
-              <img src="./assets/projects/mt5-manager.jpeg" alt="MT5 Multi-Account Trade Manager">
-            </div>
-            <div class="project-content">
-              <div>
-                <div class="project-meta-top">
-                  <span class="project-cat">FinTech & Trading</span>
-                  <span class="project-date">2026</span>
+          <!-- ReactBits TiltedCard 3D Interactive Project Grid -->
+          <div class="tilted-projects-grid" id="tiltedProjectsGrid">
+            
+            <!-- Project 1: ApexPen -->
+            <article class="tilted-project-card" data-category="desktop" id="cardApexPen">
+              <div class="tilted-card-inner spotlight-card" id="tiltedInner1">
+                <div class="tilted-card-glare"></div>
+                
+                <!-- Native Window Browser Mockup Frame -->
+                <div class="project-window-frame" onclick="openProjectModal('./assets/projects/ApexPen.jpeg', 'ApexPen — Windows Screen Annotation Engine', 'High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams. Featuring click-through mode and numbered instructional step badges.')">
+                  <div class="project-window-top">
+                    <span class="window-dot dot-red"></span>
+                    <span class="window-dot dot-yellow"></span>
+                    <span class="window-dot dot-green"></span>
+                    <span class="project-window-title">ApexPen v2.4 // Win32 GDI+ Canvas</span>
+                  </div>
+                  <div class="project-window-body">
+                    <img src="./assets/projects/ApexPen.jpeg" alt="ApexPen Desktop Screen Annotation Engine">
+                    <div class="project-window-hover-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Inspect Fullscreen</span>
+                    </div>
+                  </div>
                 </div>
-                <h3 class="project-title">MT5 Multi-Account Trade Manager</h3>
-                <p class="project-desc">
-                  High-concurrency trade synchronization desktop application designed for prop firm funded traders and broker desks. Built with a master-worker multiprocessing architecture eliminating sequential execution latency.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">MetaTrader 5 API</span>
-                  <span class="project-tag">Multiprocessing</span>
-                  <span class="project-tag">Keyring Security</span>
-                  <span class="project-tag">Risk Modeling</span>
-                </div>
-              </div>
-              <div>
-                <a href="https://github.com/ranaanas/MT5-Trade-Manager" target="_blank" class="btn-accent-pill">
-                  View Repository
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
 
-          <!-- Project 3: Background Music Remover -->
-          <article class="project-cinematic-card">
-            <div class="project-img-container">
-              <img src="./assets/projects/audio-remover.jpeg" alt="Background Music Remover">
-            </div>
-            <div class="project-content">
-              <div>
-                <div class="project-meta-top">
-                  <span class="project-cat">Audio Processing</span>
-                  <span class="project-date">Jul – Aug 2026</span>
-                </div>
-                <h3 class="project-title">Real-Time Background Music Remover</h3>
-                <p class="project-desc">
-                  Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials with virtual audio driver routing.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">Audio DSP</span>
-                  <span class="project-tag">Python</span>
-                  <span class="project-tag">WASAPI Routing</span>
-                  <span class="project-tag">OBS / Zoom Support</span>
+                <div class="project-content" style="padding: 2.25rem 2.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div>
+                    <div class="project-meta-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                      <span class="project-cat" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;">Desktop Software &bull; Win32</span>
+                      <span class="project-date" style="font-family: var(--font-mono); font-size: 11px; color: rgba(255, 255, 255, 0.45);">August 2026</span>
+                    </div>
+                    <h3 class="project-title" style="font-size: 1.55rem; font-weight: 800; color: #fff; margin-bottom: 0.85rem; letter-spacing: -0.02em;">ApexPen — Windows Screen Annotation Engine</h3>
+                    <p class="project-desc" style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
+                      High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams. Featuring click-through transparent canvas mode and numbered instructional step badges.
+                    </p>
+                    <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem;">
+                      <span class="project-tag">Python</span>
+                      <span class="project-tag">PyQt6</span>
+                      <span class="project-tag">Win32 API</span>
+                      <span class="project-tag">Vector Graphics</span>
+                      <span class="project-tag">&lt;35MB RAM</span>
+                      <span class="project-tag" style="background: rgba(37, 99, 235, 0.15); border-color: rgba(37, 99, 235, 0.35); color: #60a5fa;">60 FPS Smoothing</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap;">
+                    <a href="https://github.com/ranaanas/ApexPen" target="_blank" class="btn-accent-pill">
+                      View Repository
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                    <button type="button" onclick="openProjectModal('./assets/projects/ApexPen.jpeg', 'ApexPen — Windows Screen Annotation Engine', 'High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams. Featuring click-through mode and numbered instructional step badges.')" style="border-radius: 100px; padding: 0.65rem 1.25rem; font-size: 11px; letter-spacing: 0.15em; font-weight: 700; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); color: #fff; cursor: pointer; transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      Inspect Diagram
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div>
-                <a href="https://github.com/ranaanas/background-music-remover" target="_blank" class="btn-accent-pill">
-                  View Repository
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
+            </article>
 
+            <!-- Project 2: MT5 Trade Manager -->
+            <article class="tilted-project-card" data-category="fintech" id="cardMT5">
+              <div class="tilted-card-inner spotlight-card" id="tiltedInner2">
+                <div class="tilted-card-glare"></div>
+                
+                <!-- Native Window Browser Mockup Frame -->
+                <div class="project-window-frame" onclick="openProjectModal('./assets/projects/mt5-manager.jpeg', 'MT5 Multi-Account Trade Manager', 'High-concurrency trade synchronization desktop application designed for prop firm funded traders and broker desks. Built with a master-worker multiprocessing architecture eliminating sequential execution latency.')">
+                  <div class="project-window-top">
+                    <span class="window-dot dot-red"></span>
+                    <span class="window-dot dot-yellow"></span>
+                    <span class="window-dot dot-green"></span>
+                    <span class="project-window-title">MT5 Manager // Master-Worker IPC Engine</span>
+                  </div>
+                  <div class="project-window-body">
+                    <img src="./assets/projects/mt5-manager.jpeg" alt="MT5 Multi-Account Trade Manager">
+                    <div class="project-window-hover-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Inspect Fullscreen</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-content" style="padding: 2.25rem 2.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div>
+                    <div class="project-meta-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                      <span class="project-cat" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;">FinTech &bull; Prop Trading</span>
+                      <span class="project-date" style="font-family: var(--font-mono); font-size: 11px; color: rgba(255, 255, 255, 0.45);">2026</span>
+                    </div>
+                    <h3 class="project-title" style="font-size: 1.55rem; font-weight: 800; color: #fff; margin-bottom: 0.85rem; letter-spacing: -0.02em;">MT5 Multi-Account Trade Manager</h3>
+                    <p class="project-desc" style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
+                      High-concurrency trade synchronization desktop application designed for prop firm funded traders and broker desks. Built with a master-worker multiprocessing architecture eliminating sequential execution latency across accounts.
+                    </p>
+                    <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem;">
+                      <span class="project-tag">MetaTrader 5 API</span>
+                      <span class="project-tag">Multiprocessing</span>
+                      <span class="project-tag">Keyring Security</span>
+                      <span class="project-tag">Risk Modeling</span>
+                      <span class="project-tag" style="background: rgba(37, 99, 235, 0.15); border-color: rgba(37, 99, 235, 0.35); color: #60a5fa;">&lt;1ms Dispatch</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap;">
+                    <a href="https://github.com/ranaanas/MT5-Trade-Manager" target="_blank" class="btn-accent-pill">
+                      View Repository
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                    <button type="button" onclick="openProjectModal('./assets/projects/mt5-manager.jpeg', 'MT5 Multi-Account Trade Manager', 'High-concurrency trade synchronization desktop application designed for prop firm funded traders and broker desks. Built with a master-worker multiprocessing architecture eliminating sequential execution latency.')" style="border-radius: 100px; padding: 0.65rem 1.25rem; font-size: 11px; letter-spacing: 0.15em; font-weight: 700; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); color: #fff; cursor: pointer; transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      Inspect Diagram
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3: Background Music Remover -->
+            <article class="tilted-project-card" data-category="audio" id="cardAudio">
+              <div class="tilted-card-inner spotlight-card" id="tiltedInner3">
+                <div class="tilted-card-glare"></div>
+                
+                <!-- Native Window Browser Mockup Frame -->
+                <div class="project-window-frame" onclick="openProjectModal('./assets/projects/audio-remover.jpeg', 'Real-Time Background Music Remover', 'Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials with virtual audio driver routing.')">
+                  <div class="project-window-top">
+                    <span class="window-dot dot-red"></span>
+                    <span class="window-dot dot-yellow"></span>
+                    <span class="window-dot dot-green"></span>
+                    <span class="project-window-title">Audio DSP Remover // WASAPI Loopback</span>
+                  </div>
+                  <div class="project-window-body">
+                    <img src="./assets/projects/audio-remover.jpeg" alt="Background Music Remover">
+                    <div class="project-window-hover-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Inspect Fullscreen</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-content" style="padding: 2.25rem 2.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div>
+                    <div class="project-meta-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                      <span class="project-cat" style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;">Audio DSP &bull; Stream Engine</span>
+                      <span class="project-date" style="font-family: var(--font-mono); font-size: 11px; color: rgba(255, 255, 255, 0.45);">Jul – Aug 2026</span>
+                    </div>
+                    <h3 class="project-title" style="font-size: 1.55rem; font-weight: 800; color: #fff; margin-bottom: 0.85rem; letter-spacing: -0.02em;">Real-Time Background Music Remover</h3>
+                    <p class="project-desc" style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
+                      Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials with virtual audio driver routing.
+                    </p>
+                    <div class="project-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem;">
+                      <span class="project-tag">Audio DSP</span>
+                      <span class="project-tag">Python</span>
+                      <span class="project-tag">WASAPI Routing</span>
+                      <span class="project-tag">OBS / Zoom Support</span>
+                      <span class="project-tag" style="background: rgba(37, 99, 235, 0.15); border-color: rgba(37, 99, 235, 0.35); color: #60a5fa;">Zero Buffer Drift</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap;">
+                    <a href="https://github.com/ranaanas/background-music-remover" target="_blank" class="btn-accent-pill">
+                      View Repository
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                    <button type="button" onclick="openProjectModal('./assets/projects/audio-remover.jpeg', 'Real-Time Background Music Remover', 'Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials with virtual audio driver routing.')" style="border-radius: 100px; padding: 0.65rem 1.25rem; font-size: 11px; letter-spacing: 0.15em; font-weight: 700; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); color: #fff; cursor: pointer; transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      Inspect Diagram
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ORIGINAL VIEW: Classic 3-Card Stack -->
+        <div class="section-original-view">
+          <div class="section-eyebrow"><span class="shiny-text">Engineering &amp; Utilities</span></div>
+          <h2 class="section-heading">
+            <span>Featured</span>
+            <span class="ghost">Projects.</span>
+          </h2>
+
+          <div class="projects-list">
+            
+            <!-- Project 1: ApexPen -->
+            <article class="project-cinematic-card spotlight-card">
+              <div class="project-img-container">
+                <img src="./assets/projects/ApexPen.jpeg" alt="ApexPen Desktop Screen Annotation Engine">
+              </div>
+              <div class="project-content">
+                <div>
+                  <div class="project-meta-top">
+                    <span class="project-cat">Desktop Software</span>
+                    <span class="project-date">August 2026</span>
+                  </div>
+                  <h3 class="project-title">ApexPen — Windows Screen Annotation Engine</h3>
+                  <p class="project-desc">
+                    High-performance screen annotation and live demonstration software engineered for technical trainers, live educators, software presenters, and remote teams. Featuring click-through mode and numbered instructional step badges.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">PyQt6</span>
+                    <span class="project-tag">Win32 API</span>
+                    <span class="project-tag">Vector Graphics</span>
+                    <span class="project-tag">&lt;35MB RAM</span>
+                  </div>
+                </div>
+                <div>
+                  <a href="https://github.com/ranaanas/ApexPen" target="_blank" class="btn-accent-pill">
+                    View Repository
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2: MT5 Trade Manager -->
+            <article class="project-cinematic-card spotlight-card">
+              <div class="project-img-container">
+                <img src="./assets/projects/mt5-manager.jpeg" alt="MT5 Multi-Account Trade Manager">
+              </div>
+              <div class="project-content">
+                <div>
+                  <div class="project-meta-top">
+                    <span class="project-cat">FinTech & Trading</span>
+                    <span class="project-date">2026</span>
+                  </div>
+                  <h3 class="project-title">MT5 Multi-Account Trade Manager</h3>
+                  <p class="project-desc">
+                    High-concurrency trade synchronization desktop application designed for prop firm funded traders and broker desks. Built with a master-worker multiprocessing architecture eliminating sequential execution latency.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">MetaTrader 5 API</span>
+                    <span class="project-tag">Multiprocessing</span>
+                    <span class="project-tag">Keyring Security</span>
+                    <span class="project-tag">Risk Modeling</span>
+                  </div>
+                </div>
+                <div>
+                  <a href="https://github.com/ranaanas/MT5-Trade-Manager" target="_blank" class="btn-accent-pill">
+                    View Repository
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3: Background Music Remover -->
+            <article class="project-cinematic-card spotlight-card">
+              <div class="project-img-container">
+                <img src="./assets/projects/audio-remover.jpeg" alt="Background Music Remover">
+              </div>
+              <div class="project-content">
+                <div>
+                  <div class="project-meta-top">
+                    <span class="project-cat">Audio Processing</span>
+                    <span class="project-date">Jul – Aug 2026</span>
+                  </div>
+                  <h3 class="project-title">Real-Time Background Music Remover</h3>
+                  <p class="project-desc">
+                    Real-time audio processing desktop utility built to isolate primary speaker vocals and suppress distracting background music from livestreams, podcasts, webinars, and tutorials with virtual audio driver routing.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">Audio DSP</span>
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">WASAPI Routing</span>
+                    <span class="project-tag">OBS / Zoom Support</span>
+                  </div>
+                </div>
+                <div>
+                  <a href="https://github.com/ranaanas/background-music-remover" target="_blank" class="btn-accent-pill">
+                    View Repository
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
         </div>
       </div>
     </section>
@@ -1263,9 +3067,10 @@
          ========================================================================== -->
     <section class="experience-section" id="experience">
       <canvas class="section-canvas-bg" id="timelineCanvas"></canvas>
+      <div class="aurora-ambient-glow" aria-hidden="true"><span class="aurora-orb orb-1"></span><span class="aurora-orb orb-2"></span></div>
 
       <div class="container">
-        <div class="section-eyebrow">Track Record</div>
+        <div class="section-eyebrow"><span class="shiny-text">Track Record</span></div>
         <h2 class="section-heading">
           <span>Career</span>
           <span class="ghost">Journey.</span>
@@ -1366,11 +3171,12 @@
          ========================================================================== -->
     <section class="contact-section" id="contact">
       <canvas class="section-canvas-bg" id="contactCanvas"></canvas>
+      <div class="aurora-ambient-glow" aria-hidden="true"><span class="aurora-orb orb-1"></span><span class="aurora-orb orb-2"></span></div>
 
       <div class="container">
         <div class="contact-grid">
           <div>
-            <div class="section-eyebrow">Get In Touch</div>
+            <div class="section-eyebrow"><span class="shiny-text">Get In Touch</span></div>
             <h2 class="section-heading">
               <span>Let's build</span>
               <span class="ghost-accent">together.</span>
@@ -1398,8 +3204,8 @@
             </div>
           </div>
 
-          <!-- Contact Form with Email / WhatsApp Toggle -->
-          <div class="contact-form-card">
+          <!-- Contact Form with Email / WhatsApp Toggle (ReactBits SpotlightCard) -->
+          <div class="contact-form-card spotlight-card">
             <div class="contact-tabs">
               <button class="contact-tab-btn active" id="tabEmail">Email Message</button>
               <button class="contact-tab-btn" id="tabWhatsapp">Direct WhatsApp</button>
@@ -1552,14 +3358,208 @@ document.querySelectorAll('a, button, .project-cinematic-card, .timeline-row, .m
 });
 
 // ==========================================================================
-// 4. Hero Portrait Mouse Parallax (Crisp & Subtle Tilt)
+// 4. Hero Portrait Presentation Switcher & Parallax Engine
 // ==========================================================================
-const heroPortrait = document.getElementById('heroPortrait');
-if (heroPortrait) {
-  window.addEventListener('mousemove', (e) => {
-    const normX = (e.clientX / window.innerWidth) - 0.5;
-    const normY = (e.clientY / window.innerHeight) - 0.5;
-    heroPortrait.style.transform = `translateX(${normX * 18}px) translateY(${normY * 12}px) rotate(${normX * 1.5}deg)`;
+let currentPortraitMode = localStorage.getItem('rana_portrait_mode') || 'redesign';
+
+const redesignStageEl = document.getElementById('redesignStage');
+const originalStageEl = document.getElementById('originalStage');
+const brandAvatarMini = document.getElementById('brandAvatarMini');
+
+const navSwitchRedesign = document.getElementById('navSwitchRedesign');
+const navSwitchOriginal = document.getElementById('navSwitchOriginal');
+const heroSwitchRedesign = document.getElementById('heroSwitchRedesign');
+const heroSwitchOriginal = document.getElementById('heroSwitchOriginal');
+
+const pedestalCard = document.getElementById('pedestalCard');
+const portraitPictureWrap = document.getElementById('portraitPictureWrapper');
+const chipTopRight = document.getElementById('chipTopRight');
+const chipBottomLeft = document.getElementById('chipBottomLeft');
+const pedestalSheen = document.getElementById('pedestalSheen');
+const heroPortraitOriginal = document.getElementById('heroPortraitOriginal');
+
+function applyPortraitMode(mode, save = true) {
+  currentPortraitMode = mode;
+  if (save) {
+    try {
+      localStorage.setItem('rana_portrait_mode', mode);
+    } catch(err) {}
+  }
+
+  const isRedesign = mode === 'redesign';
+
+  // Toggle body classes for global redesign vs original view
+  document.body.classList.toggle('mode-redesign', isRedesign);
+  document.body.classList.toggle('mode-original', !isRedesign);
+
+  // Toggle stage elements with smooth transition
+  if (redesignStageEl) redesignStageEl.style.display = isRedesign ? 'flex' : 'none';
+  if (originalStageEl) originalStageEl.style.display = isRedesign ? 'none' : 'flex';
+
+  // Toggle Navbar buttons
+  if (navSwitchRedesign) {
+    navSwitchRedesign.classList.toggle('active', isRedesign);
+    navSwitchRedesign.setAttribute('aria-pressed', isRedesign ? 'true' : 'false');
+  }
+  if (navSwitchOriginal) {
+    navSwitchOriginal.classList.toggle('active', !isRedesign);
+    navSwitchOriginal.setAttribute('aria-pressed', !isRedesign ? 'true' : 'false');
+  }
+
+  // Toggle Hero buttons
+  if (heroSwitchRedesign) {
+    heroSwitchRedesign.classList.toggle('active', isRedesign);
+    heroSwitchRedesign.setAttribute('aria-pressed', isRedesign ? 'true' : 'false');
+  }
+  if (heroSwitchOriginal) {
+    heroSwitchOriginal.classList.toggle('active', !isRedesign);
+    heroSwitchOriginal.setAttribute('aria-pressed', !isRedesign ? 'true' : 'false');
+  }
+
+  // Toggle brand avatar mini image
+  if (brandAvatarMini) {
+    brandAvatarMini.src = './assets/avatar-face.webp';
+  }
+
+  // Sync FluidTabs indicator if active
+  if (isRedesign && typeof window.updateFluidTab === 'function') {
+    setTimeout(() => {
+      const curTab = document.querySelector('.fluid-tab-pill.active');
+      if (curTab) window.updateFluidTab(curTab);
+    }, 60);
+  }
+}
+
+// Bind button clicks
+[navSwitchRedesign, heroSwitchRedesign].forEach(btn => {
+  if (btn) btn.addEventListener('click', () => applyPortraitMode('redesign'));
+});
+[navSwitchOriginal, heroSwitchOriginal].forEach(btn => {
+  if (btn) btn.addEventListener('click', () => applyPortraitMode('original'));
+});
+
+// Initialize on page load
+applyPortraitMode(currentPortraitMode, false);
+
+// Mouse Parallax (Dual-Mode: 3D Multiplane Perspective vs Classic 2D)
+window.addEventListener('mousemove', (e) => {
+  const normX = (e.clientX / window.innerWidth) - 0.5;
+  const normY = (e.clientY / window.innerHeight) - 0.5;
+
+  if (currentPortraitMode === 'redesign') {
+    const rotY = normX * 14;
+    const rotX = -normY * 10;
+
+    if (pedestalCard) {
+      pedestalCard.style.transform = `rotateY(${rotY * 0.75}deg) rotateX(${rotX * 0.75}deg) translateZ(0px)`;
+    }
+    if (portraitPictureWrap) {
+      portraitPictureWrap.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg) translateZ(28px) translateX(${normX * 8}px)`;
+    }
+    if (chipTopRight) {
+      chipTopRight.style.transform = `rotateY(${rotY * 1.1}deg) rotateX(${rotX * 1.1}deg) translateZ(48px) translateX(${normX * 12}px) translateY(${normY * 8}px)`;
+    }
+    if (chipBottomLeft) {
+      chipBottomLeft.style.transform = `rotateY(${rotY * 1.1}deg) rotateX(${rotX * 1.1}deg) translateZ(48px) translateX(${normX * 10}px) translateY(${normY * 6}px)`;
+    }
+    if (pedestalSheen && pedestalCard) {
+      const rect = pedestalCard.getBoundingClientRect();
+      const sheenX = ((e.clientX - rect.left) / rect.width) * 100;
+      const sheenY = ((e.clientY - rect.top) / rect.height) * 100;
+      pedestalSheen.style.setProperty('--sheen-x', `${sheenX}%`);
+      pedestalSheen.style.setProperty('--sheen-y', `${sheenY}%`);
+    }
+  } else {
+    if (heroPortraitOriginal) {
+      heroPortraitOriginal.style.transform = `translateX(${normX * 18}px) translateY(${normY * 12}px) rotate(${normX * 1.5}deg)`;
+    }
+  }
+});
+
+// ==========================================================================
+// ReactBits.dev: Dynamic SpotlightCard & DecryptedText Motors
+// ==========================================================================
+const initReactBitsSpotlights = () => {
+  document.querySelectorAll('.spotlight-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--mouse-x', `-999px`);
+      card.style.setProperty('--mouse-y', `-999px`);
+    });
+  });
+};
+initReactBitsSpotlights();
+
+const initReactBitsDecryptedText = () => {
+  const cipherChars = '0123456789ABCDEF_#@$%/&*<>~';
+  document.querySelectorAll('.decrypted-text').forEach(el => {
+    const originalText = el.getAttribute('data-decrypt') || el.textContent.trim();
+    let iteration = 0;
+    let interval = null;
+
+    const runDecryption = () => {
+      clearInterval(interval);
+      iteration = 0;
+      interval = setInterval(() => {
+        el.textContent = originalText
+          .split('')
+          .map((letter, index) => {
+            if (letter === ' ') return ' ';
+            if (index < iteration) {
+              return originalText[index];
+            }
+            return cipherChars[Math.floor(Math.random() * cipherChars.length)];
+          })
+          .join('');
+
+        if (iteration >= originalText.length) {
+          clearInterval(interval);
+          el.textContent = originalText;
+        }
+        iteration += 1;
+      }, 28);
+    };
+
+    setTimeout(runDecryption, 350);
+    el.addEventListener('mouseenter', runDecryption);
+  });
+};
+initReactBitsDecryptedText();
+
+// ==========================================================================
+// Canvas Viewport Visibility Observer (Battery & CPU Saver)
+// ==========================================================================
+const canvasVis = {
+  hero: true,
+  telemetry: true,
+  cloud: true,
+  engineering: true,
+  timeline: true,
+  contact: true
+};
+
+if ('IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      if (id === 'hero') canvasVis.hero = entry.isIntersecting;
+      else if (id === 'metrics') canvasVis.telemetry = entry.isIntersecting;
+      else if (id === 'about') canvasVis.cloud = entry.isIntersecting;
+      else if (id === 'projects') canvasVis.engineering = entry.isIntersecting;
+      else if (id === 'experience') canvasVis.timeline = entry.isIntersecting;
+      else if (id === 'contact') canvasVis.contact = entry.isIntersecting;
+    });
+  }, { threshold: 0.05 });
+
+  ['hero', 'metrics', 'about', 'projects', 'experience', 'contact'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sectionObserver.observe(el);
   });
 }
 
@@ -1592,6 +3592,10 @@ if (heroCanvas) {
   }));
 
   function animateHero() {
+    if (!canvasVis.hero) {
+      requestAnimationFrame(animateHero);
+      return;
+    }
     ctx.clearRect(0, 0, w, h);
     stars.forEach(s => {
       s.y -= s.speed;
@@ -1612,314 +3616,137 @@ if (heroCanvas) {
 }
 
 // ==========================================================================
-// 6. METRICS SECTION ANIMATION: Live Support Telemetry, CSAT Pulses & Signals
 // ==========================================================================
-const telemetryCanvas = document.getElementById('telemetryCanvas');
-if (telemetryCanvas) {
-  const ctx = telemetryCanvas.getContext('2d');
-  let w, h;
-  function resizeTelemetry() {
-    w = telemetryCanvas.width = telemetryCanvas.offsetWidth;
-    h = telemetryCanvas.height = telemetryCanvas.offsetHeight;
+// 6. ReactBits: Authentic Squares Interactive Geometric Background Engine
+// ==========================================================================
+function initReactBitsSquares(canvasId, sectionId) {
+  const canvas = document.getElementById(canvasId);
+  const section = document.getElementById(sectionId);
+  if (!canvas || !section) return;
+
+  const ctx = canvas.getContext('2d');
+  let w = 0, h = 0;
+  let sMouseX = -9999, sMouseY = -9999;
+  const squareSize = 48;
+
+  function resize() {
+    w = canvas.width = section.offsetWidth || window.innerWidth;
+    h = canvas.height = section.offsetHeight || 800;
   }
-  resizeTelemetry();
-  window.addEventListener('resize', resizeTelemetry);
+  resize();
+  window.addEventListener('resize', resize);
 
-  let step = 0;
-  function animateTelemetry() {
-    ctx.clearRect(0, 0, w, h);
-    step += 0.025;
+  section.addEventListener('mousemove', (e) => {
+    const rect = section.getBoundingClientRect();
+    sMouseX = e.clientX - rect.left;
+    sMouseY = e.clientY - rect.top;
+  });
 
-    // Draw multiple live oscillating telemetry signal waves
-    for (let j = 0; j < 3; j++) {
+  section.addEventListener('mouseleave', () => {
+    sMouseX = -9999;
+    sMouseY = -9999;
+  });
+
+  // Ambient pulsing squares for dynamic digital atmosphere
+  const numAmbient = 6;
+  const ambientSquares = Array.from({ length: numAmbient }, () => ({
+    x: Math.floor(Math.random() * (Math.max(1, (w || 1200) / squareSize))) * squareSize,
+    y: Math.floor(Math.random() * (Math.max(1, (h || 800) / squareSize))) * squareSize,
+    alpha: 0,
+    targetAlpha: Math.random() * 0.18 + 0.08,
+    speed: Math.random() * 0.007 + 0.003,
+    fadingIn: true
+  }));
+
+  function updateAmbient() {
+    ambientSquares.forEach(sq => {
+      if (sq.fadingIn) {
+        sq.alpha += sq.speed;
+        if (sq.alpha >= sq.targetAlpha) sq.fadingIn = false;
+      } else {
+        sq.alpha -= sq.speed;
+        if (sq.alpha <= 0) {
+          sq.alpha = 0;
+          sq.x = Math.floor(Math.random() * (Math.max(1, w / squareSize))) * squareSize;
+          sq.y = Math.floor(Math.random() * (Math.max(1, h / squareSize))) * squareSize;
+          sq.targetAlpha = Math.random() * 0.18 + 0.08;
+          sq.fadingIn = true;
+        }
+      }
+    });
+  }
+
+  const radius = 220;
+  function render() {
+    const visKey = sectionId === 'metrics' ? 'telemetry' : sectionId === 'about' ? 'cloud' : sectionId === 'projects' ? 'engineering' : sectionId === 'experience' ? 'timeline' : 'contact';
+    if (canvasVis[visKey] !== false) {
+      ctx.clearRect(0, 0, w, h);
+
+      updateAmbient();
+
+      // Subtle geometric grid
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.032)';
+      ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.lineWidth = j === 0 ? 2 : 1;
-      ctx.strokeStyle = j === 0 ? getAccentRgba(0.5) : 'rgba(255, 255, 255, 0.12)';
-
-      for (let x = 0; x < w; x += 15) {
-        const freq = 0.004 * (j + 1);
-        const y = (h * 0.5) + Math.sin(x * freq + step + j) * 45 * Math.cos(step * 0.5);
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+      for (let x = 0; x <= w; x += squareSize) {
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+      }
+      for (let y = 0; y <= h; y += squareSize) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
       }
       ctx.stroke();
-    }
 
-    // Floating digital data signal packets along the main wave
-    for (let i = 0; i < 8; i++) {
-      const packetX = ((step * 120 + i * 180) % (w || 1200));
-      const packetY = (h * 0.5) + Math.sin(packetX * 0.004 + step) * 45 * Math.cos(step * 0.5);
-      ctx.beginPath();
-      ctx.arc(packetX, packetY, 3.5, 0, Math.PI * 2);
-      ctx.fillStyle = currentAccentHex;
-      ctx.shadowColor = currentAccentHex;
-      ctx.shadowBlur = 10;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    }
+      // Render ambient pulsing squares
+      ambientSquares.forEach(sq => {
+        if (sq.alpha > 0) {
+          ctx.fillStyle = `rgba(${currentAccentRgb[0]}, ${currentAccentRgb[1]}, ${currentAccentRgb[2]}, ${sq.alpha})`;
+          ctx.fillRect(sq.x + 1, sq.y + 1, squareSize - 1, squareSize - 1);
+        }
+      });
 
-    requestAnimationFrame(animateTelemetry);
-  }
-  animateTelemetry();
-}
+      // Render mouse-proximity reactive square illumination
+      if (sMouseX > -500 && sMouseY > -500) {
+        const startCol = Math.max(0, Math.floor((sMouseX - radius) / squareSize));
+        const endCol = Math.min(Math.ceil(w / squareSize), Math.ceil((sMouseX + radius) / squareSize));
+        const startRow = Math.max(0, Math.floor((sMouseY - radius) / squareSize));
+        const endRow = Math.min(Math.ceil(h / squareSize), Math.ceil((sMouseY + radius) / squareSize));
 
-// ==========================================================================
-// 7. ABOUT SECTION ANIMATION: Cloud Server Topology & Network Mesh Packet Flow
-// ==========================================================================
-const cloudCanvas = document.getElementById('cloudCanvas');
-if (cloudCanvas) {
-  const ctx = cloudCanvas.getContext('2d');
-  let w, h;
-  function resizeCloud() {
-    w = cloudCanvas.width = cloudCanvas.offsetWidth;
-    h = cloudCanvas.height = cloudCanvas.offsetHeight;
-  }
-  resizeCloud();
-  window.addEventListener('resize', resizeCloud);
+        for (let c = startCol; c < endCol; c++) {
+          for (let r = startRow; r < endRow; r++) {
+            const sqX = c * squareSize;
+            const sqY = r * squareSize;
+            const centerX = sqX + squareSize / 2;
+            const centerY = sqY + squareSize / 2;
+            const dist = Math.hypot(centerX - sMouseX, centerY - sMouseY);
 
-  // Cloud Network Nodes representing AWS, Azure, Oracle & DNS
-  const cloudNodes = [
-    { label: 'AWS', x: 0.15, y: 0.35, vx: 0.2, vy: 0.15 },
-    { label: 'Azure', x: 0.35, y: 0.25, vx: -0.15, vy: 0.2 },
-    { label: 'Oracle', x: 0.25, y: 0.65, vx: 0.1, vy: -0.15 },
-    { label: 'DNS', x: 0.55, y: 0.45, vx: -0.2, vy: -0.1 },
-    { label: 'SaaS', x: 0.75, y: 0.30, vx: 0.15, vy: 0.2 },
-    { label: 'Cluster', x: 0.85, y: 0.65, vx: -0.1, vy: 0.15 },
-    { label: 'Edge', x: 0.45, y: 0.75, vx: 0.2, vy: -0.2 }
-  ];
+            if (dist < radius) {
+              const factor = Math.pow(1 - dist / radius, 1.6);
+              // Fill square with soft royal cobalt glow
+              ctx.fillStyle = `rgba(${currentAccentRgb[0]}, ${currentAccentRgb[1]}, ${currentAccentRgb[2]}, ${factor * 0.16})`;
+              ctx.fillRect(sqX + 1, sqY + 1, squareSize - 1, squareSize - 1);
 
-  let t = 0;
-  function animateCloud() {
-    ctx.clearRect(0, 0, w, h);
-    t += 0.02;
-
-    // Draw connections between nodes
-    for (let i = 0; i < cloudNodes.length; i++) {
-      for (let j = i + 1; j < cloudNodes.length; j++) {
-        const p1 = cloudNodes[i];
-        const p2 = cloudNodes[j];
-        const x1 = (p1.x + Math.sin(t * p1.vx) * 0.03) * w;
-        const y1 = (p1.y + Math.cos(t * p1.vy) * 0.03) * h;
-        const x2 = (p2.x + Math.sin(t * p2.vx) * 0.03) * w;
-        const y2 = (p2.y + Math.cos(t * p2.vy) * 0.03) * h;
-
-        const dist = Math.hypot(x2 - x1, y2 - y1);
-        if (dist < (w || 1200) * 0.45) {
-          ctx.beginPath();
-          ctx.moveTo(x1, y1);
-          ctx.lineTo(x2, y2);
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
-          ctx.lineWidth = 1;
-          ctx.stroke();
-
-          // Pulsing data packet along the connection
-          const progress = (t * 0.5 + (i * 3 + j) * 0.2) % 1;
-          const px = x1 + (x2 - x1) * progress;
-          const py = y1 + (y2 - y1) * progress;
-          ctx.beginPath();
-          ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = currentAccentHex;
-          ctx.fill();
+              // Border glow stroke highlight
+              ctx.strokeStyle = `rgba(96, 165, 250, ${factor * 0.42})`;
+              ctx.lineWidth = 1;
+              ctx.strokeRect(sqX + 0.5, sqY + 0.5, squareSize, squareSize);
+            }
+          }
         }
       }
     }
-
-    // Draw node points and labels
-    cloudNodes.forEach((node) => {
-      const nx = (node.x + Math.sin(t * node.vx) * 0.03) * w;
-      const ny = (node.y + Math.cos(t * node.vy) * 0.03) * h;
-
-      ctx.beginPath();
-      ctx.arc(nx, ny, 5, 0, Math.PI * 2);
-      ctx.fillStyle = currentAccentHex;
-      ctx.shadowColor = currentAccentHex;
-      ctx.shadowBlur = 12;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-
-      ctx.font = '10px "JetBrains Mono", monospace';
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-      ctx.fillText(node.label, nx + 10, ny + 3);
-    });
-
-    requestAnimationFrame(animateCloud);
+    requestAnimationFrame(render);
   }
-  animateCloud();
+  render();
 }
 
-// ==========================================================================
-// 8. PROJECTS SECTION ANIMATION: Audio DSP Waves, Inking Curves & FinTech Charts
-// ==========================================================================
-const engineeringCanvas = document.getElementById('engineeringCanvas');
-if (engineeringCanvas) {
-  const ctx = engineeringCanvas.getContext('2d');
-  let w, h;
-  function resizeEngineering() {
-    w = engineeringCanvas.width = engineeringCanvas.offsetWidth;
-    h = engineeringCanvas.height = engineeringCanvas.offsetHeight;
-  }
-  resizeEngineering();
-  window.addEventListener('resize', resizeEngineering);
+initReactBitsSquares('telemetryCanvas', 'metrics');
+initReactBitsSquares('cloudCanvas', 'about');
+initReactBitsSquares('engineeringCanvas', 'projects');
+initReactBitsSquares('timelineCanvas', 'experience');
+initReactBitsSquares('contactCanvas', 'contact');
 
-  let engStep = 0;
-  function animateEngineering() {
-    ctx.clearRect(0, 0, w, h);
-    engStep += 0.03;
-
-    // 1. Audio DSP Frequency Equalizer Spectrum Bars (Background Music Remover)
-    const barCount = 48;
-    const barWidth = w / barCount;
-    ctx.fillStyle = getAccentRgba(0.12);
-    for (let i = 0; i < barCount; i++) {
-      const freqHeight = Math.abs(Math.sin(engStep + i * 0.25) * Math.cos(engStep * 0.5 + i * 0.1)) * (h * 0.28);
-      ctx.fillRect(i * barWidth + 2, h - freqHeight, barWidth - 4, freqHeight);
-    }
-
-    // 2. FinTech Candlestick Price Wave Trajectory (MT5 Trade Manager)
-    ctx.beginPath();
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
-    ctx.lineWidth = 1.5;
-    for (let x = 0; x < w; x += 30) {
-      const y = (h * 0.35) + Math.sin(x * 0.005 + engStep) * 60 + Math.cos(x * 0.01 - engStep * 0.7) * 30;
-      if (x === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-
-      // Subtle candlestick tick
-      if (x % 90 === 0) {
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
-        ctx.fillRect(x - 3, y - 12, 6, 24);
-      }
-    }
-    ctx.stroke();
-
-    // 3. Ultra-Smooth Vector Inking Ribbon Curves (ApexPen Screen Annotation)
-    ctx.beginPath();
-    ctx.strokeStyle = getAccentRgba(0.35);
-    ctx.lineWidth = 2.5;
-    for (let x = 0; x < w; x += 20) {
-      const y = (h * 0.7) + Math.cos(x * 0.003 - engStep * 0.8) * 80 * Math.sin(engStep * 0.4);
-      if (x === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-
-    requestAnimationFrame(animateEngineering);
-  }
-  animateEngineering();
-}
-
-// ==========================================================================
-// 9. EXPERIENCE SECTION ANIMATION: Milestone Radar Coordinates & Chronological Transit
-// ==========================================================================
-const timelineCanvas = document.getElementById('timelineCanvas');
-if (timelineCanvas) {
-  const ctx = timelineCanvas.getContext('2d');
-  let w, h;
-  function resizeTimeline() {
-    w = timelineCanvas.width = timelineCanvas.offsetWidth;
-    h = timelineCanvas.height = timelineCanvas.offsetHeight;
-  }
-  resizeTimeline();
-  window.addEventListener('resize', resizeTimeline);
-
-  let radStep = 0;
-  function animateTimeline() {
-    ctx.clearRect(0, 0, w, h);
-    radStep += 0.015;
-
-    // Chronological vertical trajectory guide line
-    const centerX = w * 0.12;
-    ctx.beginPath();
-    ctx.moveTo(centerX, 0);
-    ctx.lineTo(centerX, h);
-    ctx.strokeStyle = getAccentRgba(0.2);
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 6]);
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Radar pulses expanding outwards
-    for (let i = 0; i < 4; i++) {
-      const cy = (h * 0.25 * (i + 1) + Math.sin(radStep + i) * 30);
-      const maxR = 90;
-      const currentR = ((radStep * 30 + i * 25) % maxR);
-      const alpha = 1.0 - (currentR / maxR);
-
-      ctx.beginPath();
-      ctx.arc(centerX, cy, currentR, 0, Math.PI * 2);
-      ctx.strokeStyle = getAccentRgba(alpha * 0.35);
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      // Milestone coordinate dot
-      ctx.beginPath();
-      ctx.arc(centerX, cy, 3, 0, Math.PI * 2);
-      ctx.fillStyle = currentAccentHex;
-      ctx.fill();
-    }
-
-    requestAnimationFrame(animateTimeline);
-  }
-  animateTimeline();
-}
-
-// ==========================================================================
-// 10. CONTACT SECTION ANIMATION: Global Telecommunication Beams & Signal Grid
-// ==========================================================================
-const contactCanvas = document.getElementById('contactCanvas');
-let contactBeamMode = 'theme'; // 'theme' or 'whatsapp'
-
-if (contactCanvas) {
-  const ctx = contactCanvas.getContext('2d');
-  let w, h;
-  function resizeContact() {
-    w = contactCanvas.width = contactCanvas.offsetWidth;
-    h = contactCanvas.height = contactCanvas.offsetHeight;
-  }
-  resizeContact();
-  window.addEventListener('resize', resizeContact);
-
-  let commStep = 0;
-  function animateContact() {
-    ctx.clearRect(0, 0, w, h);
-    commStep += 0.02;
-
-    const originX = w * 0.75;
-    const originY = h * 0.5;
-
-    // Radiating communication spherical waves
-    for (let i = 0; i < 6; i++) {
-      const r = ((commStep * 60 + i * 70) % ((w || 1200) * 0.65));
-      const alpha = Math.max(0, 1 - (r / ((w || 1200) * 0.65)));
-
-      ctx.beginPath();
-      ctx.arc(originX, originY, r, 0, Math.PI * 2);
-      if (contactBeamMode === 'whatsapp') {
-        ctx.strokeStyle = `rgba(37, 211, 102, ${alpha * 0.35})`;
-      } else {
-        ctx.strokeStyle = i % 2 === 0 ? getAccentRgba(alpha * 0.28) : `rgba(255, 255, 255, ${alpha * 0.12})`;
-      }
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-    }
-
-    // Converging global connection rays
-    for (let a = 0; a < Math.PI * 2; a += Math.PI / 6) {
-      const rayLen = 220 + Math.sin(commStep * 2 + a) * 40;
-      ctx.beginPath();
-      ctx.moveTo(originX, originY);
-      ctx.lineTo(originX + Math.cos(a + commStep * 0.2) * rayLen, originY + Math.sin(a + commStep * 0.2) * rayLen);
-      ctx.strokeStyle = contactBeamMode === 'whatsapp' ? 'rgba(37, 211, 102, 0.15)' : 'rgba(255, 255, 255, 0.06)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    }
-
-    requestAnimationFrame(animateContact);
-  }
-  animateContact();
-}
-
-// ==========================================================================
 // 11. Contact Form Routing (FormSubmit AJAX Email & WhatsApp Direct)
 // ==========================================================================
 const tabEmail = document.getElementById('tabEmail');
@@ -2097,6 +3924,247 @@ if (contactForm) {
   });
 }
 
+// ==========================================================================
+// 12. ReactBits.dev Component Drivers: RotatingText, FluidTabs, TiltedCards, Dock & Modal
+// ==========================================================================
+
+// A. ReactBits: RotatingText Headline Dynamic Width Loop
+const heroRotatingList = document.getElementById('heroRotatingList');
+const heroRotatingBox = document.querySelector('.rotating-text-box');
+if (heroRotatingList && heroRotatingBox) {
+  const items = heroRotatingList.querySelectorAll('.rotating-text-item');
+  let rotIndex = 0;
+  const totalItems = items.length;
+
+  function syncRotatingWidth() {
+    if (items[rotIndex]) {
+      heroRotatingBox.style.width = `${items[rotIndex].offsetWidth}px`;
+    }
+  }
+
+  syncRotatingWidth();
+  window.addEventListener('resize', syncRotatingWidth);
+  if (document.fonts) {
+    document.fonts.ready.then(syncRotatingWidth);
+  }
+
+  setInterval(() => {
+    rotIndex = (rotIndex + 1) % totalItems;
+    heroRotatingList.style.transform = `translateY(-${rotIndex * 25}%)`;
+    syncRotatingWidth();
+  }, 2800);
+}
+
+// B. ReactBits: FluidTabs Sliding Indicator & Filter
+const fluidTabsContainer = document.getElementById('projectFluidTabs');
+const fluidTabIndicator = document.getElementById('fluidTabIndicator');
+const tiltedCards = document.querySelectorAll('.tilted-project-card');
+
+window.updateFluidTab = function(activeBtn) {
+  if (!fluidTabIndicator || !activeBtn) return;
+  const offsetLeft = activeBtn.offsetLeft;
+  const width = activeBtn.offsetWidth;
+  fluidTabIndicator.style.left = `${offsetLeft}px`;
+  fluidTabIndicator.style.width = `${width}px`;
+};
+
+if (fluidTabsContainer) {
+  const tabButtons = fluidTabsContainer.querySelectorAll('.fluid-tab-pill');
+  const initialActive = fluidTabsContainer.querySelector('.fluid-tab-pill.active');
+  if (initialActive) {
+    setTimeout(() => window.updateFluidTab(initialActive), 120);
+  }
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      window.updateFluidTab(btn);
+
+      const filter = btn.getAttribute('data-filter');
+      tiltedCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(14px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 240);
+        }
+      });
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    const curActive = fluidTabsContainer.querySelector('.fluid-tab-pill.active');
+    if (curActive) window.updateFluidTab(curActive);
+  });
+}
+
+// C. ReactBits: TiltedCard 3D Perspective Tilt & Cursor Glare
+document.querySelectorAll('.tilted-project-card').forEach(card => {
+  const inner = card.querySelector('.tilted-card-inner');
+  const glare = card.querySelector('.tilted-card-glare');
+  if (!inner) return;
+
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotX = Math.max(-2.5, Math.min(2.5, ((y - centerY) / centerY) * -2.5));
+    const rotY = Math.max(-2.5, Math.min(2.5, ((x - centerX) / centerX) * 2.5));
+
+    inner.style.transform = `perspective(1800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+    if (glare) {
+      inner.style.setProperty('--glare-x', `${(x / rect.width) * 100}%`);
+      inner.style.setProperty('--glare-y', `${(y / rect.height) * 100}%`);
+    }
+  });
+
+  card.addEventListener('mouseleave', () => {
+    inner.style.transform = 'perspective(1800px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  });
+});
+
+// D. ReactBits: macOS-Style Floating Proximity Dock
+const reactbitsDock = document.getElementById('reactbitsDock');
+if (reactbitsDock) {
+  const dockBtns = reactbitsDock.querySelectorAll('.dock-btn');
+  const maxScale = 1.32;
+  const baseScale = 1.0;
+  const proximityRadius = 120;
+
+  reactbitsDock.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX;
+    dockBtns.forEach(btn => {
+      const rect = btn.getBoundingClientRect();
+      const btnCenterX = rect.left + rect.width / 2;
+      const dist = Math.abs(mouseX - btnCenterX);
+
+      if (dist < proximityRadius) {
+        const factor = 1 - (dist / proximityRadius);
+        const scale = baseScale + (maxScale - baseScale) * factor;
+        btn.style.transform = `scale(${scale}) translateY(-${factor * 6}px)`;
+      } else {
+        btn.style.transform = 'scale(1) translateY(0)';
+      }
+    });
+  });
+
+  reactbitsDock.addEventListener('mouseleave', () => {
+    dockBtns.forEach(btn => {
+      btn.style.transform = 'scale(1) translateY(0)';
+    });
+  });
+}
+
+// E. ReactBits: Fullscreen Lightbox & Architecture Inspection Modal
+const projectModal = document.getElementById('projectModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+window.openProjectModal = function(src, title, desc) {
+  if (!projectModal) return;
+  if (modalImg) modalImg.src = src;
+  if (modalTitle) modalTitle.textContent = title;
+  if (modalDesc) modalDesc.textContent = desc;
+  projectModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeProjectModal = function() {
+  if (!projectModal) return;
+  projectModal.classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener('click', window.closeProjectModal);
+}
+if (projectModal) {
+  projectModal.addEventListener('click', (e) => {
+    if (e.target === projectModal) window.closeProjectModal();
+  });
+}
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && projectModal && projectModal.classList.contains('open')) {
+    window.closeProjectModal();
+  }
+});
+
   </script>
+
+  <!-- ==========================================================================
+       ReactBits: Interactive macOS-Style Proximity Floating Dock
+       ========================================================================== -->
+  <nav class="reactbits-dock-wrapper" id="reactbitsDock" aria-label="Quick Access Dock">
+    <a href="#hero" class="dock-btn" aria-label="Home / Hero">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="dock-tooltip">Top // Hero</span>
+    </a>
+    <a href="#metrics" class="dock-btn" aria-label="Telemetry & Metrics">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+      <span class="dock-tooltip">Telemetry</span>
+    </a>
+    <a href="#about" class="dock-btn" aria-label="Architecture & Cloud">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><path d="M12 9V5"/><path d="m14 13.5 4 2.5"/><path d="m10 10.5-4-2.5"/></svg>
+      <span class="dock-tooltip">Architecture</span>
+    </a>
+    <a href="#projects" class="dock-btn" aria-label="Featured Projects">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+      <span class="dock-tooltip">Projects</span>
+    </a>
+    <a href="#experience" class="dock-btn" aria-label="Career Journey">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span class="dock-tooltip">Journey</span>
+    </a>
+    <a href="#contact" class="dock-btn" aria-label="Direct Contact">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span class="dock-tooltip">Inquire</span>
+    </a>
+    
+    <div class="dock-divider"></div>
+
+    <a href="./assets/resume.pdf" target="_blank" class="dock-btn" aria-label="Download Resume PDF">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      <span class="dock-tooltip">Resume.pdf</span>
+    </a>
+    <a href="https://wa.me/923434477096" target="_blank" class="dock-btn" aria-label="Direct WhatsApp Chat">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="dock-tooltip">WhatsApp (+92 343 4477096)</span>
+    </a>
+    <a href="https://github.com/ranaanas" target="_blank" class="dock-btn" aria-label="GitHub Profile">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      <span class="dock-tooltip">GitHub / ranaanas</span>
+    </a>
+    <a href="https://linkedin.com/in/ranaanas" target="_blank" class="dock-btn" aria-label="LinkedIn Profile">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      <span class="dock-tooltip">LinkedIn / ranaanas</span>
+    </a>
+  </nav>
+
+  <!-- ==========================================================================
+       ReactBits: Fullscreen Lightbox & Architecture Inspection Modal
+       ========================================================================== -->
+  <div class="project-modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="project-modal-box">
+      <button class="project-modal-close" id="modalCloseBtn" aria-label="Close Preview">&times;</button>
+      <img src="" alt="Project Architecture Preview" class="project-modal-img" id="modalImg">
+      <div class="project-modal-info">
+        <h3 id="modalTitle" style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;"></h3>
+        <p id="modalDesc" style="font-size: 14px; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin: 0;"></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
