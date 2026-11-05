@@ -450,6 +450,93 @@
       50% { transform: scale(1.3); opacity: 0.65; }
     }
 
+    
+    /* ==========================================================================
+       Interactive 3D Avatar WebGL Workstation Styles
+       ========================================================================== */
+    .avatar-stage-elements {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+    }
+    .avatar-webgl-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 540px;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 65%, rgba(37, 99, 235, 0.22) 0%, rgba(6, 11, 25, 0.92) 80%);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 55px rgba(37, 99, 235, 0.25);
+    }
+    .avatar-webgl-wrapper canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      outline: none;
+    }
+    .avatar-loading-state {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: rgba(4, 7, 18, 0.96);
+      z-index: 10;
+      transition: opacity 0.4s ease;
+    }
+    .avatar-loader-spinner {
+      width: 34px;
+      height: 34px;
+      border: 2.5px solid rgba(255, 255, 255, 0.12);
+      border-top-color: #38BDF8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    .avatar-hud-chip {
+      position: absolute;
+      z-index: 15;
+      background: rgba(10, 16, 32, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      pointer-events: none;
+    }
+    .hud-chip-top {
+      top: 22px;
+      right: 22px;
+    }
+    .hud-chip-bottom {
+      bottom: 22px;
+      left: 22px;
+    }
+    .avatar-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #38BDF8;
+      box-shadow: 0 0 8px #38BDF8;
+      animation: pulseGreen 1.8s infinite ease-in-out;
+    }
+
     /* ==========================================================================
        ReactBits.dev Inspired Components & Motion System
        ========================================================================== */
@@ -1421,7 +1508,8 @@
     body.mode-original .reactbits-dock-wrapper {
       display: none !important;
     }
-    body.mode-redesign .section-original-view {
+    body.mode-redesign .section-original-view,
+    body.mode-avatar .section-original-view {
       display: none !important;
     }
 
@@ -2105,8 +2193,11 @@
       .rotating-text-box { min-width: 0; }
     }
   </style>
+  <!-- Three.js & GLTFLoader for Interactive 3D Avatar Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
-<body class="mode-redesign">
+<body class="mode-avatar">
 
   <!-- Film Grain Overlay -->
   <div class="grain-overlay"></div>
@@ -2131,10 +2222,13 @@
         <li><a href="#experience" class="nav-link">Journey</a></li>
         <li><a href="#contact" class="nav-link">Connect</a></li>
         <li class="nav-switch-wrapper">
-          <div class="presentation-toggle" title="Switch photo presentation: Redesign vs Original">
-            <button type="button" class="toggle-btn active" id="navSwitchRedesign" data-mode="redesign" aria-label="Switch to 3D Redesign">
-              <span class="toggle-indicator"></span>
-              <span class="toggle-label">Redesign</span>
+          <div class="presentation-toggle" title="Switch Presentation Mode">
+            <button type="button" class="toggle-btn active" id="navSwitchAvatar" data-mode="avatar" aria-label="Switch to Interactive 3D Avatar">
+              <span class="toggle-indicator" style="background: #38BDF8; box-shadow: 0 0 8px #38BDF8;"></span>
+              <span class="toggle-label">3D Avatar</span>
+            </button>
+            <button type="button" class="toggle-btn" id="navSwitchRedesign" data-mode="redesign" aria-label="Switch to 3D Studio Pedestal">
+              <span class="toggle-label">Studio</span>
             </button>
             <button type="button" class="toggle-btn" id="navSwitchOriginal" data-mode="original" aria-label="Switch to Original">
               <span class="toggle-label">Original</span>
@@ -2207,8 +2301,11 @@
               View:
             </span>
             <div class="stage-switch-pills">
-              <button type="button" class="stage-pill active" id="heroSwitchRedesign" data-mode="redesign" aria-label="Switch to 3D Redesign">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: #60A5FA; vertical-align: -1px; margin-right: 4px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg><span class="shiny-text">3D Redesign</span>
+              <button type="button" class="stage-pill active" id="heroSwitchAvatar" data-mode="avatar" aria-label="Switch to Interactive 3D Avatar">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: #38BDF8; vertical-align: -1px; margin-right: 4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="shiny-text">3D Avatar</span>
+              </button>
+              <button type="button" class="stage-pill" id="heroSwitchRedesign" data-mode="redesign" aria-label="Switch to 3D Studio Pedestal">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: #60A5FA; vertical-align: -1px; margin-right: 4px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Studio
               </button>
               <button type="button" class="stage-pill" id="heroSwitchOriginal" data-mode="original" aria-label="Switch to Original">
                 Original
@@ -2219,8 +2316,30 @@
           <!-- Dual-Mode Portrait Stage -->
           <div class="hero-portrait-stage" id="heroPortraitStage">
             
+            <!-- ====== INTERACTIVE 3D AVATAR PRESENTATION (Realtime WebGL Workstation) ====== -->
+            <div class="avatar-stage-elements" id="avatarStage">
+              <!-- Realtime Three.js WebGL Canvas Mount -->
+              <div class="avatar-webgl-wrapper" id="avatarWebglWrapper">
+                <div class="avatar-loading-state" id="avatarLoadingState">
+                  <div class="avatar-loader-spinner"></div>
+                  <span style="font-family: var(--font-mono); font-size: 11px; color: #38BDF8; letter-spacing: 0.1em; text-transform: uppercase;">Booting 3D Workstation...</span>
+                </div>
+              </div>
+
+              <!-- 3D HUD Badges -->
+              <div class="avatar-hud-chip hud-chip-top">
+                <span class="avatar-pulse-dot"></span>
+                <span style="font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: #fff;">HEAD TRACKING // 60 FPS</span>
+              </div>
+
+              <div class="avatar-hud-chip hud-chip-bottom">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span style="font-family: var(--font-mono); font-size: 10px; color: rgba(255, 255, 255, 0.75);">Three.js WebGL Workstation</span>
+              </div>
+            </div>
+
             <!-- ====== REDESIGN PRESENTATION (Active by default) ====== -->
-            <div class="redesign-stage-elements" id="redesignStage">
+            <div class="redesign-stage-elements" id="redesignStage" style="display: none;">
               <!-- 3D Frosted Architectural Pedestal Card (ReactBits SpotlightCard) -->
               <div class="hero-pedestal-card spotlight-card" id="pedestalCard">
                 <div class="pedestal-grid-lines"></div>
@@ -3358,16 +3477,20 @@ document.querySelectorAll('a, button, .project-cinematic-card, .timeline-row, .m
 });
 
 // ==========================================================================
-// 4. Hero Portrait Presentation Switcher & Parallax Engine
+// 4. Interactive 3D Avatar WebGL Engine & Tri-Mode Presentation Switcher
 // ==========================================================================
-let currentPortraitMode = localStorage.getItem('rana_portrait_mode') || 'redesign';
+let currentPortraitMode = localStorage.getItem('rana_portrait_mode') || 'avatar';
 
+const avatarStageEl = document.getElementById('avatarStage');
 const redesignStageEl = document.getElementById('redesignStage');
 const originalStageEl = document.getElementById('originalStage');
 const brandAvatarMini = document.getElementById('brandAvatarMini');
 
+const navSwitchAvatar = document.getElementById('navSwitchAvatar');
 const navSwitchRedesign = document.getElementById('navSwitchRedesign');
 const navSwitchOriginal = document.getElementById('navSwitchOriginal');
+
+const heroSwitchAvatar = document.getElementById('heroSwitchAvatar');
 const heroSwitchRedesign = document.getElementById('heroSwitchRedesign');
 const heroSwitchOriginal = document.getElementById('heroSwitchOriginal');
 
@@ -3378,6 +3501,179 @@ const chipBottomLeft = document.getElementById('chipBottomLeft');
 const pedestalSheen = document.getElementById('pedestalSheen');
 const heroPortraitOriginal = document.getElementById('heroPortraitOriginal');
 
+// ==========================================================================
+// Three.js 3D Avatar Engine (Workstation Model with Real-Time Head Tracking)
+// ==========================================================================
+let avatarSceneInit = false;
+let avatarScene, avatarCamera, avatarRenderer, avatarMixer, avatarHeadBone;
+let avatarAnimId = null;
+let avatarMouse = { x: 0, y: 0 };
+
+function initAvatar3DScene() {
+  const container = document.getElementById('avatarWebglWrapper');
+  const loaderState = document.getElementById('avatarLoadingState');
+  if (!container || avatarSceneInit) return;
+  if (typeof THREE === 'undefined' || typeof THREE.GLTFLoader === 'undefined') {
+    setTimeout(initAvatar3DScene, 120);
+    return;
+  }
+
+  avatarSceneInit = true;
+  const width = container.clientWidth || 480;
+  const height = container.clientHeight || 540;
+
+  avatarScene = new THREE.Scene();
+  avatarCamera = new THREE.PerspectiveCamera(14.5, width / height, 0.1, 1000);
+  avatarCamera.position.set(0, 13.5, 24.8);
+  avatarCamera.zoom = 1.05;
+  avatarCamera.updateProjectionMatrix();
+
+  avatarRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+  avatarRenderer.setSize(width, height);
+  avatarRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  avatarRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+  avatarRenderer.toneMappingExposure = 1.05;
+  container.appendChild(avatarRenderer.domElement);
+
+  // Studio Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  avatarScene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0x60A5FA, 1.4);
+  dirLight.position.set(-2, 12, 10);
+  avatarScene.add(dirLight);
+
+  const rimLight = new THREE.PointLight(0x2563EB, 3.2, 25);
+  rimLight.position.set(3, 8, -4);
+  avatarScene.add(rimLight);
+
+  const screenPointLight = new THREE.PointLight(0x38BDF8, 2.0, 15);
+  screenPointLight.position.set(0, 6, 2);
+  avatarScene.add(screenPointLight);
+
+  // Floor pedestal glow disc
+  const discGeo = new THREE.CylinderGeometry(4.5, 4.5, 0.1, 32);
+  const discMat = new THREE.MeshStandardMaterial({
+    color: 0x060c1d,
+    roughness: 0.3,
+    metalness: 0.8,
+    emissive: 0x2563EB,
+    emissiveIntensity: 0.12
+  });
+  const discMesh = new THREE.Mesh(discGeo, discMat);
+  discMesh.position.set(0, 0, 0);
+  avatarScene.add(discMesh);
+
+  // Load character.glb
+  const loader = new THREE.GLTFLoader();
+  loader.load('./assets/character.glb', (gltf) => {
+    const character = gltf.scene;
+    avatarScene.add(character);
+
+    // Head bone for real-time cursor tracking
+    avatarHeadBone = character.getObjectByName('spine006') || character.getObjectByName('spine.006');
+
+    // Customize appearance to match Rana Anas's signature tech aesthetic
+    character.traverse((child) => {
+      if (child.isMesh) {
+        child.frustumCulled = true;
+        if (child.name.toLowerCase().includes('shirt') || child.name === 'BODY.SHIRT') {
+          if (child.material) {
+            child.material.color.setHex(0x101524); // Dark charcoal tech shirt
+          }
+        }
+        if (child.name.toLowerCase().includes('hair')) {
+          if (child.material) {
+            child.material.color.setHex(0x0c0f18); // Dark hair
+          }
+        }
+      }
+    });
+
+    // Add wireframe glasses to head bone matching Rana Anas's glasses
+    if (avatarHeadBone) {
+      const glassesGroup = new THREE.Group();
+      const frameMat = new THREE.MeshStandardMaterial({ color: 0x94A3B8, metalness: 0.85, roughness: 0.15 });
+      
+      const rimL = new THREE.Mesh(new THREE.TorusGeometry(0.18, 0.022, 8, 24), frameMat);
+      rimL.position.set(-0.24, 0.02, 0.42);
+      glassesGroup.add(rimL);
+      
+      const rimR = new THREE.Mesh(new THREE.TorusGeometry(0.18, 0.022, 8, 24), frameMat);
+      rimR.position.set(0.24, 0.02, 0.42);
+      glassesGroup.add(rimR);
+      
+      const bridge = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.16), frameMat);
+      bridge.rotation.z = Math.PI / 2;
+      bridge.position.set(0, 0.06, 0.42);
+      glassesGroup.add(bridge);
+      
+      avatarHeadBone.add(glassesGroup);
+    }
+
+    // Setup typing & idle animations
+    if (gltf.animations && gltf.animations.length > 0) {
+      avatarMixer = new THREE.AnimationMixer(character);
+      const typingClip = gltf.animations.find(c => c.name === 'typing');
+      if (typingClip) {
+        const typingAction = avatarMixer.clipAction(typingClip);
+        typingAction.play();
+        typingAction.timeScale = 1.1;
+      }
+      const blinkClip = gltf.animations.find(c => c.name === 'Blink');
+      if (blinkClip) {
+        avatarMixer.clipAction(blinkClip).play();
+      }
+    }
+
+    // Hide loader smoothly
+    if (loaderState) {
+      loaderState.style.opacity = '0';
+      setTimeout(() => { loaderState.style.display = 'none'; }, 450);
+    }
+  }, undefined, (err) => {
+    console.error('Error loading 3D avatar:', err);
+    if (loaderState) loaderState.innerHTML = '<span style="color:#ef4444;font-family:var(--font-mono);font-size:12px;">Failed to load 3D character</span>';
+  });
+
+  // Track mouse coordinates across window
+  window.addEventListener('mousemove', (e) => {
+    avatarMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    avatarMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  // Responsive resize
+  window.addEventListener('resize', () => {
+    if (!container || !avatarRenderer || !avatarCamera) return;
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    avatarRenderer.setSize(w, h);
+    avatarCamera.aspect = w / h;
+    avatarCamera.updateProjectionMatrix();
+  });
+
+  // Render loop (pauses GPU when in other modes)
+  const clock = new THREE.Clock();
+  function renderAvatar() {
+    avatarAnimId = requestAnimationFrame(renderAvatar);
+    if (currentPortraitMode !== 'avatar') return;
+
+    const delta = clock.getDelta();
+    if (avatarMixer) avatarMixer.update(delta);
+
+    // Smooth head & neck rotation tracking mouse cursor
+    if (avatarHeadBone) {
+      const targetRotY = avatarMouse.x * 0.45;
+      const targetRotX = -avatarMouse.y * 0.35 - 0.15;
+      avatarHeadBone.rotation.y = THREE.MathUtils.lerp(avatarHeadBone.rotation.y, targetRotY, 0.08);
+      avatarHeadBone.rotation.x = THREE.MathUtils.lerp(avatarHeadBone.rotation.x, targetRotX, 0.08);
+    }
+
+    avatarRenderer.render(avatarScene, avatarCamera);
+  }
+  renderAvatar();
+}
+
 function applyPortraitMode(mode, save = true) {
   currentPortraitMode = mode;
   if (save) {
@@ -3386,43 +3682,60 @@ function applyPortraitMode(mode, save = true) {
     } catch(err) {}
   }
 
+  const isAvatar = mode === 'avatar';
   const isRedesign = mode === 'redesign';
+  const isOriginal = mode === 'original';
 
-  // Toggle body classes for global redesign vs original view
+  // Toggle body classes for global views
+  document.body.classList.toggle('mode-avatar', isAvatar);
   document.body.classList.toggle('mode-redesign', isRedesign);
-  document.body.classList.toggle('mode-original', !isRedesign);
+  document.body.classList.toggle('mode-original', isOriginal);
 
-  // Toggle stage elements with smooth transition
+  // Toggle stage elements
+  if (avatarStageEl) avatarStageEl.style.display = isAvatar ? 'flex' : 'none';
   if (redesignStageEl) redesignStageEl.style.display = isRedesign ? 'flex' : 'none';
-  if (originalStageEl) originalStageEl.style.display = isRedesign ? 'none' : 'flex';
+  if (originalStageEl) originalStageEl.style.display = isOriginal ? 'flex' : 'none';
+
+  // Boot 3D WebGL scene when avatar mode is activated
+  if (isAvatar && !avatarSceneInit) {
+    initAvatar3DScene();
+  }
 
   // Toggle Navbar buttons
+  if (navSwitchAvatar) {
+    navSwitchAvatar.classList.toggle('active', isAvatar);
+    navSwitchAvatar.setAttribute('aria-pressed', isAvatar ? 'true' : 'false');
+  }
   if (navSwitchRedesign) {
     navSwitchRedesign.classList.toggle('active', isRedesign);
     navSwitchRedesign.setAttribute('aria-pressed', isRedesign ? 'true' : 'false');
   }
   if (navSwitchOriginal) {
-    navSwitchOriginal.classList.toggle('active', !isRedesign);
-    navSwitchOriginal.setAttribute('aria-pressed', !isRedesign ? 'true' : 'false');
+    navSwitchOriginal.classList.toggle('active', isOriginal);
+    navSwitchOriginal.setAttribute('aria-pressed', isOriginal ? 'true' : 'false');
   }
 
   // Toggle Hero buttons
+  if (heroSwitchAvatar) {
+    heroSwitchAvatar.classList.toggle('active', isAvatar);
+    heroSwitchAvatar.setAttribute('aria-pressed', isAvatar ? 'true' : 'false');
+  }
   if (heroSwitchRedesign) {
     heroSwitchRedesign.classList.toggle('active', isRedesign);
     heroSwitchRedesign.setAttribute('aria-pressed', isRedesign ? 'true' : 'false');
   }
   if (heroSwitchOriginal) {
-    heroSwitchOriginal.classList.toggle('active', !isRedesign);
-    heroSwitchOriginal.setAttribute('aria-pressed', !isRedesign ? 'true' : 'false');
+    heroSwitchOriginal.classList.toggle('active', isOriginal);
+    heroSwitchOriginal.setAttribute('aria-pressed', isOriginal ? 'true' : 'false');
   }
 
-  // Toggle brand avatar mini image
+  // Brand avatar mini image
   if (brandAvatarMini) {
     brandAvatarMini.src = './assets/avatar-face.webp';
   }
 
   // Sync FluidTabs indicator if active
-  if (isRedesign && typeof window.updateFluidTab === 'function') {
+  if ((isAvatar || isRedesign) && typeof window.updateFluidTab === 'function') {
     setTimeout(() => {
       const curTab = document.querySelector('.fluid-tab-pill.active');
       if (curTab) window.updateFluidTab(curTab);
@@ -3431,6 +3744,9 @@ function applyPortraitMode(mode, save = true) {
 }
 
 // Bind button clicks
+[navSwitchAvatar, heroSwitchAvatar].forEach(btn => {
+  if (btn) btn.addEventListener('click', () => applyPortraitMode('avatar'));
+});
 [navSwitchRedesign, heroSwitchRedesign].forEach(btn => {
   if (btn) btn.addEventListener('click', () => applyPortraitMode('redesign'));
 });
